@@ -130,6 +130,7 @@ button {
     padding: 0.25rem 1.25rem;
     background-color: #B1831A;
     border: 1px solid #B1831A;
+    border-radius: 25px;
 }
 
 .button__secondary {
@@ -138,6 +139,7 @@ button {
     padding: 0.25rem 1.25rem;
     border: 1px solid #B1831A;
     background-color: transparent;
+    border-radius: 25px;
 }
 
 .button__tertiary {

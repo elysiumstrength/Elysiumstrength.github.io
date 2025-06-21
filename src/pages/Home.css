@@ -55,9 +55,66 @@ section.trainers {
 }
 
 section.survey {
+	/* temp */
+	height: 40vh;
+	padding-bottom: 6.25rem;
+
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: space-between;
+}
+
+section.mission {
+	min-height: 740px;
+
+	display: flex;
+	flex-direction: row;
 	justify-content: center;
-	padding: 2rem 0;
+	align-items: center;
+	flex-wrap: wrap-reverse;
+
+	gap: 10%;
+
+	background-color: #1E2A1D;
+}
+
+.mission__image {
+	width: 560px;
+	height: 376px;
+
+	background-color: white;
+}
+
+.mission__info {
+	width: 436px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: end;
+	gap: .75rem;
+
+	color: #B1831A;
+}
+
+.mission__info *{
+	color: #D19919;
+	margin: 0;
+}
+
+section.values {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.values__header {
+	width: fit-content;
+	padding: 0 4rem 1.5rem 4rem;
+
+	color: #B1831A;
+	border-bottom: 1px solid #B1831A;
 }

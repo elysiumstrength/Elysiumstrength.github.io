@@ -1,0 +1,36 @@
+.value-segment {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.value-segment.reverse {
+  flex-direction: row-reverse;
+}
+
+.value-segment__image img {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.value-segment__text {
+  max-width: 600px;
+}
+
+.value-segment__text h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.value-segment__text p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+}
