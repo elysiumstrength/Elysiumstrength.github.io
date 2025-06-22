@@ -60,22 +60,24 @@ export default function Home() {
             </section>
             <section className="values">
                 <h2 className="values__header">Our Values</h2>
-                <ValueSegment
-                    imageUrl={Personalized_Excellence}
-                    heading="Personalized Excellence"
-                    text="We believe that every body is unique—so every workout should be, too. Our training programs are fully customized to align with your goals, lifestyle, and fitness level. With 1-on-1 attention and expert guidance, we ensure you make steady, sustainable progress at a pace that suits you."
-                />
-                <ValueSegment
-                    imageUrl={Integrity_Trust}
-                    heading="Integrity & Trust"
-                    text="Fitness is personal—and so is trust. We create a safe, judgment-free environment where transparency and honesty are at the heart of every session. Our certified trainers are committed to your wellbeing, always putting your health and long-term success first."
-                    reverse // ✅ This puts the image on the right side
-                />
-                <ValueSegment
-                    imageUrl={Results_Through_Consistency}
-                    heading="Results Through Consistency"
-                    text="We know that real, lasting results come from dedication and consistency—not gimmicks. That’s why we focus on building smart, habit-driven routines that work with your lifestyle. Every session moves you forward, helping you build confidence and long-term momentum."
-                />
+                <div className="values__segments">
+                    <ValueSegment
+                        imageUrl={Personalized_Excellence}
+                        heading="Personalized Excellence"
+                        text="We believe that every body is unique—so every workout should be, too. Our training programs are fully customized to align with your goals, lifestyle, and fitness level. With 1-on-1 attention and expert guidance, we ensure you make steady, sustainable progress at a pace that suits you."
+                    />
+                    <ValueSegment
+                        imageUrl={Integrity_Trust}
+                        heading="Integrity & Trust"
+                        text="Fitness is personal—and so is trust. We create a safe, judgment-free environment where transparency and honesty are at the heart of every session. Our certified trainers are committed to your wellbeing, always putting your health and long-term success first."
+                        reverse // ✅ This puts the image on the right side
+                    />
+                    <ValueSegment
+                        imageUrl={Results_Through_Consistency}
+                        heading="Results Through Consistency"
+                        text="We know that real, lasting results come from dedication and consistency—not gimmicks. That’s why we focus on building smart, habit-driven routines that work with your lifestyle. Every session moves you forward, helping you build confidence and long-term momentum."
+                    />
+                </div>
 
             </section>
             <section className="footer">
