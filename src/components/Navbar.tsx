@@ -10,7 +10,10 @@ export default function Navbar() {
             <div className="navbar__container">
                 <Link to="/" className="navbar__logo">
                     <img src={icon} alt="Elysium Icon" className="navbar__icon" />
-                    Elysium
+                    <div className="navbar__title">
+                        <div className='elysium'>ELYSIUM</div>
+                        <div className='strength_wellness'>Strength & Wellness</div>
+                    </div>
                 </Link>
                 <nav className="navbar__nav">
                     <NavLink to="/" end className="button__tertiary">
