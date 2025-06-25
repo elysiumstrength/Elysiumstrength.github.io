@@ -38,10 +38,16 @@ section.home {
 	section.home {
 		padding: 2rem 5%;
 	}
+
+	.home__hero {
+		text-align: center;
+		align-items: center;
+	}
 }
 
 .home__hero {
-	width: 525px;
+	width: 100%;
+	max-width: 525px;
 
 	display: flex;
 	flex-direction: column;
@@ -214,6 +220,7 @@ section.values {
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
+	gap: 2rem;
 
 	padding-bottom: 8rem;
 }
@@ -227,6 +234,9 @@ section.values {
 }
 
 .values__segments {
+	width: 100%;
+	max-width: 1024px;
+
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;

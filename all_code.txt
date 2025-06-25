@@ -165,7 +165,7 @@ button {
 .button__secondary {
     font-family: 'Jomolhari', sans-serif;
     color: #B1831A;
-    padding: 0.25rem 1.25rem;
+    padding: 0.375rem 1.75rem;
     border: 1px solid #B1831A;
     background-color: transparent;
     border-radius: 25px;
@@ -175,10 +175,12 @@ button {
     font-family: 'Jomolhari', sans-serif;
     color: #ffffff;
     font-size: 1.125rem;
-    padding: 0.375rem 1.25rem;
+    padding: .70rem 2rem;
+    width: fit-content;
+
     background-color: transparent;
-    /* border: 1px solid #ffffff; */
-    /* border-radius: 25px; */
+    border: 1px solid #ffffff;
+    border-radius: 100px;
 }
 
 ==> src/vite-env.d.ts <==
@@ -224,7 +226,7 @@ export const router = createBrowserRouter([
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   column-gap: 4rem;
   row-gap: 2rem;
   flex-wrap: wrap-reverse;
@@ -360,7 +362,7 @@ export default function ValueSegment({
   reverse = false,
 }: ValueSegmentProps) {
   return (
-    <section className={`value-segment ${reverse ? 'reverse' : ''}`}>
+    <div className={`value-segment ${reverse ? 'reverse' : ''}`}>
       <div className="value-segment__image">
         <img src={imageUrl} alt={heading} />
       </div>
@@ -368,17 +370,18 @@ export default function ValueSegment({
         <h2>{heading}</h2>
         <p>{text}</p>
       </div>
-    </section>
+    </div>
   )
 }
 ==> src/components/Navbar.css <==
 /* src/components/Navbar.css */
 .navbar {
-    position: sticky;
+    position: fixed;
+    width: 100%;
     top: 0;
     z-index: 1000;
     background-color: #1E2A1D;
-    padding: 1rem 10%;
+    padding: 1.5rem 10%;
 }
 
 .navbar__container {
@@ -427,14 +430,12 @@ export default function ValueSegment({
 
 .navbar__nav {
     display: flex;
-    gap: 1rem;
+    gap: 3rem;
 }
 
-.navbar__link {
-    color: #555;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s ease;
+nav .button__tertiary {
+    border: none;
+    padding: 0;
 }
 
 /* Hamburger menu styles */
@@ -563,7 +564,7 @@ export default function Navbar() {
 ==> src/pages/Home.css <==
 section {
 	width: 100%;
-	padding: 2rem 5vw;
+	padding: 4rem 10%;
 }
 
 .separator {
@@ -578,11 +579,56 @@ section {
 }
 
 section.home {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+
+	gap: 10rem;
+
 	width: 100%;
 	height: 100vh;
-	padding: 0;
-	background-color: #232323;
+	padding: 4rem 10%;
+
+	background-image: linear-gradient(115deg,
+			rgba(0, 0, 0, .80) 45%,
+			rgba(0, 0, 0, 0.35)),
+		url(../assets/landing_image.png);
+	background-size: cover;
+	background-position: center;
+	background-position: 50% 2rem;
 }
+
+@media (max-width: 768px) {
+	section.home {
+		padding: 2rem 5%;
+	}
+
+	.home__hero {
+		width: 100%;
+		text-align: center;
+		align-items: center;
+	}
+}
+
+.home__hero {
+	width: 525px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: .5rem;
+
+	h1 {
+		color: #B1831A;
+		margin: 0;
+	}
+
+	h4 {
+		color: #ffffff;
+		margin: 0 0 1rem 0;
+	}
+}
+
 
 .home__title {
 	font-size: 2.25rem;
@@ -595,9 +641,69 @@ section.home {
 	color: #555;
 }
 
+.home__options {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	gap: 5rem;
+}
+
+@media (max-width: 1024px) {
+	.home__options {
+		display: none;
+	}
+
+	section.home {
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+.home__scroll-buttons {
+	width: 100%;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	button {
+		background-color: rgba(0, 0, 0, 0.20);
+	}
+
+	.left, .right {
+		flex-grow: 1;
+		flex-basis: 0;
+	}
+
+	.right {
+		text-align: right;
+	}	
+}
+
+.scroll__more {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	* {
+		color: #B1831A;
+
+		margin: 0;
+		height:fit-content
+	}
+}
+
+
 section.trainers {
 	display: flex;
 	flex-direction: column;
+}
+
+@media (max-width: 1240px) {
+	section.trainers {
+		padding: 2rem 5%;
+	}
 }
 
 .trainer__header {
@@ -609,7 +715,7 @@ section.trainers {
 }
 
 .trainer-list {
-	padding: 2.5rem 5rem;
+	padding: 2.5rem 0;
 	width: 100%;
 	max-width: 1200px;
 
@@ -678,6 +784,9 @@ section.values {
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
+	gap: 2rem;
+
+	padding-bottom: 8rem;
 }
 
 .values__header {
@@ -689,6 +798,9 @@ section.values {
 }
 
 .values__segments {
+	width: 100%;
+	max-width: 1024px;
+
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
@@ -700,6 +812,9 @@ section.footer {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	flex-wrap: wrap-reverse;
+
+	row-gap: 6rem;
 
 	background-color: #1E2A1D;
 }
@@ -815,8 +930,27 @@ export default function Home() {
         <>
             <section className="home">
                 <div className="home__hero">
-                    <h1>Welcome to MyApp</h1>
-                    <p>This is the home page of the site.</p>
+                    <h1>STRONGER <br /> EVERY SESSION</h1>
+                    <h4>Discover the ultimate private gym and Personal Trainer destination in Santa Barbara at ELYSIUM Strength & Wellness</h4>
+                    <div className="button__tertiary">SCHEDULE A CONSULT</div>
+                </div>
+
+                <div className="home__options">
+                    <div className="home__scroll-buttons">
+                        <div className="left">
+                            <button className="button__secondary">MEET YOUR TRAINERS</button>
+                        </div>
+                        <button className="button__secondary">TAKE OUR SURVEY</button>
+                        <div className="right">
+                            <button className="button__secondary">ABOUT US</button>
+                        </div>
+                    </div>
+                    <div className="scroll__more">
+                        <p>SCROLL TO SEE MORE</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-down" viewBox="0 0 16 16">
+                            <path fillRule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                        </svg>
+                    </div>
                 </div>
             </section>
             <section className="trainers">
