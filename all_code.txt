@@ -1,44 +1,11 @@
-==> src/App.tsx <==
-// src/App.tsx
-import { Outlet, Link } from 'react-router-dom'
-
-import './App.css' // Import global styles
-
-export default function App() {
-  return (
-    <div>
-      <nav>
-        <Link to="/">Home</Link> | <Link to="about">About</Link>
-      </nav>
-      <Outlet />
-    </div>
-  )
-}
 ==> src/main.tsx <==
 // src/main.tsx
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from 'react-router-dom'
-import App from './App'
-import About from './pages/About'
-import NotFound from './pages/NotFound'
+import { RouterProvider } from 'react-router-dom'
+import { router } from './routes/router'  // ✅ use this!
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <App />,
-    errorElement: <NotFound />,
-    children: [
-      {
-        path: 'about',
-        element: <About />,
-      },
-    ],
-  },
-])
+import './styles/global.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -59,8 +26,7 @@ export default function RootLayout() {
     </>
   )
 }
-==> src/assets/react.svg <==
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--logos" width="35.93" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 228"><path fill="#00D8FF" d="M210.483 73.824a171.49 171.49 0 0 0-8.24-2.597c.465-1.9.893-3.777 1.273-5.621c6.238-30.281 2.16-54.676-11.769-62.708c-13.355-7.7-35.196.329-57.254 19.526a171.23 171.23 0 0 0-6.375 5.848a155.866 155.866 0 0 0-4.241-3.917C100.759 3.829 77.587-4.822 63.673 3.233C50.33 10.957 46.379 33.89 51.995 62.588a170.974 170.974 0 0 0 1.892 8.48c-3.28.932-6.445 1.924-9.474 2.98C17.309 83.498 0 98.307 0 113.668c0 15.865 18.582 31.778 46.812 41.427a145.52 145.52 0 0 0 6.921 2.165a167.467 167.467 0 0 0-2.01 9.138c-5.354 28.2-1.173 50.591 12.134 58.266c13.744 7.926 36.812-.22 59.273-19.855a145.567 145.567 0 0 0 5.342-4.923a168.064 168.064 0 0 0 6.92 6.314c21.758 18.722 43.246 26.282 56.54 18.586c13.731-7.949 18.194-32.003 12.4-61.268a145.016 145.016 0 0 0-1.535-6.842c1.62-.48 3.21-.974 4.76-1.488c29.348-9.723 48.443-25.443 48.443-41.52c0-15.417-17.868-30.326-45.517-39.844Zm-6.365 70.984c-1.4.463-2.836.91-4.3 1.345c-3.24-10.257-7.612-21.163-12.963-32.432c5.106-11 9.31-21.767 12.459-31.957c2.619.758 5.16 1.557 7.61 2.4c23.69 8.156 38.14 20.213 38.14 29.504c0 9.896-15.606 22.743-40.946 31.14Zm-10.514 20.834c2.562 12.94 2.927 24.64 1.23 33.787c-1.524 8.219-4.59 13.698-8.382 15.893c-8.067 4.67-25.32-1.4-43.927-17.412a156.726 156.726 0 0 1-6.437-5.87c7.214-7.889 14.423-17.06 21.459-27.246c12.376-1.098 24.068-2.894 34.671-5.345a134.17 134.17 0 0 1 1.386 6.193ZM87.276 214.515c-7.882 2.783-14.16 2.863-17.955.675c-8.075-4.657-11.432-22.636-6.853-46.752a156.923 156.923 0 0 1 1.869-8.499c10.486 2.32 22.093 3.988 34.498 4.994c7.084 9.967 14.501 19.128 21.976 27.15a134.668 134.668 0 0 1-4.877 4.492c-9.933 8.682-19.886 14.842-28.658 17.94ZM50.35 144.747c-12.483-4.267-22.792-9.812-29.858-15.863c-6.35-5.437-9.555-10.836-9.555-15.216c0-9.322 13.897-21.212 37.076-29.293c2.813-.98 5.757-1.905 8.812-2.773c3.204 10.42 7.406 21.315 12.477 32.332c-5.137 11.18-9.399 22.249-12.634 32.792a134.718 134.718 0 0 1-6.318-1.979Zm12.378-84.26c-4.811-24.587-1.616-43.134 6.425-47.789c8.564-4.958 27.502 2.111 47.463 19.835a144.318 144.318 0 0 1 3.841 3.545c-7.438 7.987-14.787 17.08-21.808 26.988c-12.04 1.116-23.565 2.908-34.161 5.309a160.342 160.342 0 0 1-1.76-7.887Zm110.427 27.268a347.8 347.8 0 0 0-7.785-12.803c8.168 1.033 15.994 2.404 23.343 4.08c-2.206 7.072-4.956 14.465-8.193 22.045a381.151 381.151 0 0 0-7.365-13.322Zm-45.032-43.861c5.044 5.465 10.096 11.566 15.065 18.186a322.04 322.04 0 0 0-30.257-.006c4.974-6.559 10.069-12.652 15.192-18.18ZM82.802 87.83a323.167 323.167 0 0 0-7.227 13.238c-3.184-7.553-5.909-14.98-8.134-22.152c7.304-1.634 15.093-2.97 23.209-3.984a321.524 321.524 0 0 0-7.848 12.897Zm8.081 65.352c-8.385-.936-16.291-2.203-23.593-3.793c2.26-7.3 5.045-14.885 8.298-22.6a321.187 321.187 0 0 0 7.257 13.246c2.594 4.48 5.28 8.868 8.038 13.147Zm37.542 31.03c-5.184-5.592-10.354-11.779-15.403-18.433c4.902.192 9.899.29 14.978.29c5.218 0 10.376-.117 15.453-.343c-4.985 6.774-10.018 12.97-15.028 18.486Zm52.198-57.817c3.422 7.8 6.306 15.345 8.596 22.52c-7.422 1.694-15.436 3.058-23.88 4.071a382.417 382.417 0 0 0 7.859-13.026a347.403 347.403 0 0 0 7.425-13.565Zm-16.898 8.101a358.557 358.557 0 0 1-12.281 19.815a329.4 329.4 0 0 1-23.444.823c-7.967 0-15.716-.248-23.178-.732a310.202 310.202 0 0 1-12.513-19.846h.001a307.41 307.41 0 0 1-10.923-20.627a310.278 310.278 0 0 1 10.89-20.637l-.001.001a307.318 307.318 0 0 1 12.413-19.761c7.613-.576 15.42-.876 23.31-.876H128c7.926 0 15.743.303 23.354.883a329.357 329.357 0 0 1 12.335 19.695a358.489 358.489 0 0 1 11.036 20.54a329.472 329.472 0 0 1-11 20.722Zm22.56-122.124c8.572 4.944 11.906 24.881 6.52 51.026c-.344 1.668-.73 3.367-1.15 5.09c-10.622-2.452-22.155-4.275-34.23-5.408c-7.034-10.017-14.323-19.124-21.64-27.008a160.789 160.789 0 0 1 5.888-5.4c18.9-16.447 36.564-22.941 44.612-18.3ZM128 90.808c12.625 0 22.86 10.235 22.86 22.86s-10.235 22.86-22.86 22.86s-22.86-10.235-22.86-22.86s10.235-22.86 22.86-22.86Z"></path></svg>==> src/App.css <==
+==> src/styles/global.css <==
 /* Reset & base styles */
 *,
 *::before,
@@ -71,7 +37,7 @@ export default function RootLayout() {
 html {
   font-size: 16px; /* Base font size (1rem = 16px) */
   line-height: 1.5;
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+  font-family: 'Montserrat', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, Helvetica, Arial, sans-serif;
   scroll-behavior: smooth;
   background-color: #fff;
@@ -88,12 +54,14 @@ body {
 
 /* Typography */
 h1 {
+  font-family: "Jomolhari", sans-serif;
   font-size: 2.25rem; /* 36px */
   font-weight: 700;
   margin-bottom: 0.5em;
 }
 
 h2 {
+  font-family: "Jomolhari", sans-serif;
   font-size: 1.75rem; /* 28px */
   font-weight: 600;
   margin-bottom: 0.5em;
@@ -185,9 +153,34 @@ button {
   transition: background-color 0.2s ease;
 }
 
-button:hover {
-  background-color: #005fa3;
+.button__primary {
+    font-family: 'Jomolhari', sans-serif;
+    color: #B1831A;
+    padding: 0.25rem 1.25rem;
+    background-color: #B1831A;
+    border: 1px solid #B1831A;
+    border-radius: 25px;
 }
+
+.button__secondary {
+    font-family: 'Jomolhari', sans-serif;
+    color: #B1831A;
+    padding: 0.25rem 1.25rem;
+    border: 1px solid #B1831A;
+    background-color: transparent;
+    border-radius: 25px;
+}
+
+.button__tertiary {
+    font-family: 'Jomolhari', sans-serif;
+    color: #ffffff;
+    font-size: 1.125rem;
+    padding: 0.375rem 1.25rem;
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    border-radius: 25px;
+}
+
 ==> src/vite-env.d.ts <==
 /// <reference types="vite/client" />
 ==> src/routes/router.tsx <==
@@ -224,147 +217,711 @@ export const router = createBrowserRouter([
     ],
   },
 ])
+==> src/components/ValueSegment.css <==
+.value-segment {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  column-gap: 4rem;
+  row-gap: 2rem;
+  flex-wrap: wrap-reverse;
+}
+
+.value-segment.reverse {
+  flex-direction: row-reverse;
+}
+
+.value-segment__image img {
+  width: 400px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.value-segment__text {
+  max-width: 384px;
+}
+
+.value-segment__text h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.value-segment__text p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+}
+==> src/components/TrainerCard.tsx <==
+// src/components/TrainerCard.tsx
+import './TrainerCard.css'
+
+type TrainerCardProps = {
+    imageUrl: string
+    name: string
+    trainerType: string
+    bio: string
+    specializations: string[]
+}
+
+export default function TrainerCard({
+    imageUrl,
+    name,
+    trainerType,
+    bio,
+    specializations,
+}: TrainerCardProps) {
+    return (
+        <div className="trainer-card">
+            <img src={imageUrl} alt={`${name} photo`} className="trainer-card__img" />
+            <div className="trainer-card__content">
+                <h1 className="trainer-card__name">{name}</h1>
+                <h2 className="trainer-card__type">{trainerType}</h2>
+                <p className="trainer-card__bio">{bio}</p>
+                <ul className="trainer-card__specializations">
+                    {specializations.map((item, idx) => (
+                        <li key={idx} className="trainer-card__spec">
+                            {item}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
+    )
+}
+==> src/components/TrainerCard.css <==
+.trainer-card {
+    display: flex;
+    flex-direction: column;
+    max-width: 320px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.trainer-card__img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.trainer-card__content {
+    padding: 1rem;
+}
+
+.trainer-card__name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.trainer-card__type {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #666;
+    margin: 0.25rem 0 0.75rem;
+}
+
+.trainer-card__bio {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+}
+
+.trainer-card__specializations {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin: 0;
+}
+
+.trainer-card__spec {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}==> src/components/ValueSegement.tsx <==
+// src/components/ValueSegment.tsx
+import './ValueSegment.css'
+
+type ValueSegmentProps = {
+  imageUrl: string
+  heading: string
+  text: string
+  reverse?: boolean // Optional: if true, image appears on the right
+}
+
+export default function ValueSegment({
+  imageUrl,
+  heading,
+  text,
+  reverse = false,
+}: ValueSegmentProps) {
+  return (
+    <section className={`value-segment ${reverse ? 'reverse' : ''}`}>
+      <div className="value-segment__image">
+        <img src={imageUrl} alt={heading} />
+      </div>
+      <div className="value-segment__text">
+        <h2>{heading}</h2>
+        <p>{text}</p>
+      </div>
+    </section>
+  )
+}
 ==> src/components/Navbar.css <==
 /* src/components/Navbar.css */
 .navbar {
-  background-color: #ffffff;
-  border-bottom: 1px solid #eaeaea;
-  padding: 0.75rem 1.5rem;
+    background-color: #2D4A2D;
+    padding: 1rem 10%;
 }
 
 .navbar__container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .navbar__logo {
-  font-weight: bold;
-  font-size: 1.25rem;
-  color: #333;
-  text-decoration: none;
+    font-family: 'Jomolhari', sans-serif;
+    font-weight: normal;
+    font-size: 2rem;
+    color: #D19919;
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navbar__logo:hover,
+.navbar__logo:focus {
+    text-decoration: none;
+}
+
+.navbar__icon {
+    width: 32px;
+    transition: fill 0.2s ease;
+}
+
+.navbar__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.elysium {
+    line-height: 1;
+}
+
+.strength_wellness {
+    font-size: 1rem;
+    line-height: 1;
 }
 
 .navbar__nav {
-  display: flex;
-  gap: 1rem;
+    display: flex;
+    gap: 1rem;
 }
 
 .navbar__link {
-  color: #555;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
+    color: #555;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
 }
 
-.navbar__link.active {
-  color: #007aff;
+/* Hamburger menu styles */
+.navbar__hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 100; /* Increase z-index */
+    position: relative; /* Add this */
 }
-.navbar__link:hover {
-  color: #000;
+
+.navbar__hamburger-bar {
+    width: 100%;
+    height: 4px;
+    background: #D19919;
+    border-radius: 2px;
+    transition: all 0.3s;
 }
-==> src/components/Navbar.tsx <==
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .navbar__nav {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: #2D4A2D;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0;
+        width: 180px;
+        padding: 1rem 0;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .navbar__nav--open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .navbar__nav .button__tertiary {
+        width: 100%;
+        padding: 0.75rem 1.5rem;
+        text-align: right;
+        color: #D19919;
+        background: none;
+        border: none;
+        font-size: 1rem;
+    }
+
+    .navbar__hamburger {
+        display: flex;
+    }
+}
+
+/* Hide hamburger on desktop */
+@media (min-width: 769px) {
+    .navbar__hamburger {
+        display: none;
+    }
+
+    .navbar__nav {
+        position: static;
+        flex-direction: row;
+        align-items: center;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: none !important;
+        background: none;
+        box-shadow: none;
+        width: auto;
+        padding: 0;
+    }
+}==> src/components/Navbar.tsx <==
 // src/components/Navbar.tsx
+import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import './Navbar.css' // optional if you're styling with CSS
+import './Navbar.css'
+
+import icon from '../assets/elysium_icon.png'
 
 export default function Navbar() {
-  return (
-    <header className="navbar">
-      <div className="navbar__container">
-        <Link to="/" className="navbar__logo">
-          MyApp
-        </Link>
-        <nav className="navbar__nav">
-          <NavLink to="/" end className="navbar__link">
-            Home
-          </NavLink>
-          <NavLink to="/about" className="navbar__link">
-            About
-          </NavLink>
-        </nav>
-      </div>
-    </header>
-  )
-}
-==> src/index.css <==
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+    const [menuOpen, setMenuOpen] = useState(false)
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    return (
+        <header className="navbar">
+            <div className="navbar__container">
+                <Link to="/" className="navbar__logo">
+                    <img src={icon} alt="Elysium Icon" className="navbar__icon" />
+                    <div className="navbar__title">
+                        <div className='elysium'>ELYSIUM</div>
+                        <div className='strength_wellness'>Strength & Wellness</div>
+                    </div>
+                </Link>
+                <button
+                    className="navbar__hamburger"
+                    aria-label="Toggle navigation"
+                    onClick={() => setMenuOpen((open) => !open)}
+                >
+                    <span className="navbar__hamburger-bar"></span>
+                    <span className="navbar__hamburger-bar"></span>
+                    <span className="navbar__hamburger-bar"></span>
+                </button>
+                <nav className={`navbar__nav${menuOpen ? ' navbar__nav--open' : ''}`}>
+                    <NavLink to="/" end className="button__tertiary" onClick={() => setMenuOpen(false)}>
+                        Home
+                    </NavLink>
+                    <NavLink to="/Consult" className="button__tertiary" onClick={() => setMenuOpen(false)}>
+                        Consult
+                    </NavLink>
+                </nav>
+            </div>
+        </header>
+    )
 }
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+==> src/pages/Home.css <==
+section {
+	width: 100%;
+	padding: 2rem 5vw;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+.separator {
+	width: 120px;
+	height: 2px;
+	background-color: #ccc;
+	margin: 2rem auto;
+	border: none;
+	opacity: 0.5;
+	border-radius: 1px;
+	display: block;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.home {
+	background-color: #232323;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.home__title {
+	font-size: 2.25rem;
+	font-weight: 700;
+	color: #1a1a1a;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.home__text {
+	font-size: 1rem;
+	color: #555;
 }
-==> src/pages/Home.tsx <==
+
+section.trainers {
+	display: flex;
+	flex-direction: column;
+}
+
+.trainer__header {
+	width: fit-content;
+	padding-right: 4rem;
+
+	color: #B1831A;
+	border-bottom: 1px solid #B1831A;
+}
+
+.trainer-list {
+	padding: 2.5rem 5rem;
+	width: 100%;
+	max-width: 1200px;
+
+	display: flex;
+	flex-wrap: wrap;
+	row-gap: 4rem;
+	flex-direction: row;
+	align-self: center;
+	justify-content: space-around;
+}
+
+section.survey {
+	/* temp */
+	height: 40vh;
+	padding-bottom: 6.25rem;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+
+section.mission {
+	min-height: 740px;
+	width: 100%;
+	padding: 6rem 10%;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap-reverse;
+	column-gap: 3rem;
+	row-gap: 3rem;
+
+	background-color: #1E2A1D;
+}
+
+.mission__image {
+	width: 560px;
+	height: 376px;
+
+	background-color: white;
+}
+
+.mission__info {
+	width: 436px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: end;
+	gap: .75rem;
+
+	color: #B1831A;
+}
+
+.mission__info * {
+	color: #D19919;
+	margin: 0;
+}
+
+section.values {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.values__header {
+	width: fit-content;
+	padding: 0 4rem 1.5rem 4rem;
+
+	color: #B1831A;
+	border-bottom: 1px solid #B1831A;
+}
+
+.values__segments {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+section.footer {
+	padding: 4rem 10%;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	background-color: #1E2A1D;
+}
+
+.footer .company__info {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.footer .company__info .logo {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+
+	.icon {
+		width: 2.5rem;
+	}
+}
+
+.company__title {
+	font-family: 'Jomolhari', sans-serif;
+	color: #B1831A;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.elysium {
+	font-size: 2.5rem;
+	line-height: 1;
+}
+
+.strength_wellness {
+	font-size: 1.25rem;
+	line-height: 1;
+}
+
+.contact {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.address {
+	display: flex;
+	flex-direction: column;
+
+	p {
+		color: #ffffff;
+		margin: 0;
+	}
+}
+
+.email p {
+	color: #ffffff;
+	margin: 0;
+}
+
+.copyright p {
+	color: #505050;
+	margin: 0;
+}
+
+.footer__links {
+	display: flex;
+	gap: 2rem;
+	padding-top: 1.5rem;
+
+	.footer__category {
+		display: flex;
+		flex-direction: column;
+		gap: .375rem;
+	}
+
+	h3 {
+		font-size: 1.25rem;
+		font-family: "Jomolhari", sans-serif;
+		color: #505050;
+		margin: 0;
+	}
+
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	a {
+		font-family: "Jomolhari", sans-serif;
+		color: #ffffff;
+		text-decoration: none;
+		font-weight: 500;
+		transition: color 0.2s ease;
+	}
+}==> src/pages/Home.tsx <==
+import TrainerCard from "../components/TrainerCard"
+import ValueSegment from "../components/ValueSegement"
+
+import icon from "../assets/elysium_icon.png"
+import Mission from "../assets/Mission.jpg"
+import Personalized_Excellence from "../assets/Personalized_Excellence.jpg"
+import Integrity_Trust from "../assets/Integrity_Trust.jpg"
+import Results_Through_Consistency from "../assets/Results_Through_Consistency.jpg"
+
+import "./Home.css"
+
 // src/pages/Home.tsx
 export default function Home() {
-  return (
-    <section>
-      <h1>Welcome to MyApp</h1>
-      <p>This is the home page of the site.</p>
-    </section>
-  )
+    return (
+        <>
+            <section className="home">
+                <div className="home__hero"> </div>
+                <h1>Welcome to MyApp</h1>
+                <p>This is the home page of the site.</p>
+            </section>
+            <section className="trainers">
+                <h2 className="trainer__header">Meet Our Trainers</h2>
+                <div className="trainer-list">
+                    <TrainerCard
+                        imageUrl="/images/trainer-jane.jpg"
+                        name="Jane Doe"
+                        trainerType="Strength & Conditioning Coach"
+                        bio="Passionate about helping people transform their bodies safely and sustainably."
+                        specializations={['Weightlifting', 'Posture Correction', 'Injury Recovery']}
+                    />
+                    <TrainerCard
+                        imageUrl="/images/trainer-jane.jpg"
+                        name="Jane Doe"
+                        trainerType="Strength & Conditioning Coach"
+                        bio="Passionate about helping people transform their bodies safely and sustainably."
+                        specializations={['Weightlifting', 'Posture Correction', 'Injury Recovery']}
+                    /><TrainerCard
+                        imageUrl="/images/trainer-jane.jpg"
+                        name="Jane Doe"
+                        trainerType="Strength & Conditioning Coach"
+                        bio="Passionate about helping people transform their bodies safely and sustainably."
+                        specializations={['Weightlifting', 'Posture Correction', 'Injury Recovery']}
+                    />
+
+                </div>
+            </section>
+            {/* line that separates the two sections */}
+            <hr className="separator" />
+            <section className="survey">
+                <h2 className="survey__header">Survey</h2>
+                <p className="survey__text">We value your feedback! Please take a moment to fill out our survey.</p>
+                <div className="button__secondary">Submit</div>
+            </section>
+            <section className="mission">
+                <img src={Mission} alt="Mission Image" className="mission__image" />
+                <div className="mission__info">
+                    <h2 className="mission__header">Our Mission</h2>
+                    <p className="mission__text">At our core, we are committed to empowering individuals to reach their full potential through personalized, results-driven training in a private, supportive environment. Our mission is to deliver expert guidance, build lasting confidence, and create sustainable fitness habits—one client, one session, one goal at a time.</p>
+                </div>
+            </section>
+            <section className="values">
+                <h2 className="values__header">Our Values</h2>
+                <div className="values__segments">
+                    <ValueSegment
+                        imageUrl={Personalized_Excellence}
+                        heading="Personalized Excellence"
+                        text="We believe that every body is unique—so every workout should be, too. Our training programs are fully customized to align with your goals, lifestyle, and fitness level. With 1-on-1 attention and expert guidance, we ensure you make steady, sustainable progress at a pace that suits you."
+                    />
+                    <ValueSegment
+                        imageUrl={Integrity_Trust}
+                        heading="Integrity & Trust"
+                        text="Fitness is personal—and so is trust. We create a safe, judgment-free environment where transparency and honesty are at the heart of every session. Our certified trainers are committed to your wellbeing, always putting your health and long-term success first."
+                        reverse // ✅ This puts the image on the right side
+                    />
+                    <ValueSegment
+                        imageUrl={Results_Through_Consistency}
+                        heading="Results Through Consistency"
+                        text="We know that real, lasting results come from dedication and consistency—not gimmicks. That’s why we focus on building smart, habit-driven routines that work with your lifestyle. Every session moves you forward, helping you build confidence and long-term momentum."
+                    />
+                </div>
+
+            </section>
+            <section className="footer">
+                <div className="company__info">
+                    <div className="logo">
+                        <img src={icon} alt="Elysium Icon" className="icon" />
+                        <div className="company__title">
+                            <div className='elysium'>ELYSIUM</div>
+                            <div className='strength_wellness'>Strength & Wellness</div>
+                        </div>
+                    </div>
+                    <div className="contact">
+                        <div className="address">
+                            <p>123 Fitness Lane</p>
+                            <p>Wellness City, ST 12345</p>
+                        </div>
+                        <div className="email">
+                            <p>elysiumsw@gmail.com</p>
+                        </div>
+                    </div>
+                    <div className="copyright">
+                        <p>&copy; 2023 Elysium Strength & Wellness. All rights reserved.</p>
+                    </div>
+                </div>
+                <div className="footer__links">
+                    <div className="footer__category follow__us">
+                        <h3>Follow Us</h3>
+                        <ul className="social__links">
+                            <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                            <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                            <li><a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+                        </ul>
+                    </div>
+                    <div className="footer__category contant__us">
+                        <h3>Contact Us</h3>
+                        <ul className="contact__links">
+                            <li><a href="" target="_blank" rel="noopener noreferrer">Appointment</a></li>
+                        </ul>
+                    </div>
+                    <div className="footer__category learn">
+                        <h3>Learn More</h3>
+                        <ul className="learn__links">
+                            <li><a href="" target="_blank" rel="noopener noreferrer">About Us</a></li>
+                            <li><a href="" target="_blank" rel="noopener noreferrer">Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </>
+    )
 }
 ==> src/pages/About.tsx <==
 // src/pages/About.tsx
