@@ -1,7 +1,11 @@
 /* src/components/Navbar.css */
 .navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
     background-color: #1E2A1D;
-    padding: 1rem 10%;
+    padding: 1.5rem 10%;
 }
 
 .navbar__container {
@@ -50,14 +54,12 @@
 
 .navbar__nav {
     display: flex;
-    gap: 1rem;
+    gap: 3rem;
 }
 
-.navbar__link {
-    color: #555;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s ease;
+nav .button__tertiary {
+    border: none;
+    padding: 0;
 }
 
 /* Hamburger menu styles */
@@ -95,17 +97,19 @@
         gap: 0;
         width: 180px;
         padding: 1rem 0;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
         opacity: 0;
         pointer-events: none;
         transform: translateY(-10px);
         transition: opacity 0.2s, transform 0.2s;
     }
+
     .navbar__nav--open {
         opacity: 1;
         pointer-events: auto;
         transform: translateY(0);
     }
+
     .navbar__nav .button__tertiary {
         width: 100%;
         padding: 0.75rem 1.5rem;
@@ -115,6 +119,7 @@
         border: none;
         font-size: 1rem;
     }
+
     .navbar__hamburger {
         display: flex;
     }
@@ -125,6 +130,7 @@
     .navbar__hamburger {
         display: none;
     }
+
     .navbar__nav {
         position: static;
         flex-direction: row;

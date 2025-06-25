@@ -15,7 +15,7 @@ export default function ValueSegment({
   reverse = false,
 }: ValueSegmentProps) {
   return (
-    <section className={`value-segment ${reverse ? 'reverse' : ''}`}>
+    <div className={`value-segment ${reverse ? 'reverse' : ''}`}>
       <div className="value-segment__image">
         <img src={imageUrl} alt={heading} />
       </div>
@@ -23,6 +23,6 @@ export default function ValueSegment({
         <h2>{heading}</h2>
         <p>{text}</p>
       </div>
-    </section>
+    </div>
   )
 }
