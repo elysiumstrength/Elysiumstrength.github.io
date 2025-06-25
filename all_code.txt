@@ -604,14 +604,14 @@ section.home {
 	}
 
 	.home__hero {
-		width: 100%;
 		text-align: center;
 		align-items: center;
 	}
 }
 
 .home__hero {
-	width: 525px;
+	width: 100%;
+	max-width: 525px;
 
 	display: flex;
 	flex-direction: column;

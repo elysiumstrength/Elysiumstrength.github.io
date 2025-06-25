@@ -13,6 +13,8 @@ html {
   scroll-behavior: smooth;
   background-color: #fff;
   color: #222;
+
+  overflow-x: hidden;
 }
 
 body {
@@ -21,6 +23,8 @@ body {
   font-weight: 400;
   background-color: #f9f9f9;
   min-height: 100vh;
+
+  overflow-x: hidden;
 }
 
 /* Typography */
