@@ -19,7 +19,6 @@ section.home {
 	flex-direction: column;
 	justify-content: flex-end;
 
-	gap: 10rem;
 
 	width: 100%;
 	height: 100vh;
@@ -49,6 +48,8 @@ section.home {
 	width: 100%;
 	max-width: 525px;
 
+	flex-grow: 1;
+	
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -62,6 +63,11 @@ section.home {
 	h4 {
 		color: #ffffff;
 		margin: 0 0 1rem 0;
+	}
+
+	.button__tertiary {
+		font-size: 1.125rem;
+		letter-spacing: .175rem;
 	}
 }
 
@@ -104,6 +110,8 @@ section.home {
 	justify-content: space-between;
 
 	button {
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 600;
 		background-color: rgba(0, 0, 0, 0.20);
 	}
 

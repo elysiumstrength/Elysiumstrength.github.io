@@ -15,7 +15,7 @@ export default function Home() {
         <>
             <section className="home">
                 <div className="home__hero">
-                    <h1>STRONGER <br /> EVERY SESSION</h1>
+                    <h1>STRONGER<br />EVERY SESSION</h1>
                     <h4>Discover the ultimate private gym and Personal Trainer destination in Santa Barbara at ELYSIUM Strength & Wellness</h4>
                     <div className="button__tertiary">SCHEDULE A CONSULT</div>
                 </div>
