@@ -65,12 +65,12 @@ export default function Home() {
                 </div>
             </section>
             {/* line that separates the two sections */}
-            <hr className="separator" />
+            {/* <hr className="separator" />
             <section className="survey">
                 <h2 className="survey__header">Survey</h2>
                 <p className="survey__text">We value your feedback! Please take a moment to fill out our survey.</p>
                 <div className="button__secondary">Submit</div>
-            </section>
+            </section> */}
             <section className="mission">
                 <img src={Mission} alt="Mission Image" className="mission__image" />
                 <div className="mission__info">
