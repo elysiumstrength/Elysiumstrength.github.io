@@ -1,5 +1,5 @@
 // src/components/Navbar.tsx
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import './Navbar.css'
 
@@ -7,6 +7,18 @@ import icon from '../assets/elysium_icon.png'
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false)
+    const [isMobile, setIsMobile] = useState(false)
+
+    useEffect(() => {
+        const checkScreenSize = () => {
+            setIsMobile(window.innerWidth <= 480)
+        }
+
+        checkScreenSize()
+        window.addEventListener('resize', checkScreenSize)
+
+        return () => window.removeEventListener('resize', checkScreenSize)
+    }, [])
 
     return (
         <header className="navbar">
@@ -23,7 +35,10 @@ export default function Navbar() {
                         <div className='strength_wellness'>Strength & Wellness</div>
                     </div>
                 </Link>
-                <div className="navbar__spacer">
+                <nav className="navbar__spacer">
+                    <NavLink to="/Consult" className="button__tertiary" onClick={() => setMenuOpen(false)}>
+                        CONSULT
+                    </NavLink>
                     <button
                         className="navbar__hamburger"
                         aria-label="Toggle navigation"
@@ -33,8 +48,13 @@ export default function Navbar() {
                         <span className="navbar__hamburger-bar"></span>
                         <span className="navbar__hamburger-bar"></span>
                     </button>
-                </div>
+                </nav>
                 <nav className={`right__nav navbar__nav${menuOpen ? ' navbar__nav--open' : ''}`}>
+                    {isMobile && (
+                        <NavLink to="/Consult" className="button__tertiary" onClick={() => setMenuOpen(false)}>
+                            CONSULT
+                        </NavLink>
+                    )}
                     <NavLink to="/Trainers" className="button__tertiary" onClick={() => setMenuOpen(false)}>
                         TRAINERS
                     </NavLink>
