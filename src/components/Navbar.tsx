@@ -55,13 +55,13 @@ export default function Navbar() {
                             CONSULT
                         </NavLink>
                     )}
-                    <NavLink to="/Trainers" className="button__tertiary" onClick={() => setMenuOpen(false)}>
+                    <NavLink to="/trainers" className="button__tertiary" onClick={() => setMenuOpen(false)}>
                         TRAINERS
                     </NavLink>
-                    <NavLink to="/Wellness" className="button__tertiary" onClick={() => setMenuOpen(false)}>
+                    <NavLink to="/wellness" className="button__tertiary" onClick={() => setMenuOpen(false)}>
                         WELLNESS
                     </NavLink>
-                    <NavLink to="/Amenities" className="button__tertiary" onClick={() => setMenuOpen(false)}>
+                    <NavLink to="/amenities" className="button__tertiary" onClick={() => setMenuOpen(false)}>
                         AMENITIES
                     </NavLink>
                 </nav>

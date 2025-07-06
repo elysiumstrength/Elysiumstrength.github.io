@@ -5,6 +5,7 @@ import { lazy, Suspense } from 'react'
 
 const Home = lazy(() => import('../pages/Home'))
 const About = lazy(() => import('../pages/About'))
+const Trainers = lazy(() => import('../pages/Trainers'))
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +26,14 @@ export const router = createBrowserRouter([
         element: (
           <Suspense fallback={<div>Loading...</div>}>
             <About />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'trainers',
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Trainers />
           </Suspense>
         ),
       },
