@@ -1,5 +1,6 @@
 import TrainerCard from "../components/TrainerCard"
 import ValueSegment from "../components/ValueSegement"
+import ValueSegmentFullWidth from "../components/ValueSegmentFullWidth"
 
 import icon from "../assets/elysium_icon.png"
 import Mission from "../assets/Mission.jpg"
@@ -99,6 +100,40 @@ export default function Home() {
                     />
                 </div>
 
+            </section>
+
+            {/* Full-width value segments version */}
+            <section className="values-full-width">
+                <ValueSegmentFullWidth
+                    imageUrl={Personalized_Excellence}
+                    heading="Personalized Excellence"
+                    text="We believe that every body is unique—so every workout should be, too. Our training programs are fully customized to align with your goals, lifestyle, and fitness level. With 1-on-1 attention and expert guidance, we ensure you make steady, sustainable progress at a pace that suits you."
+                    variant="green"
+                    buttonText="Learn More"
+                    buttonLink="/about"
+                />
+                <ValueSegmentFullWidth
+                    imageUrl={Integrity_Trust}
+                    heading="Integrity & Trust"
+                    text="Fitness is personal—and so is trust. We create a safe, judgment-free environment where transparency and honesty are at the heart of every session. Our certified trainers are committed to your wellbeing, always putting your health and long-term success first."
+                    variant="beige"
+                    buttonText="Our Trainers"
+                    buttonLink="/trainers"
+                />
+                <ValueSegmentFullWidth
+                    imageUrl={Results_Through_Consistency}
+                    heading="Results Through Consistency"
+                    text="We know that real, lasting results come from dedication and consistency—not gimmicks. That's why we focus on building smart, habit-driven routines that work with your lifestyle. Every session moves you forward, helping you build confidence and long-term momentum."
+                    variant="green"
+                    buttonText="Get Started"
+                    buttonLink="/consult"
+                />
+            </section>
+            {/* Client Testimonials Section */}
+            <section className="testimonials">
+                <h2 className="testimonials__header">What Our Clients Say</h2>
+                <p className="testimonials__text">Hear from real clients who have transformed their lives with our personalized training approach.</p>
+                <div className="button__secondary">View All Testimonials</div>
             </section>
             <section className="footer">
                 <div className="company__info">

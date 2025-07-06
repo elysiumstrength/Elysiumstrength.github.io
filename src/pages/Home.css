@@ -50,7 +50,7 @@ section.home {
 	max-width: 525px;
 
 	flex-grow: 1;
-	
+
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -116,14 +116,15 @@ section.home {
 		background-color: rgba(0, 0, 0, 0.20);
 	}
 
-	.left, .right {
+	.left,
+	.right {
 		flex-grow: 1;
 		flex-basis: 0;
 	}
 
 	.right {
 		text-align: right;
-	}	
+	}
 }
 
 .scroll__more {
@@ -135,7 +136,7 @@ section.home {
 		color: #B1831A;
 
 		margin: 0;
-		height:fit-content
+		height: fit-content
 	}
 }
 
@@ -181,6 +182,32 @@ section.survey {
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
+}
+
+section.testimonials {
+	/* temp */
+	height: 40vh;
+	padding-bottom: 6.25rem;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.testimonials__header {
+	width: fit-content;
+	padding-right: 4rem;
+
+	color: #B1831A;
+	border-bottom: 1px solid #B1831A;
+}
+
+.testimonials__text {
+	font-size: 1rem;
+	color: #555;
+	text-align: center;
+	max-width: 600px;
 }
 
 section.mission {
@@ -249,6 +276,11 @@ section.values {
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
+}
+
+
+section.values-full-width {
+	padding: 0;
 }
 
 section.footer {

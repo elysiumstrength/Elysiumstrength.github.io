@@ -1,0 +1,158 @@
+/* ValueSegmentFullWidth.css */
+.value-segment-full {
+    width: 100vw;
+    min-height: 60vh;
+    display: flex;
+    position: relative;
+}
+
+.value-segment-full__content {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    position: relative;
+}
+
+.value-segment-full__text {
+    max-width: 500px;
+    text-align: left;
+}
+
+.value-segment-full__text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.value-segment-full__text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.value-segment-full__image {
+    width: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Gold button styles */
+.value-segment-full__button {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    background: linear-gradient(135deg, #8B6914, #B1831A);
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(139, 105, 20, 0.3);
+    border: 1px solid #8B6914;
+}
+
+.value-segment-full__button:hover {
+    background: linear-gradient(135deg, #6B4F0F, #8B6914);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(139, 105, 20, 0.4);
+}
+
+.value-segment-full__chevron {
+    transition: transform 0.3s ease;
+}
+
+.value-segment-full__button:hover .value-segment-full__chevron {
+    transform: translateX(3px);
+}
+
+/* Green variant - text on left, image on right */
+.value-segment-full.green {
+    flex-direction: row;
+}
+
+.value-segment-full.green .value-segment-full__content {
+    background-color: #1E2A1D;
+    /* Dark green */
+    order: 1;
+}
+
+.value-segment-full.green .value-segment-full__text h2 {
+    color: #B1831A;
+}
+
+.value-segment-full.green .value-segment-full__text p {
+    color: #e8f4e6;
+}
+
+.value-segment-full.green .value-segment-full__image {
+    order: 2;
+}
+
+/* Beige variant - image on left, text on right */
+.value-segment-full.beige {
+    flex-direction: row;
+}
+
+.value-segment-full.beige .value-segment-full__content {
+    background-color: #F8F4EE;
+    /* Warm beige */
+    order: 2;
+}
+
+.value-segment-full.beige .value-segment-full__text h2 {
+    color: #2c2c2c;
+}
+
+.value-segment-full.beige .value-segment-full__text p {
+    color: #4a4a4a;
+}
+
+.value-segment-full.beige .value-segment-full__image {
+    order: 1;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .value-segment-full {
+        flex-direction: column !important;
+        min-height: auto;
+    }
+
+    .value-segment-full__content,
+    .value-segment-full__image {
+        width: 100% !important;
+        order: unset !important;
+    }
+
+    .value-segment-full__image {
+        min-height: 300px;
+    }
+
+    .value-segment-full__content {
+        padding: 2rem 1.5rem;
+    }
+
+    .value-segment-full__text h2 {
+        font-size: 2rem;
+    }
+
+    .value-segment-full__text p {
+        font-size: 1rem;
+    }
+
+    .value-segment-full__button {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+    }
+}
