@@ -64,6 +64,14 @@ export default function Home() {
                     />
 
                 </div>
+                <div className="trainers__action">
+                    <a href="/trainers" className="button__gold">
+                        View All Trainers
+                        <svg className="chevron" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06Z" />
+                        </svg>
+                    </a>
+                </div>
             </section>
             {/* line that separates the two sections */}
             {/* <hr className="separator" />

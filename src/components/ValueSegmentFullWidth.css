@@ -1,7 +1,7 @@
 /* ValueSegmentFullWidth.css */
 .value-segment-full {
     width: 100vw;
-    min-height: 60vh;
+    min-height: 50vh;
     display: flex;
     position: relative;
 }
@@ -12,7 +12,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 3rem 2rem;
+    padding: 4rem 4rem;
     position: relative;
 }
 
@@ -30,7 +30,7 @@
 .value-segment-full__text p {
     font-size: 1.1rem;
     line-height: 1.7;
-    margin: 0;
+    margin-bottom: 2rem;
 }
 
 .value-segment-full__image {
@@ -42,9 +42,9 @@
 
 /* Gold button styles */
 .value-segment-full__button {
-    position: absolute;
-    bottom: 2rem;
-    right: 2rem;
+    position: relative;
+    align-self: flex-end;
+    margin-top: auto;
     background: linear-gradient(135deg, #8B6914, #B1831A);
     color: #ffffff;
     padding: 0.75rem 1.5rem;

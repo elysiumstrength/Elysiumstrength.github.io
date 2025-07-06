@@ -144,6 +144,7 @@ section.home {
 section.trainers {
 	display: flex;
 	flex-direction: column;
+	position: relative;
 }
 
 @media (max-width: 1240px) {
@@ -389,4 +390,9 @@ section.footer {
 		font-weight: 500;
 		transition: color 0.2s ease;
 	}
+}
+
+.trainers__action {
+	position: relative;
+	align-self: flex-end;
 }
