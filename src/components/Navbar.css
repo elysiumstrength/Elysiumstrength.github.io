@@ -33,7 +33,7 @@
 
 .navbar__icon {
     height: 48px;
-    width: 32px;
+    width: 34px;
     transition: fill 0.2s ease;
     filter: invert(41%) sepia(100%) saturate(368%) hue-rotate(4deg) brightness(104%) contrast(92%);
 }
