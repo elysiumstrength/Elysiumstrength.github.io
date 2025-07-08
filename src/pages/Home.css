@@ -157,8 +157,8 @@ section.trainers {
 	width: fit-content;
 	padding-right: 4rem;
 
-	color: #D19919;
-	border-bottom: 1px solid #D19919;
+	color: #B1831A;
+	border-bottom: 1px solid #B1831A;
 }
 
 .trainer-list {
@@ -186,6 +186,8 @@ section.survey {
 }
 
 section.testimonials {
+	color: #B1831A;
+
 	/* temp */
 	height: 40vh;
 	padding-bottom: 6.25rem;
@@ -200,8 +202,8 @@ section.testimonials {
 	width: fit-content;
 	padding-right: 4rem;
 
-	color: #D19919;
-	border-bottom: 1px solid #D19919;
+	color: #B1831A;
+	border-bottom: 1px solid #B1831A;
 }
 
 .testimonials__text {
@@ -209,6 +211,11 @@ section.testimonials {
 	color: #555;
 	text-align: center;
 	max-width: 600px;
+}
+
+.testimonials .button__secondary {
+	color: #B1831A;
+	border: 1px solid #B1831A;
 }
 
 section.mission {
