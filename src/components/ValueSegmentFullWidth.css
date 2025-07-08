@@ -12,7 +12,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 10vw 10vw 10vw 10vw;
+    padding: 8vw 10vw 8vw 10vw;
     position: relative;
 }
 
@@ -24,6 +24,7 @@
 .value-segment-full__text h2 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
+    margin-top: 0;
     font-weight: 600;
 }
 
@@ -143,9 +144,6 @@
         min-height: 300px;
     }
 
-    .value-segment-full__content {
-        padding: 2rem 1.5rem;
-    }
 
     .value-segment-full__text h2 {
         font-size: 2rem;
@@ -156,8 +154,6 @@
     }
 
     .value-segment-full__button {
-        bottom: 1.5rem;
-        right: 1.5rem;
         padding: 0.6rem 1.2rem;
         font-size: 0.85rem;
     }
