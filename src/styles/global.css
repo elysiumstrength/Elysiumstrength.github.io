@@ -197,18 +197,18 @@ button {
 
 .button__primary {
   font-family: 'Jomolhari', sans-serif;
-  color: #B1831A;
+  color: #D19919;
   padding: 0.25rem 1.25rem;
-  background-color: #B1831A;
-  border: 1px solid #B1831A;
+  background-color: #D19919;
+  border: 1px solid #D19919;
   border-radius: 25px;
 }
 
 .button__secondary {
   font-family: 'Jomolhari', sans-serif;
-  color: #B1831A;
+  color: #D19919;
   padding: 0.375rem 1.75rem;
-  border: 1px solid #B1831A;
+  border: 1px solid #D19919;
   background-color: transparent;
   border-radius: 25px;
 }

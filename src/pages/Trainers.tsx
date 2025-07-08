@@ -58,7 +58,6 @@ export default function Trainers() {
         <div className="trainers-page">
             {/* Hero Section with Image and Header */}
             <section className="trainers-hero">
-                <img src={landingImage} alt="Gym training environment" className="trainers-hero__image" />
                 <div className="trainers-hero__overlay">
                     <h1 className="trainers-hero__title">TRAINERS</h1>
                 </div>

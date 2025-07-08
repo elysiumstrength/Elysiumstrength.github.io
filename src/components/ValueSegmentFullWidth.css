@@ -12,12 +12,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 4rem 4rem;
+    padding: 10vw 10vw 10vw 10vw;
     position: relative;
 }
 
 .value-segment-full__text {
-    max-width: 500px;
+    width: 100%;
     text-align: left;
 }
 
@@ -44,7 +44,6 @@
 .value-segment-full__button {
     position: relative;
     align-self: flex-end;
-    margin-top: auto;
     background: linear-gradient(135deg, #8B6914, #B1831A);
     color: #ffffff;
     padding: 0.75rem 1.5rem;
@@ -74,38 +73,49 @@
     transform: translateX(3px);
 }
 
-/* Green variant - text on left, image on right */
-.value-segment-full.green {
+/* Image positioning classes */
+.value-segment-full.image-left {
     flex-direction: row;
 }
 
-.value-segment-full.green .value-segment-full__content {
-    background-color: #1E2A1D;
-    /* Dark green */
+.value-segment-full.image-left .value-segment-full__content {
+    order: 2;
+}
+
+.value-segment-full.image-left .value-segment-full__image {
     order: 1;
 }
 
+.value-segment-full.image-right {
+    flex-direction: row;
+}
+
+.value-segment-full.image-right .value-segment-full__content {
+    order: 1;
+}
+
+.value-segment-full.image-right .value-segment-full__image {
+    order: 2;
+}
+
+/* Green variant - color scheme only */
+.value-segment-full.green .value-segment-full__content {
+    background-color: #1E2A1D;
+    /* Dark green */
+}
+
 .value-segment-full.green .value-segment-full__text h2 {
-    color: #B1831A;
+    color: #D19919;
 }
 
 .value-segment-full.green .value-segment-full__text p {
     color: #e8f4e6;
 }
 
-.value-segment-full.green .value-segment-full__image {
-    order: 2;
-}
-
-/* Beige variant - image on left, text on right */
-.value-segment-full.beige {
-    flex-direction: row;
-}
-
+/* Beige variant - color scheme only */
 .value-segment-full.beige .value-segment-full__content {
-    background-color: #F8F4EE;
+    background-color: #F4F1EA;
     /* Warm beige */
-    order: 2;
 }
 
 .value-segment-full.beige .value-segment-full__text h2 {
@@ -114,10 +124,6 @@
 
 .value-segment-full.beige .value-segment-full__text p {
     color: #4a4a4a;
-}
-
-.value-segment-full.beige .value-segment-full__image {
-    order: 1;
 }
 
 /* Responsive design */

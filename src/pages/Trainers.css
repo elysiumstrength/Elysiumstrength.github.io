@@ -7,12 +7,15 @@
 /* Hero Section */
 .trainers-hero {
     position: relative;
-    height: 50vh;
+    height: 30vh;
     min-height: 400px;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: url('../assets/landing_image.png');
+    background-size: cover;
+    background-position: 0rem 25%;
 }
 
 .trainers-hero__image {
@@ -35,6 +38,7 @@
 }
 
 .trainers-hero__title {
+    font-family: "Montserrat", sans-serif;
     font-size: 4rem;
     font-weight: 700;
     color: white;

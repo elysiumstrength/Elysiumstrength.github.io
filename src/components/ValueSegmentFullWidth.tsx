@@ -5,9 +5,10 @@ type ValueSegmentFullWidthProps = {
     imageUrl: string
     heading: string
     text: string
-    variant: 'green' | 'beige' // Determines color and image position
+    variant: 'green' | 'beige' // Determines color scheme
     buttonText: string
     buttonLink: string
+    imagePosition?: 'left' | 'right' // Optional: controls image position (defaults to 'left')
 }
 
 export default function ValueSegmentFullWidth({
@@ -17,9 +18,10 @@ export default function ValueSegmentFullWidth({
     variant,
     buttonText,
     buttonLink,
+    imagePosition = 'left',
 }: ValueSegmentFullWidthProps) {
     return (
-        <div className={`value-segment-full ${variant}`}>
+        <div className={`value-segment-full ${variant} ${imagePosition === 'right' ? 'image-right' : 'image-left'}`}>
             <div className="value-segment-full__content">
                 <div className="value-segment-full__text">
                     <h2>{heading}</h2>

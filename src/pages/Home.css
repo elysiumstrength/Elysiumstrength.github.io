@@ -57,7 +57,7 @@ section.home {
 	gap: .5rem;
 
 	h1 {
-		color: #B1831A;
+		color: #D19919;
 		margin: 0;
 	}
 
@@ -133,7 +133,7 @@ section.home {
 	align-items: center;
 
 	* {
-		color: #B1831A;
+		color: #D19919;
 
 		margin: 0;
 		height: fit-content
@@ -157,8 +157,8 @@ section.trainers {
 	width: fit-content;
 	padding-right: 4rem;
 
-	color: #B1831A;
-	border-bottom: 1px solid #B1831A;
+	color: #D19919;
+	border-bottom: 1px solid #D19919;
 }
 
 .trainer-list {
@@ -200,8 +200,8 @@ section.testimonials {
 	width: fit-content;
 	padding-right: 4rem;
 
-	color: #B1831A;
-	border-bottom: 1px solid #B1831A;
+	color: #D19919;
+	border-bottom: 1px solid #D19919;
 }
 
 .testimonials__text {
@@ -243,7 +243,7 @@ section.mission {
 	align-items: end;
 	gap: .75rem;
 
-	color: #B1831A;
+	color: #D19919;
 }
 
 .mission__info * {
@@ -266,8 +266,8 @@ section.values {
 	width: fit-content;
 	padding: 0 4rem 1.5rem 4rem;
 
-	color: #B1831A;
-	border-bottom: 1px solid #B1831A;
+	color: #D19919;
+	border-bottom: 1px solid #D19919;
 }
 
 .values__segments {
