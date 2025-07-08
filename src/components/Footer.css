@@ -15,6 +15,7 @@ section.footer {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    flex: 1;
 }
 
 .footer .company__info .logo {
@@ -23,7 +24,9 @@ section.footer {
     gap: 0.5rem;
 
     .icon {
-        width: 2.5rem;
+        height: 64px;
+        width: 46px;
+        filter: invert(41%) sepia(100%) saturate(368%) hue-rotate(4deg) brightness(104%) contrast(92%);
     }
 }
 
@@ -39,12 +42,21 @@ section.footer {
 
 .elysium {
     font-size: 2.5rem;
+    font-weight: 500;
     line-height: 1;
 }
 
 .strength_wellness {
     font-size: 1.25rem;
     line-height: 1;
+}
+
+.footer .contact__info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    flex: 1;
+    align-items: center;
 }
 
 .contact {
@@ -76,7 +88,8 @@ section.footer {
 .footer__links {
     display: flex;
     gap: 2rem;
-    padding-top: 1.5rem;
+    flex: 1;
+    justify-content: flex-end;
 
     .footer__category {
         display: flex;
@@ -103,5 +116,40 @@ section.footer {
         text-decoration: none;
         font-weight: 500;
         transition: color 0.2s ease;
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    section.footer {
+        padding: 3rem 5%;
+        flex-direction: column-reverse;
+        gap: 3rem;
+    }
+
+    .footer .company__info,
+    .footer .contact__info,
+    .footer__links {
+        align-items: flex-start;
+        flex: none;
+        width: 100%;
+    }
+
+    .footer__links {
+        justify-content: flex-start;
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    section.footer {
+        padding: 2rem 5%;
+        gap: 3rem;
+    }
+
+    .footer__links {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
     }
 }

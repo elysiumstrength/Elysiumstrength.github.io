@@ -12,6 +12,11 @@ export default function Footer() {
                         <div className='strength_wellness'>Strength & Wellness</div>
                     </div>
                 </div>
+                <div className="copyright">
+                    <p>&copy; 2023 Elysium Strength & Wellness. All rights reserved.</p>
+                </div>
+            </div>
+            <div className="contact__info">
                 <div className="contact">
                     <div className="address">
                         <p>123 Fitness Lane</p>
@@ -21,13 +26,10 @@ export default function Footer() {
                         <p>elysiumsw@gmail.com</p>
                     </div>
                 </div>
-                <div className="copyright">
-                    <p>&copy; 2023 Elysium Strength & Wellness. All rights reserved.</p>
-                </div>
             </div>
             <div className="footer__links">
                 <div className="footer__category follow__us">
-                    <h3>Follow Us</h3>
+                    <h3>Follow</h3>
                     <ul className="social__links">
                         <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
                         <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
@@ -35,13 +37,13 @@ export default function Footer() {
                     </ul>
                 </div>
                 <div className="footer__category contant__us">
-                    <h3>Contact Us</h3>
+                    <h3>Contact</h3>
                     <ul className="contact__links">
                         <li><a href="" target="_blank" rel="noopener noreferrer">Appointment</a></li>
                     </ul>
                 </div>
                 <div className="footer__category learn">
-                    <h3>Learn More</h3>
+                    <h3>Learn</h3>
                     <ul className="learn__links">
                         <li><a href="" target="_blank" rel="noopener noreferrer">About Us</a></li>
                         <li><a href="" target="_blank" rel="noopener noreferrer">Blog</a></li>
