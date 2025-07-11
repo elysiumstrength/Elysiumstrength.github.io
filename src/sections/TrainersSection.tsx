@@ -63,7 +63,7 @@ const TRAINERS = [
 
 export default function TrainersSection() {
 	const rowRef = useRef<HTMLDivElement>(null);
-	const fadeRef = useRef<number>();            // store timeout id
+	const fadeRef = useRef<ReturnType<typeof setTimeout> | null>(null); // store timeout id
 	const [visible, setVisible] = useState(TRAINERS.length); // cards per page
 	const [currentPage, setPage] = useState(0);               // zero-based
 	const [isFading, setFading] = useState(false);           // for CSS class
@@ -98,7 +98,9 @@ export default function TrainersSection() {
 	const goToPage = (next: number) => {
 		if (next === currentPage || isFading) return;        // ignore duplicates
 		setFading(true);
-		clearTimeout(fadeRef.current);
+		if (fadeRef.current !== null) {
+			clearTimeout(fadeRef.current);
+		}
 		fadeRef.current = window.setTimeout(() => {
 			setPage(next);
 			setFading(false);
@@ -115,7 +117,11 @@ export default function TrainersSection() {
 	}, [visible, totalPages, currentPage]);                 // deps: reset on change
 
 	/* cleanup for unmount */
-	useEffect(() => () => clearTimeout(fadeRef.current), []);
+	useEffect(() => () => {
+		if (fadeRef.current !== null) {
+			clearTimeout(fadeRef.current);
+		}
+	}, []);
 
 	/* current slice */
 	const offset = currentPage * visible;
