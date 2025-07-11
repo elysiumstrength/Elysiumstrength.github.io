@@ -190,22 +190,3 @@ nav.right__nav .button__tertiary {
     }
 }
 
-/* Hide hamburger on desktop */
-@media (min-width: 1024px) {
-    .navbar__hamburger {
-        display: none;
-    }
-
-    .navbar__nav {
-        position: static;
-        flex-direction: row;
-        align-items: center;
-        opacity: 1 !important;
-        pointer-events: auto !important;
-        transform: none !important;
-        background: none;
-        box-shadow: none;
-        width: auto;
-        padding: 0;
-    }
-}
