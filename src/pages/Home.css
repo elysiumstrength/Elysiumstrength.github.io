@@ -145,6 +145,10 @@ section.cta {
 	width: 100%;
 	display: flex;
 	align-items: center;
+
+	background-image: url("../assets/background_weights.png");
+	background-repeat: no-repeat;
+	background-position: 0% -80%;
 }
 
 .cta__image {
@@ -363,6 +367,10 @@ section.trainers {
 	display: flex;
 	flex-direction: column;
 	position: relative;
+
+	background-image: url("../assets/background_weights.png");
+	background-repeat: no-repeat;
+	background-position: 90% -100%;
 }
 
 @media (max-width: 1240px) {

@@ -1,5 +1,4 @@
 import TrainerCard from "../components/TrainerCard"
-import ValueSegment from "../components/ValueSegement"
 import ValueSegmentFullWidth from "../components/ValueSegmentFullWidth"
 
 import Mission from "../assets/Mission.jpg"
