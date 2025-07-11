@@ -1,45 +1,87 @@
 @import './sections.css';
 
 section.trainers {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    width: 100%;
-    padding: 4rem 10%;
-
-    background-image: url("../assets/background_weights.png");
-    background-repeat: no-repeat;
-    background-position: 90% -100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  padding: 4rem 10%;
+  background-image: url("../assets/background_weights.png");
+  background-repeat: no-repeat;
+  background-position: 90% -100%;
 }
 
 @media (max-width: 1240px) {
-    section.trainers {
-        padding: 2rem 5%;
-    }
+  section.trainers {
+    padding: 2rem 5%;
+  }
 }
 
 .trainer__header {
-    width: fit-content;
-    padding-right: 4rem;
-
-    color: #B1831A;
-    border-bottom: 1px solid #B1831A;
+  width: fit-content;
+  padding-right: 4rem;
+  color: #B1831A;
+  border-bottom: 1px solid #B1831A;
 }
 
+/* ▾▾  UPDATED: no wrapping + hidden overflow ▾▾ */
 .trainer-list {
-    padding: 2.5rem 0;
-    width: 100%;
-    max-width: 1200px;
+  padding: 2.5rem 0;
+  width: 100%;
+  max-width: 1200px;
 
-    display: flex;
-    flex-wrap: wrap;
-    row-gap: 4rem;
-    flex-direction: row;
-    align-self: center;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;   /* hide any cards that don’t fully fit */
+  align-items: center;
+  justify-content: space-around;
+  align-self: center;
+}
+
+/* predictable card width for the JS math */
+.trainer-card {
+  flex: 0 0 300px;    /* 300 px  -> keep in sync with JS CARD */
+}
+
+/* ▸ pagination dots */
+.trainer-dots {
+  display: flex;
+  gap: 0.5rem;
+  align-self: center;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.trainer-dots .dot {
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 50%;
+  background: #d0d0d0;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.trainer-dots .dot.active {
+  background: #B1831A;   /* gold accent */
 }
 
 .trainers__action {
-    position: relative;
-    align-self: flex-end;
+  position: relative;
+  align-self: flex-end;
+}
+
+@media (max-width: 768px) {
+    .trainers__action {
+        margin-top: 2rem;
+    }
+}
+
+/* fade animation for page switches */
+.trainer-list {
+  transition: opacity 0.4s ease-in-out;
+}
+.trainer-list.fading {
+  opacity: 0;
 }
