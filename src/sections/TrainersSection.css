@@ -1,0 +1,45 @@
+@import './sections.css';
+
+section.trainers {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    padding: 4rem 10%;
+
+    background-image: url("../assets/background_weights.png");
+    background-repeat: no-repeat;
+    background-position: 90% -100%;
+}
+
+@media (max-width: 1240px) {
+    section.trainers {
+        padding: 2rem 5%;
+    }
+}
+
+.trainer__header {
+    width: fit-content;
+    padding-right: 4rem;
+
+    color: #B1831A;
+    border-bottom: 1px solid #B1831A;
+}
+
+.trainer-list {
+    padding: 2.5rem 0;
+    width: 100%;
+    max-width: 1200px;
+
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 4rem;
+    flex-direction: row;
+    align-self: center;
+    justify-content: space-around;
+}
+
+.trainers__action {
+    position: relative;
+    align-self: flex-end;
+}

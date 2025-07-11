@@ -1,0 +1,125 @@
+@import './sections.css';
+
+section.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    width: 100%;
+    height: 100vh;
+    padding: 4rem 10%;
+    padding-top: 10rem;
+
+    background-image: linear-gradient(115deg,
+            rgba(0, 0, 0, .80) 45%,
+            rgba(0, 0, 0, 0.35)),
+        url(../assets/landing_image.png);
+    background-size: cover;
+    background-position: center;
+    background-position: 50% 2rem;
+}
+
+@media (max-width: 768px) {
+    section.home {
+        padding: 2rem 5%;
+    }
+
+    .home__hero {
+        text-align: center;
+        align-items: center;
+    }
+}
+
+.home__hero {
+    width: 100%;
+    max-width: 525px;
+
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .5rem;
+
+    h1 {
+        color: #D19919;
+        margin: 0;
+    }
+
+    h4 {
+        color: #ffffff;
+        margin: 0 0 1rem 0;
+    }
+
+    .button__tertiary {
+        font-size: 1.125rem;
+        letter-spacing: .175rem;
+    }
+}
+
+.home__title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.home__text {
+    font-size: 1rem;
+    color: #555;
+}
+
+.home__options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 5rem;
+}
+
+@media (max-width: 1024px) {
+    .home__options {
+        display: none;
+    }
+
+    section.home {
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.home__scroll-buttons {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    button {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        background-color: rgba(0, 0, 0, 0.20);
+    }
+
+    .left,
+    .right {
+        flex-grow: 1;
+        flex-basis: 0;
+    }
+
+    .right {
+        text-align: right;
+    }
+}
+
+.scroll__more {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    * {
+        color: #D19919;
+
+        margin: 0;
+        height: fit-content;
+    }
+}

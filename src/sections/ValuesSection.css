@@ -1,0 +1,5 @@
+@import './sections.css';
+
+section.values-full-width {
+    padding: 0;
+}
