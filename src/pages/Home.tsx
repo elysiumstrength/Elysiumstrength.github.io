@@ -112,13 +112,13 @@ export default function Home() {
                 <p className="survey__text">We value your feedback! Please take a moment to fill out our survey.</p>
                 <div className="button__secondary">Submit</div>
             </section> */}
-            <section className="mission">
+            {/* <section className="mission">
                 <img src={Mission} alt="Mission Image" className="mission__image" />
                 <div className="mission__info">
                     <h2 className="mission__header">Our Mission</h2>
                     <p className="mission__text">At our core, we are committed to empowering individuals to reach their full potential through personalized, results-driven training in a private, supportive environment. Our mission is to deliver expert guidance, build lasting confidence, and create sustainable fitness habits—one client, one session, one goal at a time.</p>
                 </div>
-            </section>
+            </section> */}
             {/* <section className="values">
                 <h2 className="values__header">Our Values</h2>
                 <div className="values__segments">
@@ -142,6 +142,15 @@ export default function Home() {
             </section> */}
             {/* Full-width value segments version */}
             <section className="values-full-width">
+                <ValueSegmentFullWidth
+                    imageUrl={Mission}
+                    heading="Our Mission"
+                    text="At our core, we are committed to empowering individuals to reach their full potential through personalized, results-driven training in a private, supportive environment. Our mission is to deliver expert guidance, build lasting confidence, and create sustainable fitness habits—one client, one session, one goal at a time."
+                    variant="green"
+                    buttonText="Learn More"
+                    buttonLink="/about"
+                    imagePosition="left"
+                />
                 <ValueSegmentFullWidth
                     imageUrl={Personalized_Excellence}
                     heading="Personalized Excellence"
