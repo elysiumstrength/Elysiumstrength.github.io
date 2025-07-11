@@ -7,6 +7,7 @@ section.testimonials {
 
     /* temp */
     height: 40vh;
+    min-height: fit-content;
     padding-bottom: 6.25rem;
 
     display: flex;
