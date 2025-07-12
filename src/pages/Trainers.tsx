@@ -1,5 +1,4 @@
 import TrainerCard from "../components/TrainerCard"
-import landingImage from "../assets/landing_image.png"
 import "./Trainers.css"
 
 export default function Trainers() {
