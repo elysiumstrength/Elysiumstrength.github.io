@@ -19,7 +19,7 @@ export default function HeroSection() {
             <div className="home__hero">
                 <h1>STRONGER<br />EVERY SESSION</h1>
                 <h4>Discover the ultimate private gym and Personal Trainer destination in Santa Barbara at ELYSIUM Strength & Wellness</h4>
-                <div className="button__tertiary">SCHEDULE A CONSULT</div>
+                <div className="button__tertiary">SCHEDULE FREE CONSULTATION</div>
             </div>
 
             <div className="home__options">

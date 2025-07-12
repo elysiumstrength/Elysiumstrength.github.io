@@ -8,7 +8,7 @@ export default function CTASection() {
                 <div className="cta__column">
                     <h2>Start Your Journey<br />At ELYSIUM</h2>
                     <p>Top of the line equipment in a clean welcoming atmosphere. Small private sessions with professional trainers. Coverage with a broad range of athletes and sports. Post-rehab, injury prevention and rehabilitation assistance.</p>
-                    <div className="button__tertiary">SCHEDULE A CONSULT</div>
+                    <div className="button__tertiary">SCHEDULE FREE CONSULTATION</div>
                 </div>
                 <div className="cta__column cta__steps">
                     <div className="cta__step">
