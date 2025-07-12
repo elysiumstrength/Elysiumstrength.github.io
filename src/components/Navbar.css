@@ -100,6 +100,20 @@ nav.right__nav .button__tertiary {
     padding: 0;
 }
 
+/* Remove background animations for right nav buttons */
+nav.right__nav .button__tertiary::before {
+    display: none;
+}
+
+nav.right__nav .button__tertiary:hover {
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    /* Keep other hover effects but remove background animation */
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
 /* Hamburger menu styles */
 .navbar__spacer {
     display: none;
