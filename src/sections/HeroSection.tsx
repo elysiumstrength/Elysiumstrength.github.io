@@ -1,6 +1,19 @@
 import "./HeroSection.css"
 
 export default function HeroSection() {
+    const scrollToSection = (sectionClass: string) => {
+        const element = document.querySelector(`.${sectionClass}`)
+        if (element) {
+            const navbarHeight = 80 // Approximate navbar height in pixels
+            const elementPosition = (element as HTMLElement).offsetTop - navbarHeight
+
+            window.scrollTo({
+                top: elementPosition,
+                behavior: 'smooth'
+            })
+        }
+    }
+
     return (
         <section className="home">
             <div className="home__hero">
@@ -12,11 +25,17 @@ export default function HeroSection() {
             <div className="home__options">
                 <div className="home__scroll-buttons">
                     <div className="left">
-                        <button className="button__secondary">MEET YOUR TRAINERS</button>
+                        <button className="button__secondary" onClick={() => scrollToSection('trainers')}>
+                            MEET YOUR TRAINERS
+                        </button>
                     </div>
-                    <button className="button__secondary">TAKE OUR SURVEY</button>
+                    <button className="button__secondary" onClick={() => scrollToSection('values-full-width')}>
+                        MISSION & VALUES
+                    </button>
                     <div className="right">
-                        <button className="button__secondary">ABOUT US</button>
+                        <button className="button__secondary" onClick={() => scrollToSection('testimonials')}>
+                            CLIENT TESTIMONIALS
+                        </button>
                     </div>
                 </div>
                 <div className="scroll__more">
