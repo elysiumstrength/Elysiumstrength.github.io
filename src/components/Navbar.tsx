@@ -24,9 +24,9 @@ export default function Navbar() {
         <header className="navbar">
             <div className="navbar__container">
                 <nav className="left__nav">
-                    <NavLink to="/Consult" className="button__tertiary" onClick={() => setMenuOpen(false)}>
+                    <a href="https://elysium.pushpress.com/landing/calendar" className="button__tertiary" onClick={() => setMenuOpen(false)}>
                         CONSULT
-                    </NavLink>
+                    </a>
                 </nav>
                 <Link to="/" className="navbar__logo">
                     <img src={icon} alt="Elysium Icon" className="navbar__icon" />
@@ -36,9 +36,9 @@ export default function Navbar() {
                     </div>
                 </Link>
                 <nav className="navbar__spacer">
-                    <NavLink to="/Consult" className="button__tertiary" onClick={() => setMenuOpen(false)}>
+                    <a href="https://elysium.pushpress.com/landing/calendar" className="button__tertiary" onClick={() => setMenuOpen(false)}>
                         CONSULT
-                    </NavLink>
+                    </a>
                     <button
                         className="navbar__hamburger"
                         aria-label="Toggle navigation"
@@ -51,9 +51,9 @@ export default function Navbar() {
                 </nav>
                 <nav className={`right__nav navbar__nav${menuOpen ? ' navbar__nav--open' : ''}`}>
                     {isMobile && (
-                        <NavLink to="/Consult" className="button__tertiary" onClick={() => setMenuOpen(false)}>
+                        <a href="https://elysium.pushpress.com/landing/calendar" className="button__tertiary" onClick={() => setMenuOpen(false)}>
                             CONSULT
-                        </NavLink>
+                        </a>
                     )}
                     <NavLink to="/trainers" className="button__tertiary" onClick={() => setMenuOpen(false)}>
                         TRAINERS
