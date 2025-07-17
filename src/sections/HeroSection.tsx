@@ -17,8 +17,8 @@ export default function HeroSection() {
     return (
         <section className="home">
             <div className="home__hero">
-                <h1>STRONGER<br />EVERY SESSION</h1>
-                <h4>Discover the ultimate private gym and Personal Trainer destination in Santa Barbara at ELYSIUM Strength & Wellness</h4>
+                <h1>WELCOME<br />TO ELYSIUM</h1>
+                <h4>Discover Goleta's premiere private personal training gym located conveniently off the 101 across from cottage hospital.</h4>
                 <a href="https://elysium.pushpress.com/landing/calendar" className="button__tertiary">SCHEDULE FREE CONSULTATION</a>
             </div>
 

@@ -7,7 +7,7 @@ export default function CTASection() {
             <div className="cta__content">
                 <div className="cta__column">
                     <h2>Start Your Journey<br />At ELYSIUM</h2>
-                    <p>Top of the line equipment in a clean welcoming atmosphere. Small private sessions with professional trainers. Coverage with a broad range of athletes and sports. Post-rehab, injury prevention and rehabilitation assistance.</p>
+                    <p>At Elysium we believe that you deserve to live your healthiest life at a fair price. Our expert trainers, nutritionist, and body temperers are committed to you and your fitness goals. no matter where you are in your fitness journey we have the bases covered all in our state of the art facility.</p>
                     <a href="https://elysium.pushpress.com/landing/calendar" className="button__tertiary">SCHEDULE FREE CONSULTATION</a>
                 </div>
                 <div className="cta__column cta__steps">
