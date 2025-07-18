@@ -74,12 +74,47 @@
     margin: 0 auto;
 }
 
+/* Trainers Grid Container */
+.trainers-grid-container {
+    width: 100%;
+    position: relative;
+}
+
+.trainers-grid-with-expanded {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Add a subtle backdrop when a card is expanded */
+.trainers-grid-container:has(.trainer-card--expanded)::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.05);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.trainers-grid-container:has(.trainer-card--expanded) {
+    position: relative;
+    z-index: 1;
+}
+
 /* Trainers Grid */
 .trainers-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
     justify-items: center;
+}
+
+/* Expanded trainer container */
+.trainers-expanded-container {
+    width: 100%;
+    margin: 6rem 0;
 }
 
 /* Responsive Design */
@@ -99,6 +134,14 @@
     .trainers-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+
+    .trainers-grid-with-expanded {
+        gap: 1.5rem;
+    }
+
+    .trainers-expanded-container {
+        margin: 0.5rem 0;
     }
 }
 

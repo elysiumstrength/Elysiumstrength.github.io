@@ -7,6 +7,9 @@ type TrainerCardProps = {
     trainerType: string
     bio: string
     specializations: string[]
+    isExpanded?: boolean
+    onClick?: () => void
+    extendedBio?: string
 }
 
 export default function TrainerCard({
@@ -15,9 +18,21 @@ export default function TrainerCard({
     trainerType,
     bio,
     specializations,
+    isExpanded = false,
+    onClick,
+    extendedBio
 }: TrainerCardProps) {
+    const handleCardClick = () => {
+        if (!isExpanded) {
+            onClick?.();
+        }
+    };
+
     return (
-        <div className="trainer-card">
+        <div
+            className={`trainer-card ${isExpanded ? 'trainer-card--expanded' : ''}`}
+            onClick={handleCardClick}
+        >
             <img src={imageUrl} alt={`${name} photo`} className="trainer-card__img" />
             <div className="trainer-card__content">
                 <h1 className="trainer-card__name">{name}</h1>
@@ -31,6 +46,24 @@ export default function TrainerCard({
                     ))}
                 </ul>
             </div>
+            {isExpanded && extendedBio && (
+                <div className="trainer-card__extended">
+                    <div className="trainer-card__extended-header">
+                        <h3>About {name}</h3>
+                        <button
+                            className="trainer-card__close-btn"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                onClick?.();
+                            }}
+                            aria-label="Close trainer details"
+                        >
+                            ×
+                        </button>
+                    </div>
+                    <p>{extendedBio}</p>
+                </div>
+            )}
         </div>
     )
 }
