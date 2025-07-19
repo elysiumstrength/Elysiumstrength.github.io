@@ -1,9 +1,9 @@
 import ValueSegmentFullWidth from "../components/ValueSegmentFullWidth"
 
-import Mission from "../assets/Mission.jpg"
+import Gym_Interior from "../assets/Gym_Interior.jpg"
 import Personalized_Excellence from "../assets/Personalized_Excellence.jpg"
-import Integrity_Trust from "../assets/Integrity_Trust.jpg"
-import Results_Through_Consistency from "../assets/Results_Through_Consistency.jpg"
+import Nutrition from "../assets/Nutrition.jpg"
+import Landing_Image from "../assets/landing_image.png"
 
 import "./ValuesSection.css"
 
@@ -11,39 +11,39 @@ export default function ValuesSection() {
     return (
         <section className="values-full-width">
             <ValueSegmentFullWidth
-                imageUrl={Mission}
-                heading="Our Mission"
-                text="At our core, we are committed to empowering individuals to reach their full potential through personalized, results-driven training in a private, supportive environment. Our mission is to deliver expert guidance, build lasting confidence, and create sustainable fitness habits—one client, one session, one goal at a time."
+                imageUrl={Gym_Interior}
+                heading="What is Elysium?"
+                text="We're a team of passionate, professional trainers united by diverse expertise and a shared commitment to growth. From former pro athletes to lifelong fitness specialists, our coaches bring a wide range of experience to the table. We set a high standard—holding monthly knowledge-sharing sessions and requiring continuing education every year—so our team is always evolving. It's how we ensure we stay at the top of our game, so you can reach the top of yours."
                 variant="green"
-                buttonText="Learn More"
+                buttonText="More About Us"
                 buttonLink="/about"
                 imagePosition="left"
             />
             <ValueSegmentFullWidth
                 imageUrl={Personalized_Excellence}
-                heading="Personalized Excellence"
-                text="We believe that every body is unique—so every workout should be, too. Our training programs are fully customized to align with your goals, lifestyle, and fitness level. With 1-on-1 attention and expert guidance, we ensure you make steady, sustainable progress at a pace that suits you."
+                heading="Results Through Consistency"
+                text="At Elysium, we believe consistency thrives on real results. That's why every member gets more than just expert training—we provide full access to our professional programming app. Track every custom workout, rep, set, and the weight you've moved over time. With clear, measurable progress and built-in accountability, you'll stay focused, motivated, and confident—knowing you're getting stronger every session."
                 variant="beige"
-                buttonText="Learn More"
-                buttonLink="/about"
+                buttonText="Schedule a Consultation"
+                buttonLink="https://elysium.pushpress.com/landing/calendar"
                 imagePosition="right"
             />
             <ValueSegmentFullWidth
-                imageUrl={Integrity_Trust}
-                heading="Integrity & Trust"
-                text="Fitness is personal—and so is trust. We create a safe, judgment-free environment where transparency and honesty are at the heart of every session. Our certified trainers are committed to your wellbeing, always putting your health and long-term success first."
+                imageUrl={Nutrition}
+                heading={`Fuel Your Body,\n Empower Your Life`}
+                text="At Elysium, we go beyond nutrition fads. Our certified experts create personalized plans grounded in real food, psychology-informed support, and your unique lifestyle. Whether you're managing chronic conditions or simply seeking better health, our approach blends science, empathy, and sustainability—because feeling good starts with being seen, heard, and nourished."
                 variant="green"
-                buttonText="Our Trainers"
-                buttonLink="/trainers"
+                buttonText="Explore Nutrition"
+                buttonLink="/nutrition"
                 imagePosition="left"
             />
             <ValueSegmentFullWidth
-                imageUrl={Results_Through_Consistency}
-                heading="Results Through Consistency"
-                text="We know that real, lasting results come from dedication and consistency—not gimmicks. That's why we focus on building smart, habit-driven routines that work with your lifestyle. Every session moves you forward, helping you build confidence and long-term momentum."
+                imageUrl={Landing_Image}
+                heading={`Locally Connected,\n Invested In You`}
+                text="At Elysium, we believe in the power of community—and Goleta is a word-of-mouth town. We proudly partner with a trusted network of local professionals we believe in: doctors, therapists, physical therapists, massage therapists, sports leagues, beauty professionals, and more. These are real relationships built on shared values and a commitment to whole-person wellness."
                 variant="beige"
-                buttonText="Get Started"
-                buttonLink="/consult"
+                buttonText="Join Our Community"
+                buttonLink="/community"
                 imagePosition="right"
             />
         </section>
