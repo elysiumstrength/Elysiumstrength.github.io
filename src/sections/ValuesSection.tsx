@@ -1,7 +1,7 @@
 import ValueSegmentFullWidth from "../components/ValueSegmentFullWidth"
 
 import Personalized_Excellence from "../assets/Personalized_Excellence.jpg"
-import Nutrition from "../assets/Nutrition.jpg"
+import Gym_Interior from "../assets/Gym_Interior.jpg"
 import Landing_Image from "../assets/landing_image.png"
 
 import "./ValuesSection.css"
@@ -19,12 +19,12 @@ export default function ValuesSection() {
                 imagePosition="right"
             />
             <ValueSegmentFullWidth
-                imageUrl={Nutrition}
-                heading={`Fuel Your Body,\n Empower Your Life`}
-                text="At Elysium, we go beyond nutrition fads. Our certified experts create personalized plans grounded in real food, psychology-informed support, and your unique lifestyle. Whether you're managing chronic conditions or simply seeking better health, our approach blends science, empathy, and sustainability—because feeling good starts with being seen, heard, and nourished."
+                imageUrl={Gym_Interior}
+                heading={`Integrity and Trust`}
+                text="At Elysium, we believe strength should last a lifetime. Fitness is deeply personal, and we're here to honor that. Our team of expert trainers and wellness professionals brings integrity, experience, and genuine care to every session— combining proven sports performance methods with a commitment to longevity and injury prevention. We value your privacy and strive to make every step of your journey feel safe, supportive, and empowering. At Elysium, we're not just a gym. We're your trusted partners in building a resilient, thriving body you can rely on for years to come."
                 variant="green"
-                buttonText="Explore Nutrition"
-                buttonLink="/nutrition"
+                buttonText="Meet Your Trainers"
+                buttonLink="/trainers"
                 imagePosition="left"
             />
             <ValueSegmentFullWidth

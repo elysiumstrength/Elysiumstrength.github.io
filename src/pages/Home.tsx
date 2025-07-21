@@ -16,8 +16,8 @@ export default function Home() {
         <>
             <HeroSection />
             <CTASection />
-            <TrainersSection />
             <MissionSection />
+            <TrainersSection />
             <AdditionalServicesSection />
             <ValuesSection />
             <TestimonialsSection />
