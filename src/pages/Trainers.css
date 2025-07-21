@@ -83,6 +83,7 @@
 .trainers-grid-with-expanded {
     display: flex;
     flex-direction: column;
+    gap: 2rem;
 }
 
 /* Add a subtle backdrop when a card is expanded */

@@ -1,7 +1,8 @@
 .trainer-card {
     display: flex;
     flex-direction: column;
-    max-width: 320px;
+    max-width: 400px;
+    height: 540px;
     border-radius: 12px;
     overflow: hidden;
     cursor: pointer;

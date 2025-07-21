@@ -3,7 +3,7 @@ import TrainerCard from "../components/TrainerCard";
 import "./TrainersSection.css";
 
 /* ---------- constants must match the CSS ---------- */
-const CARD = 300;   // px  – width in .trainer-card
+const CARD = 340;   // px  – width in .trainer-card
 const GAP = 32;    // px  – 4 rem gap in .trainer-list
 const FADE_MS = 400; // duration of fade animation
 
