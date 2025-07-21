@@ -1,6 +1,5 @@
 import ValueSegmentFullWidth from "../components/ValueSegmentFullWidth"
 
-import Gym_Interior from "../assets/Gym_Interior.jpg"
 import Personalized_Excellence from "../assets/Personalized_Excellence.jpg"
 import Nutrition from "../assets/Nutrition.jpg"
 import Landing_Image from "../assets/landing_image.png"
