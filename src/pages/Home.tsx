@@ -2,6 +2,7 @@ import {
     HeroSection,
     CTASection,
     TrainersSection,
+    MissionSection,
     AdditionalServicesSection,
     ValuesSection,
     TestimonialsSection
@@ -16,6 +17,7 @@ export default function Home() {
             <HeroSection />
             <CTASection />
             <TrainersSection />
+            <MissionSection />
             <AdditionalServicesSection />
             <ValuesSection />
             <TestimonialsSection />
