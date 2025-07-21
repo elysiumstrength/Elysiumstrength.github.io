@@ -22,8 +22,29 @@
     height: 100%;
 }
 
+.service-card__title-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.service-card__title-container .h-3 {
+    height: 12px;
+}
+
+.service-card__title-container .w-3 {
+    width: 12px;
+}
+
+.service-card__title-container .rounded-full {
+    border-radius: 50%;
+}
+
+.service-card__title-container .shrink-0 {
+    flex-shrink: 0;
+}
+
 .service-card__title {
-    font-family: 'Kaisei Opti', sans-serif;
     font-weight: bold;
     font-size: 24px;
     color: #d19919;

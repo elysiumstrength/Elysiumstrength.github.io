@@ -11,7 +11,13 @@ export default function ServiceCard({ title, description, features }: ServiceCar
     return (
         <div className="service-card">
             <div className="service-card__content">
-                <h3 className="service-card__title">{title}</h3>
+                <div className="service-card__title-container">
+                    <div
+                        className="h-3 w-3 rounded-full shrink-0"
+                        style={{ backgroundColor: '#d19919' }}
+                    />
+                    <h2 className="service-card__title">{title}</h2>
+                </div>
                 <p className="service-card__description">{description}</p>
                 <ul className="service-card__features">
                     {features.map((feature, index) => (
