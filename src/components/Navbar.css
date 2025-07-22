@@ -142,13 +142,11 @@ nav.right__nav .button__tertiary:hover {
 }
 
 /* Responsive styles */
-@media (max-width: 1024px) {
+@media (max-width: 1480px) {
     .navbar {
         padding: 1rem 5%;
     }
-}
 
-@media (max-width: 1024px) {
     .navbar__nav {
         position: absolute;
         top: 100%;
