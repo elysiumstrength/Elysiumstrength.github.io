@@ -47,6 +47,7 @@ export default function AdditionalServicesSection() {
                         <h2 className="additional-services__title">
                             Additional Areas of Support
                         </h2>
+                        <div className="additional-services__divider"></div>
                         <p className="additional-services__subtitle">
                             Beyond personal training, we offer comprehensive wellness services to support every aspect of your health and fitness journey.
                         </p>

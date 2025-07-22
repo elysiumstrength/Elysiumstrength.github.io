@@ -44,6 +44,12 @@
     margin: 0;
 }
 
+.additional-services__divider {
+    height: 1px;
+    width: 80%;
+    background-color: #d19919;
+}
+
 .additional-services__subtitle {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
