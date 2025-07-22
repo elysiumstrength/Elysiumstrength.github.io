@@ -4,7 +4,7 @@ import "./AdditionalServicesSection.css"
 export default function AdditionalServicesSection() {
     const services = [
         {
-            title: "The Elysium Plate",
+            title: "Nutrition Counseling",
             description: "Custom plans rooted in science, backed by care. Our nutrition philosophy is grounded in real, whole foods and real human connection. We meet you where you are—whether navigating weight loss, hormone shifts, chronic conditions, or simply trying to feel better in your body.",
             features: [
                 "Custom meal planning with certified nutritionists",
