@@ -1,0 +1,219 @@
+/* Expert Speaker Section Styles */
+.expert-speaker-section {
+    background-color: #2d4a2d;
+    width: 100%;
+    position: relative;
+}
+
+.expert-speaker-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 3rem;
+}
+
+.expert-speaker-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    text-align: center;
+    max-width: 800px;
+}
+
+.expert-speaker-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.expert-speaker-subtitle-line {
+    height: 1px;
+    width: 2rem;
+    background-color: #D19919;
+}
+
+.expert-speaker-subtitle-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: #D19919;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.expert-speaker-title {
+    font-family: 'Jomolhari', sans-serif;
+    font-size: 2.5rem;
+    color: #D19919;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.expert-speaker-description {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: #F4F1EA;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.expert-speaker-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: start;
+    justify-content: center;
+}
+
+/* Expert Speaker Card Styles */
+.expert-speaker-card {
+    background-color: #F4F1EA;
+    border: 1px solid #D19919;
+    border-radius: 20px;
+    padding: 1.5rem;
+    width: 380px;
+    flex-shrink: 0;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.expert-speaker-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.expert-speaker-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.expert-speaker-month-badge {
+    background-color: #D19919;
+    border-radius: 12px;
+    padding: 0.25rem 0.75rem;
+}
+
+.expert-speaker-month-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: #F4F1EA;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1.4;
+}
+
+.expert-speaker-datetime {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: #666;
+    text-align: right;
+    line-height: 1.4;
+}
+
+.expert-speaker-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.expert-speaker-name {
+    font-family: 'Jomolhari', sans-serif;
+    font-size: 1.25rem;
+    color: #232323;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.expert-speaker-expertise {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: #D19919;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.expert-speaker-topic {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #232323;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.expert-speaker-button {
+    border: 1px solid #D19919;
+    background-color: transparent;
+    color: #D19919;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.expert-speaker-button:hover {
+    background-color: #D19919;
+    color: #F4F1EA;
+}
+
+.expert-speaker-button-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-align: center;
+    white-space: nowrap;
+    line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .expert-speaker-container {
+        padding: 2rem 1rem;
+        gap: 2rem;
+    }
+
+    .expert-speaker-title {
+        font-size: 2rem;
+    }
+
+    .expert-speaker-description {
+        font-size: 1rem;
+    }
+
+    .expert-speaker-card {
+        width: 100%;
+        max-width: 380px;
+    }
+
+    .expert-speaker-grid {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .expert-speaker-container {
+        padding: 1.5rem 0.75rem;
+    }
+
+    .expert-speaker-title {
+        font-size: 1.75rem;
+    }
+
+    .expert-speaker-card {
+        padding: 1rem;
+    }
+}
