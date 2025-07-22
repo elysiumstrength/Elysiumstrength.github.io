@@ -185,7 +185,7 @@ section.cta {
 
 @media (max-width: 768px) {
     section.cta {
-        flex-direction: column;
+        flex-direction: column-reverse;
         min-height: auto;
         padding: 0;
     }

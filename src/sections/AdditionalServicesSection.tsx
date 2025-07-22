@@ -4,17 +4,6 @@ import "./AdditionalServicesSection.css"
 export default function AdditionalServicesSection() {
     const services = [
         {
-            title: "Physical Therapy",
-            description: "Comprehensive rehabilitation and injury prevention services to support your fitness journey and overall mobility.",
-            features: [
-                "Movement assessment & correction",
-                "Injury rehabilitation programs",
-                "Pain management techniques",
-                "Pre & post-surgery support",
-                "Functional movement training"
-            ]
-        },
-        {
             title: "Nutrition Counseling",
             description: "Personalized nutrition guidance tailored to your fitness goals, lifestyle, and dietary preferences.",
             features: [
