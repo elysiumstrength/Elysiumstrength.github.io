@@ -16,7 +16,7 @@ interface ServiceDetailSectionProps {
 // Detailed Service Sections
 function ServiceDetailSection({ title, description, benefits, process, bgColor, textColor, headerColor, isReversed = false }: ServiceDetailSectionProps) {
     return (
-        <div className={`service-detail-section ${bgColor}`}>
+        <section className={`service-detail-section ${bgColor}`}>
             <div className="service-detail-container">
                 <div className={`service-detail-content ${isReversed ? 'service-detail-content--reversed' : ''}`}>
 
@@ -85,7 +85,7 @@ function ServiceDetailSection({ title, description, benefits, process, bgColor, 
 
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
 
