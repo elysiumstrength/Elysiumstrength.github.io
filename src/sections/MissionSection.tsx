@@ -48,54 +48,14 @@ export default function MissionSection() {
                             </p>
                         </div>
 
-                        {/* Three Core Values */}
-                        <div className="mission-values-container">
-
-                            {/* Value 1 */}
-                            <div className="mission-value-item">
-                                <div className="mission-value-icon">
-                                    <div className="mission-value-number">
-                                        1
-                                    </div>
-                                </div>
-                                <h4 className="mission-value-title">
-                                    Expert Guidance
-                                </h4>
-                                <p className="mission-value-description">
-                                    Personalized training programs designed by certified professionals
-                                </p>
-                            </div>
-
-                            {/* Value 2 */}
-                            <div className="mission-value-item">
-                                <div className="mission-value-icon">
-                                    <div className="mission-value-number">
-                                        2
-                                    </div>
-                                </div>
-                                <h4 className="mission-value-title">
-                                    Lasting Confidence
-                                </h4>
-                                <p className="mission-value-description">
-                                    Building self-assurance through achievable milestones and progress
-                                </p>
-                            </div>
-
-                            {/* Value 3 */}
-                            <div className="mission-value-item">
-                                <div className="mission-value-icon">
-                                    <div className="mission-value-number">
-                                        3
-                                    </div>
-                                </div>
-                                <h4 className="mission-value-title">
-                                    Sustainable Habits
-                                </h4>
-                                <p className="mission-value-description">
-                                    Creating lifelong wellness practices that fit your lifestyle
-                                </p>
-                            </div>
-
+                        {/* Call to Action */}
+                        <div className="mission-cta-container">
+                            <p className="mission-cta-text">
+                                Learn more about our story, values, and commitment to your success.
+                            </p>
+                            <a href="/about" className="mission-cta-button button__secondary">
+                                ABOUT US
+                            </a>
                         </div>
 
                     </div>

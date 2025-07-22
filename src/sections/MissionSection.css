@@ -292,3 +292,30 @@
         top: 1rem;
     }
 }
+
+/* Mission CTA Styles */
+.mission-cta-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.mission-cta-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #666;
+    font-size: 1.125rem;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+
+
+@media (max-width: 768px) {
+    .mission-cta-text {
+        font-size: 1rem;
+    }
+}
