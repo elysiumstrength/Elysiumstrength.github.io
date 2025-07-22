@@ -4,9 +4,9 @@
     border: 1px solid #d19919;
     border-radius: 16px;
     padding: 32px;
-    max-width: 360px;
+    max-width: 420px;
     flex: 1;
-    min-width: 300px;
+    min-width: 380px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -91,7 +91,7 @@
 @media (max-width: 768px) {
     .service-card {
         max-width: 100%;
-        min-width: 280px;
+        min-width: 320px;
         padding: 24px;
     }
 
@@ -101,5 +101,12 @@
 
     .service-card__description {
         font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-card {
+        min-width: 280px;
+        padding: 20px;
     }
 }

@@ -64,10 +64,10 @@
 .additional-services__grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 32px;
+    gap: 40px;
     align-items: flex-start;
     justify-content: center;
-    max-width: 1200px;
+    max-width: 1400px;
     width: 100%;
 }
 
@@ -118,6 +118,7 @@
 
     .additional-services__grid {
         gap: 24px;
+        max-width: 100%;
     }
 
     .additional-services__cta-text {

@@ -4,25 +4,27 @@ import "./AdditionalServicesSection.css"
 export default function AdditionalServicesSection() {
     const services = [
         {
-            title: "Nutrition Counseling",
-            description: "Personalized nutrition guidance tailored to your fitness goals, lifestyle, and dietary preferences.",
+            title: "The Elysium Plate",
+            description: "Custom plans rooted in science, backed by care. Our nutrition philosophy is grounded in real, whole foods and real human connection. We meet you where you are—whether navigating weight loss, hormone shifts, chronic conditions, or simply trying to feel better in your body.",
             features: [
-                "Custom meal planning",
-                "Supplement consultations",
-                "Body composition analysis",
-                "Metabolic assessments",
-                "Ongoing nutrition coaching"
+                "Custom meal planning with certified nutritionists",
+                "Monthly check-ins & weekly phone support",
+                "Lab results integration & doctor collaboration",
+                "In-house physician partnership",
+                "Specialized condition support (thyroid, PCOS, diabetes)",
+                "Sustainable, individualized guidance"
             ]
         },
         {
             title: "Body Tempering",
-            description: "Advanced recovery and wellness techniques using controlled temperature therapy for optimal performance.",
+            description: "Where strength and recovery meet science. Advanced soft tissue technique using weighted steel rollers to apply deep, consistent pressure to muscle groups. Proven to improve tissue quality, increase range of motion, and reduce muscle soreness.",
             features: [
-                "Contrast therapy sessions",
-                "Infrared sauna treatments",
-                "Cryotherapy applications",
-                "Recovery optimization",
-                "Stress reduction protocols"
+                "Certified specialists with massage therapy backgrounds",
+                "Release fascial adhesions & improve lymphatic flow",
+                "Enhanced muscle activation & recovery",
+                "Reduced soreness & improved range of motion",
+                "Dedicated 50-minute focused sessions",
+                "Immediate relief with long-term benefits"
             ]
         }
     ];
@@ -38,7 +40,7 @@ export default function AdditionalServicesSection() {
                         </h2>
                         <div className="additional-services__divider"></div>
                         <p className="additional-services__subtitle">
-                            Beyond personal training, we offer comprehensive wellness services to support every aspect of your health and fitness journey.
+                            Comprehensive wellness services that go beyond training—nutrition rooted in science and care, plus advanced recovery techniques to support every aspect of your health journey.
                         </p>
                     </div>
 
