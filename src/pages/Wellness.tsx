@@ -115,13 +115,6 @@ function WellnessCTA() {
                             VIEW PRICING
                         </button>
                     </div>
-
-                    <div className="wellness-cta-contact">
-                        <small className="wellness-cta-contact-text">
-                            Questions? Call us at (805) 555-0123
-                        </small>
-                    </div>
-
                 </div>
             </div>
         </div>
