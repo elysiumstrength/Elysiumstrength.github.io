@@ -1,3 +1,4 @@
+import React, { useEffect, useRef } from 'react';
 import './ExpertSpeakerSection.css';
 
 interface ExpertSpeakerCardProps {
@@ -9,15 +10,20 @@ interface ExpertSpeakerCardProps {
     time: string;
 }
 
-function ExpertSpeakerCard({ month, speaker, topic, expertise, date, time }: ExpertSpeakerCardProps) {
+function ExpertSpeakerCard({
+    month,
+    speaker,
+    topic,
+    expertise,
+    date,
+    time,
+}: ExpertSpeakerCardProps) {
     return (
         <div className="expert-speaker-card">
             <div className="expert-speaker-card-content">
                 <div className="expert-speaker-card-header">
                     <div className="expert-speaker-month-badge">
-                        <div className="expert-speaker-month-text">
-                            {month}
-                        </div>
+                        <div className="expert-speaker-month-text">{month}</div>
                     </div>
                     <div className="expert-speaker-datetime">
                         {date} • {time}
@@ -25,22 +31,14 @@ function ExpertSpeakerCard({ month, speaker, topic, expertise, date, time }: Exp
                 </div>
 
                 <div className="expert-speaker-info">
-                    <div className="expert-speaker-name">
-                        {speaker}
-                    </div>
-                    <div className="expert-speaker-expertise">
-                        {expertise}
-                    </div>
+                    <div className="expert-speaker-name">{speaker}</div>
+                    <div className="expert-speaker-expertise">{expertise}</div>
                 </div>
 
-                <div className="expert-speaker-topic">
-                    {topic}
-                </div>
+                <div className="expert-speaker-topic">{topic}</div>
 
                 <button className="expert-speaker-button">
-                    <div className="expert-speaker-button-text">
-                        RESERVE SPOT
-                    </div>
+                    <div className="expert-speaker-button-text">RESERVE SPOT</div>
                 </button>
             </div>
         </div>
@@ -48,32 +46,55 @@ function ExpertSpeakerCard({ month, speaker, topic, expertise, date, time }: Exp
 }
 
 function ExpertSpeakerSection() {
+    /* Ref so we can programmatically scroll on mobile */
+    const gridRef = useRef<HTMLDivElement | null>(null);
+
     const speakers = [
         {
-            month: "February",
-            speaker: "Dr. Sarah Mitchell",
-            expertise: "Sports Medicine Physician",
-            topic: "Injury Prevention Strategies for Athletes: Building Resilience Through Movement",
-            date: "Feb 15",
-            time: "7:00 PM"
+            month: 'February',
+            speaker: 'Dr. Sarah Mitchell',
+            expertise: 'Sports Medicine Physician',
+            topic:
+                'Injury Prevention Strategies for Athletes: Building Resilience Through Movement',
+            date: 'Feb 15',
+            time: '7:00 PM',
         },
         {
-            month: "March",
-            speaker: "Chef Marcus Rodriguez",
-            expertise: "Clinical Nutritionist",
-            topic: "Meal Prep Mastery: Fueling Performance with Whole Foods and Strategic Nutrition",
-            date: "Mar 20",
-            time: "6:30 PM"
+            month: 'March',
+            speaker: 'Chef Marcus Rodriguez',
+            expertise: 'Clinical Nutritionist',
+            topic:
+                'Meal Prep Mastery: Fueling Performance with Whole Foods and Strategic Nutrition',
+            date: 'Mar 20',
+            time: '6:30 PM',
         },
         {
-            month: "April",
-            speaker: "Dr. Amanda Chen",
-            expertise: "Recovery Specialist",
-            topic: "The Science of Recovery: How Temperature Therapy Optimizes Performance",
-            date: "Apr 18",
-            time: "7:00 PM"
-        }
+            month: 'April',
+            speaker: 'Dr. Amanda Chen',
+            expertise: 'Recovery Specialist',
+            topic:
+                'The Science of Recovery: How Temperature Therapy Optimizes Performance',
+            date: 'Apr 18',
+            time: '7:00 PM',
+        },
     ];
+
+    /* Auto‑scroll to February on initial render (mobile only) */
+    useEffect(() => {
+        const isMobile = window.innerWidth <= 768;
+        if (!isMobile || !gridRef.current) return;
+
+        const febIndex = speakers.findIndex(
+            (s) => s.month.toLowerCase() === 'february',
+        );
+        if (febIndex === -1) return;
+
+        const target = gridRef.current.children[febIndex] as HTMLElement;
+        gridRef.current.scrollTo({
+            left: target.offsetLeft,
+            behavior: 'auto', // change to 'smooth' if you prefer
+        });
+    }, []);
 
     return (
         <section className="expert-speaker-section">
@@ -92,11 +113,14 @@ function ExpertSpeakerSection() {
                     </div>
 
                     <div className="expert-speaker-description">
-                        Join us monthly for exclusive educational sessions with leading experts in wellness, nutrition, and recovery. Expand your knowledge and enhance your fitness journey.
+                        Join us monthly for exclusive educational sessions with
+                        leading experts in wellness, nutrition, and recovery.
+                        Expand your knowledge and enhance your fitness journey.
                     </div>
                 </div>
 
-                <div className="expert-speaker-grid">
+                {/* horizontally scrollable list */}
+                <div ref={gridRef} className="expert-speaker-grid">
                     {speakers.map((speaker, index) => (
                         <ExpertSpeakerCard
                             key={index}

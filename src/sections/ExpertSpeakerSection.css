@@ -31,14 +31,14 @@
 .expert-speaker-subtitle-line {
     height: 1px;
     width: 2rem;
-    background-color: #D19919;
+    background-color: #d19919;
 }
 
 .expert-speaker-subtitle-text {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 0.875rem;
-    color: #D19919;
+    color: #d19919;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -46,7 +46,7 @@
 .expert-speaker-title {
     font-family: 'Jomolhari', sans-serif;
     font-size: 2.5rem;
-    color: #D19919;
+    color: #d19919;
     line-height: 1.2;
     text-align: center;
 }
@@ -55,7 +55,7 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 1.125rem;
-    color: #F4F1EA;
+    color: #f4f1ea;
     line-height: 1.6;
     text-align: center;
 }
@@ -70,8 +70,8 @@
 
 /* Expert Speaker Card Styles */
 .expert-speaker-card {
-    background-color: #F4F1EA;
-    border: 1px solid #D19919;
+    background-color: #f4f1ea;
+    border: 1px solid #d19919;
     border-radius: 20px;
     padding: 1.5rem;
     width: 380px;
@@ -94,7 +94,7 @@
 }
 
 .expert-speaker-month-badge {
-    background-color: #D19919;
+    background-color: #d19919;
     border-radius: 12px;
     padding: 0.25rem 0.75rem;
 }
@@ -103,7 +103,7 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 0.75rem;
-    color: #F4F1EA;
+    color: #f4f1ea;
     text-align: center;
     text-transform: uppercase;
     line-height: 1.4;
@@ -136,7 +136,7 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 0.875rem;
-    color: #D19919;
+    color: #d19919;
     line-height: 1.4;
     text-align: left;
 }
@@ -151,9 +151,9 @@
 }
 
 .expert-speaker-button {
-    border: 1px solid #D19919;
+    border: 1px solid #d19919;
     background-color: transparent;
-    color: #D19919;
+    color: #d19919;
     padding: 0.5rem 1.5rem;
     border-radius: 25px;
     width: 100%;
@@ -166,8 +166,8 @@
 }
 
 .expert-speaker-button:hover {
-    background-color: #D19919;
-    color: #F4F1EA;
+    background-color: #d19919;
+    color: #f4f1ea;
 }
 
 .expert-speaker-button-text {
@@ -194,13 +194,33 @@
         font-size: 1rem;
     }
 
+    /* Horizontally scrollable list for mobile */
+    .expert-speaker-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 1.5rem;
+        overflow-x: auto; /* enables swipe scrolling */
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        padding: 0 1rem 1rem;
+        margin: 0 -1rem;
+    }
+
     .expert-speaker-card {
-        width: 100%;
-        max-width: 380px;
+        width: 320px;
+        min-width: 320px;
+        flex-shrink: 0;
+        scroll-snap-align: center;
+    }
+
+    /* Hide scrollbar but keep functionality */
+    .expert-speaker-grid::-webkit-scrollbar {
+        display: none;
     }
 
     .expert-speaker-grid {
-        gap: 1.5rem;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
 }
 
@@ -213,7 +233,14 @@
         font-size: 1.75rem;
     }
 
+    .expert-speaker-grid {
+        padding: 0 0.75rem 1rem;
+        margin: 0 -0.75rem;
+    }
+
     .expert-speaker-card {
+        width: 280px;
+        min-width: 280px;
         padding: 1rem;
     }
 }
