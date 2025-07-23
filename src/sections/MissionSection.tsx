@@ -59,10 +59,6 @@ export default function MissionSection() {
                         </div>
 
                     </div>
-
-                    {/* Background Image - Positioned absolutely to not interfere with layout */}
-                    <div className="mission-background-image" />
-
                 </div>
             </div>
         </div>

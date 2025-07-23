@@ -124,41 +124,41 @@ function WellnessCTA() {
 function Wellness() {
     const nutritionData = {
         title: "Nutrition Counseling",
-        description: "Transform your relationship with food through our evidence-based nutrition counseling program. Our certified nutritionists work with you to create sustainable eating habits that fuel your workouts, support your health goals, and fit seamlessly into your lifestyle.",
+        description: "Custom plans. Rooted in science. Backed by care. At Elysium, our nutrition philosophy centers on whole foods and whole-person support. Whether you're navigating weight loss, hormonal shifts, chronic conditions, or just aiming to feel better in your body, we build thoughtful, sustainable plans tailored specifically to you—no fads, no one-size-fits-all solutions.",
         benefits: [
-            "Personalized meal plans tailored to your goals and preferences",
-            "Improved energy levels and workout performance",
-            "Better understanding of macronutrients and timing",
-            "Sustainable habits that last beyond your program",
-            "Support for specific dietary needs and restrictions"
+            "Truly personalized meal plans built around your lifestyle and goals",
+            "Better energy, clarity, and sustainable progress",
+            "Support for conditions like thyroid issues, PCOS, and metabolic resistance",
+            "Access to in-house medical collaboration with Dr. Priti Gagneja",
+            "Care from certified nutritionists with psychology-informed guidance"
         ],
         process: [
-            "Nutritional assessment and goal setting consultation",
-            "Custom meal planning with shopping lists and prep guides",
-            "Weekly check-ins to track progress and make adjustments",
-            "Education on reading labels and making informed choices",
-            "Long-term maintenance strategies for lasting success"
+            "Initial consultation to assess your needs, history, and lab results",
+            "Custom meal plans with revisions based on feedback and progress",
+            "Weekly and monthly check-ins for accountability and alignment",
+            "Education on food choices, label reading, and eating strategies",
+            "Ongoing support and adjustments with long-term maintenance in mind"
         ],
         bgColor: "service-detail-section--light",
-        textColor: "service-detail-text--dark"
+        textColor: "service-detail-text--dark",
     };
 
     const bodyTemperingData = {
         title: "Body Tempering",
-        description: "Optimize your recovery and performance with our advanced body tempering techniques. Using controlled temperature therapy including infrared saunas, cryotherapy, and contrast baths, we help your body recover faster, reduce inflammation, and enhance overall wellness.",
+        description: "Where strength and recovery meet science. At Elysium, we use weighted steel rollers to apply deep, consistent pressure that improves mobility, reduces soreness, and enhances performance. Our experienced team integrates this technique into training or recovery to help you move better and feel your best.",
         benefits: [
-            "Accelerated muscle recovery and reduced soreness",
-            "Improved circulation and lymphatic drainage",
-            "Enhanced sleep quality and stress reduction",
-            "Increased metabolism and fat burning",
-            "Strengthened immune system function"
+            "Reduces muscle soreness and tightness",
+            "Improves mobility and joint function",
+            "Enhances recovery and performance",
+            "Promotes circulation and lymphatic flow",
+            "Relieves chronic tension and supports injury prevention"
         ],
         process: [
-            "Health screening and treatment plan consultation",
-            "Customized temperature therapy protocol design",
-            "Guided sessions with professional monitoring",
-            "Progress tracking and protocol optimization",
-            "Integration with your training and recovery routine"
+            "Assessment and targeted treatment planning",
+            "Guided body tempering by certified specialists",
+            "Focused sessions for pre-lift prep or post-workout recovery",
+            "Integration with your existing training regimen",
+            "Adjustments based on feedback and results"
         ],
         bgColor: "service-detail-section--dark",
         textColor: "service-detail-text--light",

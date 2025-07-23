@@ -57,11 +57,9 @@ export default function AdditionalServicesSection() {
                     </div>
 
                     {/* Call to Action */}
-                    <div className="additional-services__cta">
-                        <div className="additional-services__cta-text">
-                            EXPLORE ALL SERVICES
-                        </div>
-                    </div>
+                    <a href="/wellness" className="additional-services__cta-text button__secondary">
+                        EXPLORE ALL SERVICES
+                    </a>
                 </div>
             </div>
         </section>
