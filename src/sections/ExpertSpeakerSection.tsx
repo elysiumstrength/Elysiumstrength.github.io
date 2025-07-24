@@ -1,4 +1,3 @@
-import { useEffect, useRef } from 'react';
 import './ExpertSpeakerSection.css';
 
 interface ExpertSpeakerCardProps {
@@ -46,9 +45,6 @@ function ExpertSpeakerCard({
 }
 
 function ExpertSpeakerSection() {
-    /* Ref so we can programmatically scroll on mobile */
-    const gridRef = useRef<HTMLDivElement | null>(null);
-
     const speakers = [
         {
             month: 'February',
@@ -79,23 +75,6 @@ function ExpertSpeakerSection() {
         },
     ];
 
-    /* Auto‑scroll to February on initial render (mobile only) */
-    useEffect(() => {
-        const isMobile = window.innerWidth <= 768;
-        if (!isMobile || !gridRef.current) return;
-
-        const febIndex = speakers.findIndex(
-            (s) => s.month.toLowerCase() === 'february',
-        );
-        if (febIndex === -1) return;
-
-        const target = gridRef.current.children[febIndex] as HTMLElement;
-        gridRef.current.scrollTo({
-            left: target.offsetLeft,
-            behavior: 'auto', // change to 'smooth' if you prefer
-        });
-    }, []);
-
     return (
         <section className="expert-speaker-section">
             <div className="expert-speaker-container">
@@ -120,7 +99,7 @@ function ExpertSpeakerSection() {
                 </div>
 
                 {/* horizontally scrollable list */}
-                <div ref={gridRef} className="expert-speaker-grid">
+                <div className="expert-speaker-grid">
                     {speakers.map((speaker, index) => (
                         <ExpertSpeakerCard
                             key={index}
