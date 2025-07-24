@@ -32,7 +32,8 @@ section.trainers {
 
   display: flex;
   flex-direction: row;
-  overflow: hidden;   /* hide any cards that don’t fully fit */
+  overflow: hidden;
+  /* hide any cards that don't fully fit */
   align-items: center;
   justify-content: space-around;
   align-self: center;
@@ -40,7 +41,8 @@ section.trainers {
 
 /* predictable card width for the JS math */
 .trainer-card {
-  flex: 0 0 340px;    /* 300 px  -> keep in sync with JS CARD */
+  flex: 0 0 340px;
+  /* 300 px  -> keep in sync with JS CARD */
 }
 
 /* ▸ pagination dots */
@@ -64,7 +66,39 @@ section.trainers {
 }
 
 .trainer-dots .dot.active {
-  background: #B1831A;   /* gold accent */
+  background: #B1831A;
+  /* gold accent */
+}
+
+/* predictable card width for the JS math */
+.trainer-card {
+  flex: 0 0 340px;
+  /* 300 px  -> keep in sync with JS CARD */
+}
+
+/* ▸ pagination dots */
+.trainer-dots {
+  display: flex;
+  gap: 0.5rem;
+  align-self: center;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.trainer-dots .dot {
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 50%;
+  background: #d0d0d0;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.trainer-dots .dot.active {
+  background: #B1831A;
+  /* gold accent */
 }
 
 .trainers__action {
@@ -73,15 +107,73 @@ section.trainers {
 }
 
 @media (max-width: 768px) {
-    .trainers__action {
-        margin-top: 2rem;
-    }
+  section.trainers {
+    padding: 4rem 4%;
+    overflow-x: hidden;
+  }
+
+  /* Horizontally scrollable list for mobile */
+  .trainer-list {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 1.5rem;
+    overflow-x: auto;
+    /* enables swipe scrolling */
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding: 2.5rem calc(50vw - 170px) 1rem;
+    /* center cards on left/right edges */
+    margin: 0;
+    max-width: 100vw;
+    /* ensure the row stays in bounds */
+  }
+
+  .trainer-card {
+    flex: 0 0 340px;
+    width: 340px;
+    min-width: 340px;
+    scroll-snap-align: center;
+  }
+
+  /* Hide pagination dots on mobile since we're using horizontal scroll */
+  .trainer-dots {
+    display: none;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .trainer-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .trainer-list {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .trainers__action {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .trainer-list {
+    padding: 2.5rem calc(50vw - 140px) 1rem;
+    /* center cards on left/right edges for smaller screens */
+  }
+
+  .trainer-card {
+    flex: 0 0 280px;
+    width: 280px;
+    min-width: 280px;
+  }
 }
 
 /* fade animation for page switches */
 .trainer-list {
   transition: opacity 0.4s ease-in-out;
 }
+
 .trainer-list.fading {
   opacity: 0;
 }

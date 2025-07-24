@@ -67,9 +67,23 @@ export default function TrainersSection() {
 	const [visible, setVisible] = useState(TRAINERS.length); // cards per page
 	const [currentPage, setPage] = useState(0);               // zero-based
 	const [isFading, setFading] = useState(false);           // for CSS class
+	const [isMobile, setIsMobile] = useState(false);          // track if mobile
 
-	/* ────────── recalc cards-per-row on resize ────────── */
+	/* ────────── check if mobile view ────────── */
 	useEffect(() => {
+		const checkMobile = () => {
+			setIsMobile(window.innerWidth <= 768);
+		};
+
+		checkMobile();
+		window.addEventListener('resize', checkMobile);
+		return () => window.removeEventListener('resize', checkMobile);
+	}, []);
+
+	/* ────────── recalc cards-per-row on resize (desktop only) ────────── */
+	useEffect(() => {
+		if (isMobile) return; // Skip pagination logic on mobile
+
 		const calc = () => {
 			const el = rowRef.current;
 			if (!el) return;
@@ -81,12 +95,12 @@ export default function TrainersSection() {
 		const ro = new ResizeObserver(calc);  // subsequent resizes
 		rowRef.current && ro.observe(rowRef.current);
 		return () => ro.disconnect();
-	}, []);
+	}, [isMobile]);
 
-	/* ────────── derive paging data ────────── */
+	/* ────────── derive paging data (desktop only) ────────── */
 	const rawTotalPages = Math.ceil(TRAINERS.length / visible);
-	const totalPages = Math.min(rawTotalPages, 3);          // cap at 3
-	const maxTrainerCount = totalPages * visible;                // trainers exposed
+	const totalPages = isMobile ? 1 : Math.min(rawTotalPages, 3);          // cap at 3, mobile shows all
+	const maxTrainerCount = isMobile ? TRAINERS.length : totalPages * visible;                // trainers exposed
 	const trainersSubset = TRAINERS.slice(0, maxTrainerCount);
 
 	/* keep page index in-bounds whenever totals change */
@@ -94,9 +108,9 @@ export default function TrainersSection() {
 		if (currentPage >= totalPages) setPage(totalPages - 1);
 	}, [totalPages, currentPage]);
 
-	/* helper to run fade-out → page change → fade-in */
+	/* helper to run fade-out → page change → fade-in (desktop only) */
 	const goToPage = (next: number) => {
-		if (next === currentPage || isFading) return;        // ignore duplicates
+		if (next === currentPage || isFading || isMobile) return;        // ignore duplicates and mobile
 		setFading(true);
 		if (fadeRef.current !== null) {
 			clearTimeout(fadeRef.current);
@@ -107,14 +121,14 @@ export default function TrainersSection() {
 		}, FADE_MS);
 	};
 
-	/* ────────── automatic paging every 4 s × visible ────────── */
+	/* ────────── automatic paging every 8s (desktop only) ────────── */
 	useEffect(() => {
-		if (totalPages <= 1) return;                          // nothing to flip
+		if (totalPages <= 1 || isMobile) return;                          // nothing to flip or mobile
 		const id = window.setInterval(() => {
 			goToPage((currentPage + 1) % totalPages);
 		}, 8000);                                  // 8s
 		return () => clearInterval(id);
-	}, [visible, totalPages, currentPage]);                 // deps: reset on change
+	}, [visible, totalPages, currentPage, isMobile]);                 // deps: reset on change
 
 	/* cleanup for unmount */
 	useEffect(() => () => {
@@ -125,7 +139,7 @@ export default function TrainersSection() {
 
 	/* current slice */
 	const offset = currentPage * visible;
-	const trainersToShow = trainersSubset.slice(offset, offset + visible);
+	const trainersToShow = isMobile ? trainersSubset : trainersSubset.slice(offset, offset + visible);
 	const dotIndices = [...Array(totalPages).keys()];
 
 	/* ────────── render ────────── */
@@ -134,7 +148,7 @@ export default function TrainersSection() {
 			<h2 className="trainer__header">Meet Our Trainers</h2>
 
 			<div
-				className={`trainer-list ${isFading ? "fading" : ""}`}
+				className={`trainer-list ${isFading && !isMobile ? "fading" : ""}`}
 				ref={rowRef}
 			>
 				{trainersToShow.map(t => (
@@ -142,17 +156,19 @@ export default function TrainersSection() {
 				))}
 			</div>
 
-			{/* dots */}
-			<div className="trainer-dots">
-				{dotIndices.map(i => (
-					<button
-						key={i}
-						className={`dot ${i === currentPage ? "active" : ""}`}
-						onClick={() => goToPage(i)}
-						aria-label={`Show trainer set ${i + 1}`}
-					/>
-				))}
-			</div>
+			{/* dots - only show on desktop */}
+			{!isMobile && (
+				<div className="trainer-dots">
+					{dotIndices.map(i => (
+						<button
+							key={i}
+							className={`dot ${i === currentPage ? "active" : ""}`}
+							onClick={() => goToPage(i)}
+							aria-label={`Show trainer set ${i + 1}`}
+						/>
+					))}
+				</div>
+			)}
 
 			{/* CTA */}
 			<div className="trainers__action">
