@@ -1,64 +1,12 @@
 import { useRef, useEffect, useState } from "react";
 import TrainerCard from "../components/TrainerCard";
+import { TRAINERS } from "../data/trainers";
 import "./TrainersSection.css";
 
 /* ---------- constants must match the CSS ---------- */
-const CARD = 340;   // px  – width in .trainer-card
+const CARD = 340;   // px  – width in .trainer-card-container
 const GAP = 32;    // px  – 4 rem gap in .trainer-list
 const FADE_MS = 400; // duration of fade animation
-
-/* ---------- trainer data ---------- */
-const TRAINERS = [
-	{
-		id: 1,
-		imageUrl: "/images/trainer-jane.jpg",
-		name: "Jane Smith",
-		trainerType: "Strength & Conditioning Coach",
-		bio: "Passionate about helping people transform their bodies safely and sustainably through evidence-based training methods.",
-		specializations: ['Weightlifting', 'Posture Correction', 'Injury Recovery']
-	},
-	{
-		id: 2,
-		imageUrl: "/images/trainer-john.jpg",
-		name: "John Martinez",
-		trainerType: "Functional Movement Specialist",
-		bio: "Dedicated to improving movement quality and athletic performance through functional training approaches.",
-		specializations: ['Functional Training', 'Mobility Work', 'Sports Performance']
-	},
-	{
-		id: 3,
-		imageUrl: "/images/trainer-sarah.jpg",
-		name: "Sarah Chen",
-		trainerType: "Nutrition & Wellness Coach",
-		bio: "Focused on holistic wellness combining fitness training with nutritional guidance for optimal results.",
-		specializations: ['Nutrition Coaching', 'Weight Management', 'Lifestyle Coaching']
-	},
-	{
-		id: 4,
-		imageUrl: "/images/trainer-mike.jpg",
-		name: "Mike Thompson",
-		trainerType: "Powerlifting Coach",
-		bio: "Experienced powerlifting coach specializing in strength development and competitive preparation.",
-		specializations: ['Powerlifting', 'Strength Training', 'Competition Prep']
-	},
-	{
-		id: 5,
-		imageUrl: "/images/trainer-lisa.jpg",
-		name: "Lisa Rodriguez",
-		trainerType: "Rehabilitation Specialist",
-		bio: "Expert in post-injury training and movement rehabilitation to help clients return to full function.",
-		specializations: ['Injury Rehabilitation', 'Corrective Exercise', 'Pain Management']
-	},
-	{
-		id: 6,
-		imageUrl: "/images/trainer-david.jpg",
-		name: "David Park",
-		trainerType: "Olympic Weightlifting Coach",
-		bio: "Former competitive weightlifter now coaching others in the technical aspects of Olympic lifting.",
-		specializations: ['Olympic Lifting', 'Technique Development', 'Competition Training']
-	}
-	/* add more trainers as needed */
-];
 
 
 export default function TrainersSection() {
@@ -68,6 +16,7 @@ export default function TrainersSection() {
 	const [currentPage, setPage] = useState(0);               // zero-based
 	const [isFading, setFading] = useState(false);           // for CSS class
 	const [isMobile, setIsMobile] = useState(false);          // track if mobile
+	const [flippedCards, setFlippedCards] = useState<Set<number>>(new Set()); // track flipped cards
 
 	/* ────────── check if mobile view ────────── */
 	useEffect(() => {
@@ -121,6 +70,19 @@ export default function TrainersSection() {
 		}, FADE_MS);
 	};
 
+	/* helper to toggle card flip state */
+	const toggleCardFlip = (trainerId: number) => {
+		setFlippedCards(prev => {
+			const newSet = new Set(prev);
+			if (newSet.has(trainerId)) {
+				newSet.delete(trainerId);
+			} else {
+				newSet.add(trainerId);
+			}
+			return newSet;
+		});
+	};
+
 	/* ────────── automatic paging every 8s (desktop only) ────────── */
 	useEffect(() => {
 		if (totalPages <= 1 || isMobile) return;                          // nothing to flip or mobile
@@ -152,7 +114,12 @@ export default function TrainersSection() {
 				ref={rowRef}
 			>
 				{trainersToShow.map(t => (
-					<TrainerCard key={t.id} {...t} />
+					<TrainerCard
+						key={t.id}
+						{...t}
+						isFlipped={flippedCards.has(t.id)}
+						onClick={() => toggleCardFlip(t.id)}
+					/>
 				))}
 			</div>
 

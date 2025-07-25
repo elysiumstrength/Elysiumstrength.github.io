@@ -40,40 +40,9 @@ section.trainers {
 }
 
 /* predictable card width for the JS math */
-.trainer-card {
+.trainer-card-container {
   flex: 0 0 340px;
-  /* 300 px  -> keep in sync with JS CARD */
-}
-
-/* ▸ pagination dots */
-.trainer-dots {
-  display: flex;
-  gap: 0.5rem;
-  align-self: center;
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
-}
-
-.trainer-dots .dot {
-  width: 10px;
-  height: 10px;
-  border: none;
-  border-radius: 50%;
-  background: #d0d0d0;
-  cursor: pointer;
-  padding: 0;
-  transition: background-color 0.2s ease-in-out;
-}
-
-.trainer-dots .dot.active {
-  background: #B1831A;
-  /* gold accent */
-}
-
-/* predictable card width for the JS math */
-.trainer-card {
-  flex: 0 0 340px;
-  /* 300 px  -> keep in sync with JS CARD */
+  /* 340 px  -> keep in sync with JS CARD */
 }
 
 /* ▸ pagination dots */
@@ -129,7 +98,7 @@ section.trainers {
     /* ensure the row stays in bounds */
   }
 
-  .trainer-card {
+  .trainer-card-container {
     flex: 0 0 340px;
     width: 340px;
     min-width: 340px;
@@ -162,7 +131,7 @@ section.trainers {
     /* center cards on left/right edges for smaller screens */
   }
 
-  .trainer-card {
+  .trainer-card-container {
     flex: 0 0 280px;
     width: 280px;
     min-width: 280px;
