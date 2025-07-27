@@ -1,20 +1,27 @@
 ==> src/main.tsx <==
 // src/main.tsx
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { RouterProvider } from 'react-router-dom'
-import { router } from './routes/router'  // ✅ use this!
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './routes/router';
+import './styles/global.css';
 
-import './styles/global.css'
+// ✅ Restore correct path BEFORE React Router runs
+const storedRedirect = sessionStorage.getItem("redirectPath");
+if (storedRedirect) {
+  sessionStorage.removeItem("redirectPath");
+  window.history.replaceState(null, "", storedRedirect);
+}
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>
-)
+);
 ==> src/layouts/RootLayout.tsx <==
 import { Outlet } from 'react-router-dom'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
 export default function RootLayout() {
   return (
@@ -23,6 +30,7 @@ export default function RootLayout() {
       <main>
         <Outlet />
       </main>
+      <Footer />
     </>
   )
 }
@@ -35,71 +43,85 @@ export default function RootLayout() {
 }
 
 html {
-  font-size: 16px; /* Base font size (1rem = 16px) */
+  font-size: 16px;
+  /* Base font size (1rem = 16px) */
   line-height: 1.5;
   font-family: 'Montserrat', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, Helvetica, Arial, sans-serif;
   scroll-behavior: smooth;
   background-color: #fff;
   color: #222;
+
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
   padding: 0;
   font-weight: 400;
-  background-color: #f9f9f9;
+  background-color: #F8F4EE;
   min-height: 100vh;
+
+  overflow-x: hidden;
 }
 
 /* Typography */
 h1 {
   font-family: "Jomolhari", sans-serif;
-  font-size: 2.25rem; /* 36px */
+  font-size: 2.25rem;
+  /* 36px */
   font-weight: 700;
-  margin-bottom: 0.5em;
+  margin: 0;
 }
 
 h2 {
   font-family: "Jomolhari", sans-serif;
-  font-size: 1.75rem; /* 28px */
+  font-size: 2rem;
+  /* 28px */
   font-weight: 600;
-  margin-bottom: 0.5em;
+  margin: 0;
 }
 
 h3 {
-  font-size: 1.5rem; /* 24px */
+  font-size: 1.5rem;
+  /* 24px */
   font-weight: 600;
-  margin-bottom: 0.5em;
+  margin: 0;
 }
+  
 
 h4 {
-  font-size: 1.25rem; /* 20px */
+  font-size: 1.25rem;
+  /* 20px */
   font-weight: 500;
-  margin-bottom: 0.4em;
+  margin: 0;
 }
 
 h5 {
-  font-size: 1rem; /* 16px */
+  font-size: 1rem;
+  /* 16px */
   font-weight: 500;
-  margin-bottom: 0.3em;
+  margin: 0;
 }
 
 h6 {
-  font-size: 0.875rem; /* 14px */
+  font-size: 0.875rem;
+  /* 14px */
   font-weight: 500;
-  margin-bottom: 0.2em;
+  margin: 0;
 }
 
 p {
-  font-size: 1rem; /* 16px */
+  font-size: 1rem;
+  /* 16px */
   font-weight: 400;
-  margin-bottom: 1em;
   color: #333;
+  margin: 0;
 }
 
 small {
-  font-size: 0.875rem; /* 14px */
+  font-size: 0.875rem;
+  /* 14px */
   color: #666;
 }
 
@@ -113,32 +135,90 @@ a:hover {
 }
 
 /* Spacing utility classes */
-.mt-1 { margin-top: 0.25rem; }
-.mt-2 { margin-top: 0.5rem; }
-.mt-3 { margin-top: 1rem; }
-.mt-4 { margin-top: 1.5rem; }
+.mt-1 {
+  margin-top: 0.25rem;
+}
 
-.mb-1 { margin-bottom: 0.25rem; }
-.mb-2 { margin-bottom: 0.5rem; }
-.mb-3 { margin-bottom: 1rem; }
-.mb-4 { margin-bottom: 1.5rem; }
+.mt-2 {
+  margin-top: 0.5rem;
+}
 
-.pt-1 { padding-top: 0.25rem; }
-.pt-2 { padding-top: 0.5rem; }
-.pt-3 { padding-top: 1rem; }
-.pt-4 { padding-top: 1.5rem; }
+.mt-3 {
+  margin-top: 1rem;
+}
 
-.pb-1 { padding-bottom: 0.25rem; }
-.pb-2 { padding-bottom: 0.5rem; }
-.pb-3 { padding-bottom: 1rem; }
-.pb-4 { padding-bottom: 1.5rem; }
+.mt-4 {
+  margin-top: 1.5rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-3 {
+  margin-bottom: 1rem;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+.pt-1 {
+  padding-top: 0.25rem;
+}
+
+.pt-2 {
+  padding-top: 0.5rem;
+}
+
+.pt-3 {
+  padding-top: 1rem;
+}
+
+.pt-4 {
+  padding-top: 1.5rem;
+}
+
+.pb-1 {
+  padding-bottom: 0.25rem;
+}
+
+.pb-2 {
+  padding-bottom: 0.5rem;
+}
+
+.pb-3 {
+  padding-bottom: 1rem;
+}
+
+.pb-4 {
+  padding-bottom: 1.5rem;
+}
 
 /* Font weight utility classes */
-.font-light { font-weight: 300; }
-.font-normal { font-weight: 400; }
-.font-medium { font-weight: 500; }
-.font-semibold { font-weight: 600; }
-.font-bold { font-weight: 700; }
+.font-light {
+  font-weight: 300;
+}
+
+.font-normal {
+  font-weight: 400;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
 
 /* Button Reset */
 button {
@@ -154,36 +234,135 @@ button {
 }
 
 .button__primary {
-    font-family: 'Jomolhari', sans-serif;
-    color: #D19919;
-    padding: 0.25rem 1.25rem;
-    background-color: #D19919;
-    border: 1px solid #D19919;
-    border-radius: 25px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: #f4f1ea;
+  padding: 0.75rem 2rem;
+  background-color: #D19919;
+  border: 1px solid #D19919;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.button__primary:hover {
+  background-color: #c69219;
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(209, 153, 25, 0.3);
+}
+
+.button__primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(209, 153, 25, 0.2);
 }
 
 .button__secondary {
-    font-family: 'Jomolhari', sans-serif;
-    color: #D19919;
-    padding: 0.375rem 1.75rem;
-    border: 1px solid #D19919;
-    background-color: transparent;
-    border-radius: 25px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: #D19919;
+  padding: 0.75rem 2rem;
+  border: 1px solid #D19919;
+  background-color: transparent;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.button__secondary:hover {
+  color: #ffffff;
+  background-color: #D19919;
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(209, 153, 25, 0.3);
+}
+
+.button__secondary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(209, 153, 25, 0.2);
 }
 
 .button__tertiary {
-    font-family: 'Jomolhari', sans-serif;
-    color: #ffffff;
-    font-size: 1.125rem;
-    padding: .70rem 2rem;
-    width: fit-content;
+  font-family: 'Montserrat', sans-serif;
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 800;
+  padding: .70rem 2rem;
+  width: fit-content;
 
-    background-color: transparent;
-    border: 1px solid #ffffff;
-    border-radius: 100px;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  border-radius: 100px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-==> src/vite-env.d.ts <==
+.button__tertiary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.button__tertiary:hover::before {
+  left: 100%;
+}
+
+.button__tertiary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+}
+
+.button__tertiary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+}
+
+.button__gold {
+  font-family: 'Montserrat', sans-serif;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #8B6914, #B1831A);
+  border: 1px solid #8B6914;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(139, 105, 20, 0.3);
+  cursor: pointer;
+}
+
+.button__gold:hover {
+  background: linear-gradient(135deg, #6B4F0F, #8B6914);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 105, 20, 0.4);
+  text-decoration: none;
+}
+
+.button__gold .chevron {
+  transition: transform 0.3s ease;
+}
+
+.button__gold:hover .chevron {
+  transform: translateX(3px);
+}==> src/vite-env.d.ts <==
 /// <reference types="vite/client" />
 ==> src/routes/router.tsx <==
 import { createBrowserRouter } from 'react-router-dom'
@@ -193,6 +372,8 @@ import { lazy, Suspense } from 'react'
 
 const Home = lazy(() => import('../pages/Home'))
 const About = lazy(() => import('../pages/About'))
+const Trainers = lazy(() => import('../pages/Trainers'))
+const Wellness = lazy(() => import('../pages/Wellness'))
 
 export const router = createBrowserRouter([
   {
@@ -216,9 +397,58 @@ export const router = createBrowserRouter([
           </Suspense>
         ),
       },
+      {
+        path: 'trainers',
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Trainers />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'wellness',
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Wellness />
+          </Suspense>
+        ),
+      }
     ],
   },
 ])
+==> src/components/ServiceCard.tsx <==
+// src/components/ServiceCard.tsx
+import './ServiceCard.css'
+
+type ServiceCardProps = {
+    title: string
+    description: string
+    features: string[]
+}
+
+export default function ServiceCard({ title, description, features }: ServiceCardProps) {
+    return (
+        <div className="service-card">
+            <div className="service-card__content">
+                <div className="service-card__title-container">
+                    <div
+                        className="h-3 w-3 rounded-full shrink-0"
+                        style={{ backgroundColor: '#d19919' }}
+                    />
+                    <h2 className="service-card__title">{title}</h2>
+                </div>
+                <p className="service-card__description">{description}</p>
+                <ul className="service-card__features">
+                    {features.map((feature, index) => (
+                        <li key={index} className="service-card__feature">
+                            {feature}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
+    )
+}
 ==> src/components/ValueSegment.css <==
 .value-segment {
   width: 100%;
@@ -258,6 +488,50 @@ export const router = createBrowserRouter([
   color: #444;
   line-height: 1.6;
 }
+==> src/components/ValueSegmentFullWidth.tsx <==
+// src/components/ValueSegmentFullWidth.tsx
+import './ValueSegmentFullWidth.css'
+
+type ValueSegmentFullWidthProps = {
+    imageUrl: string
+    heading: string
+    text: string
+    variant: 'green' | 'beige' // Determines color scheme
+    buttonText: string
+    buttonLink: string
+    imagePosition?: 'left' | 'right' // Optional: controls image position (defaults to 'left')
+}
+
+export default function ValueSegmentFullWidth({
+    imageUrl,
+    heading,
+    text,
+    variant,
+    buttonText,
+    buttonLink,
+    imagePosition = 'left',
+}: ValueSegmentFullWidthProps) {
+    return (
+        <div className={`value-segment-full ${variant} ${imagePosition === 'right' ? 'image-right' : 'image-left'}`}>
+            <div className="value-segment-full__content">
+                <div className="value-segment-full__text">
+                    <h2>{heading}</h2>
+                    <p>{text}</p>
+                </div>
+                <a href={buttonLink} className="value-segment-full__button">
+                    {buttonText}
+                    <svg className="value-segment-full__chevron" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06Z" />
+                    </svg>
+                </a>
+            </div>
+            <div
+                className="value-segment-full__image"
+                style={{ backgroundImage: `url(${imageUrl})` }}
+            />
+        </div>
+    )
+}
 ==> src/components/TrainerCard.tsx <==
 // src/components/TrainerCard.tsx
 import './TrainerCard.css'
@@ -268,6 +542,9 @@ type TrainerCardProps = {
     trainerType: string
     bio: string
     specializations: string[]
+    isFlipped?: boolean
+    onClick?: () => void
+    extendedBio?: string
 }
 
 export default function TrainerCard({
@@ -276,74 +553,574 @@ export default function TrainerCard({
     trainerType,
     bio,
     specializations,
+    isFlipped = false,
+    onClick,
+    extendedBio
 }: TrainerCardProps) {
+    const handleCardClick = () => {
+        onClick?.();
+    };
+
     return (
-        <div className="trainer-card">
-            <img src={imageUrl} alt={`${name} photo`} className="trainer-card__img" />
-            <div className="trainer-card__content">
-                <h1 className="trainer-card__name">{name}</h1>
-                <h2 className="trainer-card__type">{trainerType}</h2>
-                <p className="trainer-card__bio">{bio}</p>
-                <ul className="trainer-card__specializations">
-                    {specializations.map((item, idx) => (
-                        <li key={idx} className="trainer-card__spec">
-                            {item}
-                        </li>
-                    ))}
-                </ul>
+        <div className="trainer-card-container">
+            <div
+                className={`trainer-card ${isFlipped ? 'trainer-card--flipped' : ''}`}
+                onClick={handleCardClick}
+            >
+                {/* Front side of the card */}
+                <div className="trainer-card__front">
+                    <img src={imageUrl} alt={`${name} photo`} className="trainer-card__img" />
+                    <div className="trainer-card__content">
+                        <h1 className="trainer-card__name">{name}</h1>
+                        <h2 className="trainer-card__type">{trainerType}</h2>
+                        <p className="trainer-card__bio">{bio}</p>
+                        <ul className="trainer-card__specializations">
+                            {specializations.map((item, idx) => (
+                                <li key={idx} className="trainer-card__spec">
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
+                        <div className="trainer-card__click-indicator">
+                            <span className="trainer-card__click-text">Click to learn more</span>
+                            <svg className="trainer-card__click-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Back side of the card */}
+                <div className="trainer-card__back">
+                    <div className="trainer-card__back-content">
+                        <div className="trainer-card__back-header">
+                            <h3>About {name}</h3>
+                            <button
+                                className="trainer-card__close-btn"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleCardClick();
+                                }}
+                                aria-label="Flip back to trainer details"
+                            >
+                                ×
+                            </button>
+                        </div>
+                        <p className="trainer-card__extended-bio">{extendedBio || bio}</p>
+                        {/* <div className="trainer-card__back-specializations">
+                            <h4>Specializations:</h4>
+                            <ul>
+                                {specializations.map((item, idx) => (
+                                    <li key={idx}>{item}</li>
+                                ))}
+                            </ul>
+                        </div> */}
+                    </div>
+                </div>
             </div>
         </div>
     )
 }
-==> src/components/TrainerCard.css <==
-.trainer-card {
+==> src/components/Footer.css <==
+section.footer {
+    padding: 4rem 10%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap-reverse;
+
+    row-gap: 6rem;
+
+    background-color: #1E2A1D;
+}
+
+.footer .company__info {
     display: flex;
     flex-direction: column;
-    max-width: 320px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
+    gap: 2rem;
+    flex: 1;
+}
+
+.footer .company__info .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .icon {
+        height: 64px;
+        width: 46px;
+        filter: invert(41%) sepia(100%) saturate(368%) hue-rotate(4deg) brightness(104%) contrast(92%);
+    }
+}
+
+.company__title {
+    font-family: 'Jomolhari', sans-serif;
+    color: #D19919;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.elysium {
+    font-size: 2.5rem;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.strength_wellness {
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.footer .contact__info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    flex: 1;
+    align-items: center;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.address {
+    display: flex;
+    flex-direction: column;
+
+    p {
+        color: #ffffff;
+        margin: 0;
+    }
+}
+
+.email p {
+    color: #ffffff;
+    margin: 0;
+}
+
+.copyright p {
+    color: #505050;
+    margin: 0;
+}
+
+.footer__links {
+    display: flex;
+    gap: 2rem;
+    flex: 1;
+    justify-content: flex-end;
+
+    .footer__category {
+        display: flex;
+        flex-direction: column;
+        gap: .375rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        font-family: "Jomolhari", sans-serif;
+        color: #505050;
+        margin: 0;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    a {
+        font-family: "Jomolhari", sans-serif;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s ease;
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    section.footer {
+        padding: 3rem 5%;
+        flex-direction: column-reverse;
+        gap: 3rem;
+    }
+
+    .footer .company__info,
+    .footer .contact__info,
+    .footer__links {
+        align-items: flex-start;
+        flex: none;
+        width: 100%;
+    }
+
+    .footer__links {
+        justify-content: flex-start;
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    section.footer {
+        padding: 2rem 5%;
+        gap: 3rem;
+    }
+
+    .footer__links {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}==> src/components/TrainerCard.css <==
+/* Container for the 3D flip effect */
+.trainer-card-container {
+    perspective: 1000px;
+    max-width: 400px;
+    min-width: 340px;
+    height: 540px;
+}
+
+.trainer-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s ease;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.trainer-card--flipped {
+    transform: rotateY(180deg);
+}
+
+/* Front and back sides of the card */
+.trainer-card__front,
+.trainer-card__back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
     overflow: hidden;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(209, 153, 25, 0.1);
+}
+
+.trainer-card__front {
+    display: flex;
+    flex-direction: column;
+}
+
+.trainer-card__back {
+    transform: rotateY(180deg);
+    background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+}
+
+/* Front side styles */
+.trainer-card__front::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.trainer-card-container:hover .trainer-card__front::before {
+    opacity: 1;
+}
+
+.trainer-card-container:hover .trainer-card:not(.trainer-card--flipped) {
+    transform: translateY(-6px);
+}
+
+.trainer-card-container:hover .trainer-card__front {
+    transition: all 0.3s ease;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.10);
+    border-color: rgba(209, 153, 25, 0.2);
 }
 
 .trainer-card__img {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    transition: transform 0.3s ease;
+    background-color: #f0f0f0;
+    /* Fallback background */
+}
+
+.trainer-card-container:hover .trainer-card__img {
+    transform: scale(1.02);
 }
 
 .trainer-card__content {
-    padding: 1rem;
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .trainer-card__name {
     font-size: 1.5rem;
     font-weight: 700;
-    margin: 0;
+    margin: 0 0 0.5rem 0;
+    color: #222;
+    font-family: "Jomolhari", sans-serif;
 }
 
 .trainer-card__type {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: #666;
-    margin: 0.25rem 0 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #D19919;
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .trainer-card__bio {
     font-size: 0.95rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
+    color: #555;
+    line-height: 1.6;
+    flex: 1;
 }
 
 .trainer-card__specializations {
-    list-style: disc;
-    padding-left: 1.25rem;
-    margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
 }
 
 .trainer-card__spec {
-    font-size: 0.9rem;
-    margin-bottom: 0.25rem;
+    font-size: 0.8rem;
+    color: #1E2A1D;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    border: 1px solid rgba(30, 42, 29, 0.2);
+    font-weight: 500;
+    margin: 0;
+    transition: all 0.2s ease;
+}
+
+.trainer-card__click-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: linear-gradient(135deg, rgba(209, 153, 25, 0.05) 0%, rgba(209, 153, 25, 0.1) 100%);
+    border: 1px solid rgba(209, 153, 25, 0.2);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+    margin-top: auto;
+}
+
+.trainer-card-container:hover .trainer-card__click-indicator {
+    background: linear-gradient(135deg, rgba(209, 153, 25, 0.1) 0%, rgba(209, 153, 25, 0.15) 100%);
+    border-color: rgba(209, 153, 25, 0.3);
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+.trainer-card__click-text {
+    font-size: 0.85rem;
+    color: #D19919;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.trainer-card__click-arrow {
+    color: #D19919;
+    transition: transform 0.3s ease;
+}
+
+.trainer-card-container:hover .trainer-card__click-arrow {
+    transform: translateX(2px) translateY(-2px);
+}
+
+/* Back side styles */
+.trainer-card__back {
+    display: flex;
+    flex-direction: column;
+}
+
+.trainer-card__back::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #D19919 0%, #f4d03f 100%);
+    z-index: 1;
+}
+
+.trainer-card__back-content {
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.trainer-card__back-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.trainer-card__back-header h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: #222;
+    font-family: "Jomolhari", sans-serif;
+}
+
+.trainer-card__close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #666;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+
+.trainer-card__close-btn:hover {
+    background-color: rgba(209, 153, 25, 0.1);
+    color: #D19919;
+    transform: scale(1.1);
+}
+
+.trainer-card__close-btn:focus {
+    outline: 2px solid #D19919;
+    outline-offset: 2px;
+}
+
+.trainer-card__extended-bio {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 1.5rem;
+    flex: 1;
+}
+
+.trainer-card__back-specializations {
+    margin-top: auto;
+}
+
+.trainer-card__back-specializations h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #D19919;
+    margin: 0 0 0.75rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.trainer-card__back-specializations ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.trainer-card__back-specializations li {
+    font-size: 0.85rem;
+    color: #1E2A1D;
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    border: 1px solid rgba(30, 42, 29, 0.2);
+    font-weight: 500;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .trainer-card-container {
+        max-width: 350px;
+        height: 500px;
+    }
+
+    .trainer-card__back-content {
+        padding: 1.5rem;
+    }
+
+    .trainer-card__back-header h3 {
+        font-size: 1.3rem;
+    }
+
+    .trainer-card__extended-bio {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .trainer-card-container {
+        max-width: 300px;
+        height: 450px;
+    }
+
+    .trainer-card__content {
+        padding: 1.25rem;
+    }
+
+    .trainer-card__back-content {
+        padding: 1.25rem;
+    }
+
+    .trainer-card__back-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .trainer-card__extended-bio {
+        font-size: 0.9rem;
+    }
+
+    .trainer-card__spec {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.6rem;
+    }
+
+    .trainer-card__back-specializations li {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.7rem;
+    }
+
+    .trainer-card__close-btn {
+        font-size: 1.3rem;
+        width: 20px;
+        height: 20px;
+        margin-left: 0.5rem;
+    }
 }==> src/components/ValueSegement.tsx <==
 // src/components/ValueSegment.tsx
 import './ValueSegment.css'
@@ -381,7 +1158,7 @@ export default function ValueSegment({
     top: 0;
     z-index: 1000;
     background-color: #1E2A1D;
-    padding: 1.5rem 10%;
+    padding: 1rem 10%;
 }
 
 .navbar__container {
@@ -392,7 +1169,7 @@ export default function ValueSegment({
 
 .navbar__logo {
     font-family: 'Jomolhari', sans-serif;
-    font-weight: normal;
+    font-weight: 500;
     font-size: 2rem;
     color: #D19919;
     text-decoration: none;
@@ -408,8 +1185,10 @@ export default function ValueSegment({
 }
 
 .navbar__icon {
-    width: 32px;
+    height: 48px;
+    width: 34px;
     transition: fill 0.2s ease;
+    filter: invert(41%) sepia(100%) saturate(368%) hue-rotate(4deg) brightness(104%) contrast(92%);
 }
 
 .navbar__title {
@@ -419,26 +1198,80 @@ export default function ValueSegment({
     justify-content: center;
 }
 
-.elysium {
+.navbar__title .elysium {
+    font-size: 1.75rem;
+    font-weight: 500;
     line-height: 1;
 }
 
-.strength_wellness {
-    font-size: 1rem;
+.navbar__title .strength_wellness {
+    font-size: .875rem;
     line-height: 1;
+}
+
+.left__nav,
+.navbar__nav,
+.navbar__spacer {
+    display: flex;
+    flex: 1 0 0;
+    align-items: center;
+}
+
+.left__nav {
+    min-width: 140px;
+}
+
+.right__nav {
+    min-width: 356px;
 }
 
 .navbar__nav {
-    display: flex;
-    gap: 3rem;
+    justify-content: flex-end;
+    gap: 2rem;
 }
 
-nav .button__tertiary {
+.navbar__spacer {
+    display: flex;
+    justify-content: flex-end;
+
+    .button__tertiary {
+        margin-right: 2rem;
+    }
+}
+
+nav.left__nav .button__tertiary,
+.navbar__spacer .button__tertiary {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.375rem 1.125rem;
+}
+
+nav.right__nav .button__tertiary {
     border: none;
+    font-size: 1rem;
+    font-weight: 600;
     padding: 0;
 }
 
+/* Remove background animations for right nav buttons */
+nav.right__nav .button__tertiary::before {
+    display: none;
+}
+
+nav.right__nav .button__tertiary:hover {
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    /* Keep other hover effects but remove background animation */
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
 /* Hamburger menu styles */
+.navbar__spacer {
+    display: none;
+}
+
 .navbar__hamburger {
     display: none;
     flex-direction: column;
@@ -462,7 +1295,11 @@ nav .button__tertiary {
 }
 
 /* Responsive styles */
-@media (max-width: 768px) {
+@media (max-width: 1480px) {
+    .navbar {
+        padding: 1rem 5%;
+    }
+
     .navbar__nav {
         position: absolute;
         top: 100%;
@@ -471,8 +1308,8 @@ nav .button__tertiary {
         flex-direction: column;
         align-items: flex-end;
         gap: 0;
-        width: 180px;
-        padding: 1rem 0;
+        width: fit-content;
+        padding: 1rem 5%;
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
         opacity: 0;
         pointer-events: none;
@@ -488,7 +1325,6 @@ nav .button__tertiary {
 
     .navbar__nav .button__tertiary {
         width: 100%;
-        padding: 0.75rem 1.5rem;
         text-align: right;
         color: #D19919;
         background: none;
@@ -496,32 +1332,250 @@ nav .button__tertiary {
         font-size: 1rem;
     }
 
+    .left__nav {
+        display: none;
+    }
+
+    .navbar__spacer {
+        display: flex;
+    }
+
     .navbar__hamburger {
         display: flex;
     }
 }
 
-/* Hide hamburger on desktop */
-@media (min-width: 769px) {
-    .navbar__hamburger {
+@media (max-width: 480px) {
+    .left__nav {
         display: none;
     }
 
-    .navbar__nav {
-        position: static;
-        flex-direction: row;
-        align-items: center;
-        opacity: 1 !important;
-        pointer-events: auto !important;
-        transform: none !important;
-        background: none;
-        box-shadow: none;
-        width: auto;
-        padding: 0;
+    .navbar__spacer .button__tertiary {
+        display: none;
+    }
+}
+
+==> src/components/Footer.tsx <==
+import icon from "../assets/elysium_icon.png"
+import "./Footer.css"
+
+export default function Footer() {
+    return (
+        <section className="footer">
+            <div className="company__info">
+                <div className="logo">
+                    <img src={icon} alt="Elysium Icon" className="icon" />
+                    <div className="company__title">
+                        <div className='elysium'>ELYSIUM</div>
+                        <div className='strength_wellness'>Strength & Wellness</div>
+                    </div>
+                </div>
+                <div className="copyright">
+                    <p>&copy; 2023 Elysium Strength & Wellness. All rights reserved.</p>
+                </div>
+            </div>
+            <div className="contact__info">
+                <div className="contact">
+                    <div className="address">
+                        <p>123 Fitness Lane</p>
+                        <p>Wellness City, ST 12345</p>
+                    </div>
+                    <div className="email">
+                        <p>elysiumsw@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div className="footer__links">
+                <div className="footer__category follow__us">
+                    <h3>Follow</h3>
+                    <ul className="social__links">
+                        <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                        <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                        <li><a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+                    </ul>
+                </div>
+                <div className="footer__category contant__us">
+                    <h3>Contact</h3>
+                    <ul className="contact__links">
+                        <li><a href="" target="_blank" rel="noopener noreferrer">Appointment</a></li>
+                    </ul>
+                </div>
+                <div className="footer__category learn">
+                    <h3>Learn</h3>
+                    <ul className="learn__links">
+                        <li><a href="" target="_blank" rel="noopener noreferrer">About Us</a></li>
+                        <li><a href="" target="_blank" rel="noopener noreferrer">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    )
+}
+==> src/components/ValueSegmentFullWidth.css <==
+/* ValueSegmentFullWidth.css */
+.value-segment-full {
+    width: 100vw;
+    min-height: 50vh;
+    display: flex;
+    position: relative;
+}
+
+.value-segment-full__content {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8vw 10vw 8vw 10vw;
+    position: relative;
+}
+
+.value-segment-full__text {
+    width: 100%;
+    text-align: left;
+}
+
+.value-segment-full__text h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+    font-weight: 600;
+    white-space: pre-line;
+}
+
+.value-segment-full__text p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+.value-segment-full__image {
+    width: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Gold button styles */
+.value-segment-full__button {
+    position: relative;
+    align-self: flex-end;
+    background: linear-gradient(135deg, #8B6914, #B1831A);
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(139, 105, 20, 0.3);
+    border: 1px solid #8B6914;
+}
+
+.value-segment-full__button:hover {
+    background: linear-gradient(135deg, #6B4F0F, #8B6914);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(139, 105, 20, 0.4);
+}
+
+.value-segment-full__chevron {
+    transition: transform 0.3s ease;
+}
+
+.value-segment-full__button:hover .value-segment-full__chevron {
+    transform: translateX(3px);
+}
+
+/* Image positioning classes */
+.value-segment-full.image-left {
+    flex-direction: row;
+}
+
+.value-segment-full.image-left .value-segment-full__content {
+    order: 2;
+}
+
+.value-segment-full.image-left .value-segment-full__image {
+    order: 1;
+}
+
+.value-segment-full.image-right {
+    flex-direction: row;
+}
+
+.value-segment-full.image-right .value-segment-full__content {
+    order: 1;
+}
+
+.value-segment-full.image-right .value-segment-full__image {
+    order: 2;
+}
+
+/* Green variant - color scheme only */
+.value-segment-full.green .value-segment-full__content {
+    background-color: #2d4a2d;
+    /* Dark green */
+}
+
+.value-segment-full.green .value-segment-full__text h2 {
+    color: #D19919;
+}
+
+.value-segment-full.green .value-segment-full__text p {
+    color: #e8f4e6;
+}
+
+/* Beige variant - color scheme only */
+.value-segment-full.beige .value-segment-full__content {
+    background-color: #F4F1EA;
+    /* Warm beige */
+}
+
+.value-segment-full.beige .value-segment-full__text h2 {
+    color: #2c2c2c;
+}
+
+.value-segment-full.beige .value-segment-full__text p {
+    color: #4a4a4a;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .value-segment-full {
+        flex-direction: column !important;
+        min-height: auto;
+    }
+
+    .value-segment-full__content,
+    .value-segment-full__image {
+        width: 100% !important;
+        order: unset !important;
+    }
+
+    .value-segment-full__image {
+        min-height: 300px;
+    }
+
+
+    .value-segment-full__text h2 {
+        font-size: 2rem;
+    }
+
+    .value-segment-full__text p {
+        font-size: 1rem;
+    }
+
+    .value-segment-full__button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
     }
 }==> src/components/Navbar.tsx <==
 // src/components/Navbar.tsx
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import './Navbar.css'
 
@@ -529,10 +1583,27 @@ import icon from '../assets/elysium_icon.png'
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false)
+    const [isMobile, setIsMobile] = useState(false)
+
+    useEffect(() => {
+        const checkScreenSize = () => {
+            setIsMobile(window.innerWidth <= 480)
+        }
+
+        checkScreenSize()
+        window.addEventListener('resize', checkScreenSize)
+
+        return () => window.removeEventListener('resize', checkScreenSize)
+    }, [])
 
     return (
         <header className="navbar">
             <div className="navbar__container">
+                <nav className="left__nav">
+                    <a href="https://elysium.pushpress.com/landing/calendar" className="button__tertiary" onClick={() => setMenuOpen(false)}>
+                        CONSULT
+                    </a>
+                </nav>
                 <Link to="/" className="navbar__logo">
                     <img src={icon} alt="Elysium Icon" className="navbar__icon" />
                     <div className="navbar__title">
@@ -540,387 +1611,2716 @@ export default function Navbar() {
                         <div className='strength_wellness'>Strength & Wellness</div>
                     </div>
                 </Link>
-                <button
-                    className="navbar__hamburger"
-                    aria-label="Toggle navigation"
-                    onClick={() => setMenuOpen((open) => !open)}
-                >
-                    <span className="navbar__hamburger-bar"></span>
-                    <span className="navbar__hamburger-bar"></span>
-                    <span className="navbar__hamburger-bar"></span>
-                </button>
-                <nav className={`navbar__nav${menuOpen ? ' navbar__nav--open' : ''}`}>
-                    <NavLink to="/" end className="button__tertiary" onClick={() => setMenuOpen(false)}>
-                        Home
+                <nav className="navbar__spacer">
+                    <a href="https://elysium.pushpress.com/landing/calendar" className="button__tertiary" onClick={() => setMenuOpen(false)}>
+                        CONSULT
+                    </a>
+                    <button
+                        className="navbar__hamburger"
+                        aria-label="Toggle navigation"
+                        onClick={() => setMenuOpen((open) => !open)}
+                    >
+                        <span className="navbar__hamburger-bar"></span>
+                        <span className="navbar__hamburger-bar"></span>
+                        <span className="navbar__hamburger-bar"></span>
+                    </button>
+                </nav>
+                <nav className={`right__nav navbar__nav${menuOpen ? ' navbar__nav--open' : ''}`}>
+                    {isMobile && (
+                        <a href="https://elysium.pushpress.com/landing/calendar" className="button__tertiary" onClick={() => setMenuOpen(false)}>
+                            CONSULT
+                        </a>
+                    )}
+                    <NavLink to="/trainers" className="button__tertiary" onClick={() => setMenuOpen(false)}>
+                        TRAINERS
                     </NavLink>
-                    <NavLink to="/Consult" className="button__tertiary" onClick={() => setMenuOpen(false)}>
-                        Consult
+                    <NavLink to="/wellness" className="button__tertiary" onClick={() => setMenuOpen(false)}>
+                        WELLNESS
+                    </NavLink>
+                    <NavLink to="/community" className="button__tertiary" onClick={() => setMenuOpen(false)}>
+                        COMMUNITY
+                    </NavLink>
+                    <NavLink to="/pricing" className="button__tertiary" onClick={() => setMenuOpen(false)}>
+                        PRICING
                     </NavLink>
                 </nav>
             </div>
         </header>
     )
 }
-==> src/pages/Home.css <==
-section {
-	width: 100%;
-	padding: 4rem 10%;
+==> src/components/ServiceCard.css <==
+/* src/components/ServiceCard.css */
+.service-card {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid #d19919;
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 420px;
+    flex: 1;
+    min-width: 380px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.separator {
-	width: 120px;
-	height: 2px;
-	background-color: #ccc;
-	margin: 2rem auto;
-	border: none;
-	opacity: 0.5;
-	border-radius: 1px;
-	display: block;
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(209, 153, 25, 0.2);
 }
 
-section.home {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
+.service-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: 100%;
+}
 
-	gap: 10rem;
+.service-card__title-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
-	width: 100%;
-	height: 100vh;
-	padding: 4rem 10%;
+.service-card__title-container .h-3 {
+    height: 12px;
+}
 
-	background-image: linear-gradient(115deg,
-			rgba(0, 0, 0, .80) 45%,
-			rgba(0, 0, 0, 0.35)),
-		url(../assets/landing_image.png);
-	background-size: cover;
-	background-position: center;
-	background-position: 50% 2rem;
+.service-card__title-container .w-3 {
+    width: 12px;
+}
+
+.service-card__title-container .rounded-full {
+    border-radius: 50%;
+}
+
+.service-card__title-container .shrink-0 {
+    flex-shrink: 0;
+}
+
+.service-card__title {
+    font-weight: bold;
+    font-size: 24px;
+    color: #d19919;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.service-card__description {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #f4f1ea;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.service-card__features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.service-card__feature {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #f4f1ea;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 20px;
+}
+
+.service-card__feature::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #d19919;
+    font-weight: bold;
 }
 
 @media (max-width: 768px) {
-	section.home {
-		padding: 2rem 5%;
-	}
+    .service-card {
+        max-width: 100%;
+        min-width: 400px;
+        width: 400px;
+        flex-shrink: 0;
+        scroll-snap-align: center;
+        padding: 24px;
+    }
 
-	.home__hero {
-		text-align: center;
-		align-items: center;
-	}
+    .service-card__title {
+        font-size: 20px;
+    }
+
+    .service-card__description {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-card {
+        min-width: 340px;
+        width: 340px;
+        padding: 20px;
+    }
+}==> src/sections/CTASection.tsx <==
+import "./CTASection.css"
+
+export default function CTASection() {
+    return (
+        <section className="cta">
+            <div className="cta__image"></div>
+            <div className="cta__content">
+                <div className="cta__column">
+                    <h2>Start Your Journey<br />At ELYSIUM</h2>
+                    <p>At Elysium we believe that you deserve to live your healthiest life at a fair price. Our expert trainers, nutritionist, and body temperers are committed to you and your fitness goals. no matter where you are in your fitness journey we have the bases covered all in our state of the art facility.</p>
+                    <a href="https://elysium.pushpress.com/landing/calendar" className="button__tertiary">SCHEDULE FREE CONSULTATION</a>
+                </div>
+                <div className="cta__column cta__steps">
+                    <div className="cta__step">
+                        <span className="cta__step-number">01</span>
+                        <div>
+                            <h4>Schedule a Consultation</h4>
+                            <p>Discuss your fitness and lifestyle goals</p>
+                        </div>
+                    </div>
+                    <div className="cta__step">
+                        <span className="cta__step-number">02</span>
+                        <div>
+                            <h4>Pick a Trainer</h4>
+                            <p>Browse trainers and find one who you think is best fit for you</p>
+                        </div>
+                    </div>
+                    <div className="cta__step">
+                        <span className="cta__step-number">03</span>
+                        <div>
+                            <h4>Find your home, until ELYSIUM</h4>
+                            <p>Show up and work out!!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
+}
+==> src/sections/CTASection.css <==
+@import './sections.css';
+
+section.cta {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    background-image: url("../assets/background_weights.png");
+    background-repeat: no-repeat;
+    background-position: 0% -80%;
+}
+
+.cta__image {
+    min-width: 800px;
+    height: 540px;
+    position: relative;
+    z-index: 1;
+    background-image: url("../assets/Gym_Interior.jpg");
+    background-size: cover;
+
+}
+
+.cta__content {
+    width: max-content;
+    /* min-width: 1000px; */
+    background-color: #2d4a2d;
+    padding: 3.5rem 4% 4rem 7.5%;
+    margin-left: -25%;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+}
+
+.cta__column {
+    max-width: 600px;
+    min-width: 300px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #ffffff;
+
+}
+
+.cta__column h2 {
+    color: #D19919;
+    margin: 0;
+    margin-bottom: 1.5rem;
+    font-size: 2.25rem;
+    line-height: 1.2;
+}
+
+.cta__column h4 {
+    color: #D19919;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.cta__column p {
+    color: #ffffff;
+    margin: 0;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.cta__column .button__tertiary {
+    display: inline-block;
+    width: fit-content;
+    white-space: normal;
+    text-align: center;
+}
+
+.cta__steps {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.cta__step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.cta__step-number {
+    background-color: #D19919;
+    color: #1E2A1D;
+    font-weight: 700;
+    font-size: 0.875rem;
+    padding: 0.375rem 0.75rem;
+    border-radius: 20px;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+}
+
+.cta__step div {
+    flex: 1;
+}
+
+.cta__step p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #cccccc;
+}
+
+/* Responsive design */
+@media (max-width: 1400px) {
+    .cta__content {
+        margin-left: -30%;
+        /* Increase overlap slightly */
+    }
+
+    .cta__image {
+        height: 600px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .cta__content {
+        margin-left: -40%;
+        /* More overlap */
+    }
+
+    .cta__image {
+        height: 640px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .cta__content {
+        margin-left: -50%;
+        /* Further overlap */
+    }
+
+    .cta__image {
+        height: 680px;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    section.cta {
+        width: 100vw;
+        min-height: 50vh;
+        padding: 0;
+        display: flex;
+        position: relative;
+        align-items: stretch;
+    }
+
+    .cta__image {
+        width: 50%;
+        min-width: unset;
+        height: auto;
+        min-height: 50vh;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .cta__content {
+        width: 50%;
+        margin-left: 0;
+        padding: 8vw 10vw;
+        gap: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .cta__column {
+        width: 100%;
+        max-width: none;
+        min-width: unset;
+        flex: unset;
+    }
+}
+
+@media (max-width: 768px) {
+    section.cta {
+        flex-direction: column-reverse;
+        min-height: auto;
+        padding: 0;
+    }
+
+    .cta__content {
+        flex-direction: column;
+        padding: 3rem 5%;
+        gap: 2rem;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .cta__image {
+        width: 100%;
+        height: auto;
+        min-height: 400px;
+    }
+
+    .cta__column {
+        max-width: 100%;
+        min-width: 100%;
+    }
+
+    .cta__column h2 {
+        font-size: 1.75rem;
+    }
+
+    .cta__steps {
+        gap: 1.5rem;
+    }
+
+    .cta__step {
+        gap: 0.75rem;
+    }
+}==> src/sections/ValuesSection.css <==
+@import './sections.css';
+
+section.values-full-width {
+    padding: 0;
+}==> src/sections/MissionSection.tsx <==
+import "./MissionSection.css"
+
+// src/sections/MissionSection.tsx
+export default function MissionSection() {
+    return (
+        <div className="mission-section">
+            <div className="mission-container">
+                <div className="mission-content-wrapper">
+
+                    {/* Decorative Elements */}
+                    <div className="mission-decorative-header">
+                        <div className="mission-decorative-elements">
+                            <div className="mission-line-left" />
+                            <div className="mission-dot" />
+                            <div className="mission-line-right" />
+                        </div>
+                    </div>
+
+                    {/* Main Mission Statement */}
+                    <div className="mission-main-content">
+
+                        {/* Overline */}
+                        <div className="mission-overline-container">
+                            <div className="mission-overline-line" />
+                            <div className="mission-overline-text">
+                                About Us
+                            </div>
+                            <div className="mission-overline-line" />
+                        </div>
+
+                        {/* Main Headline */}
+                        <h2 className="mission-headline">
+                            What is Elysium?
+                        </h2>
+
+                        {/* Large Quote Marks */}
+                        <div className="mission-quote-container">
+                            <div className="mission-quote-left">
+                                "
+                            </div>
+                            <div className="mission-quote-right">
+                                "
+                            </div>
+
+                            {/* Mission Statement */}
+                            <p className="mission-statement">
+                                We're a team of passionate, professional trainers united by diverse expertise and a shared commitment to growth. From former pro athletes to lifelong fitness specialists, our coaches bring a wide range of experience to the table. We set a high standard—holding monthly knowledge-sharing sessions and requiring continuing education every year—so our team is always evolving. It's how we ensure we stay at the top of our game, so you can reach the top of yours.
+                            </p>
+                        </div>
+
+                        {/* Call to Action */}
+                        <div className="mission-cta-container">
+                            <p className="mission-cta-text">
+                                Learn more about our story, values, and commitment to your success.
+                            </p>
+                            <a href="/about" className="mission-cta-button button__secondary">
+                                ABOUT US
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+==> src/sections/README.md <==
+# Sections Directory
+
+This directory contains modularized sections of the Home page, broken down for better maintainability and reusability.
+
+## Structure
+
+Each section includes:
+- **Component file** (`.tsx`) - React component logic
+- **Styles file** (`.css`) - Section-specific styles
+- **Common styles** (`sections.css`) - Shared section styles
+
+## Available Sections
+
+### HeroSection
+- Main landing section with hero text and call-to-action
+- Includes navigation options and scroll indicators
+- Background image and overlay styling
+
+### CTASection  
+- Call-to-action section with journey steps
+- Two-column layout with image and content
+- Step-by-step process display
+
+### TrainersSection
+- Displays featured trainers using TrainerCard components
+- Grid layout for trainer cards
+- "View All Trainers" action button
+
+### ValuesSection
+- Full-width value segments showcasing company values
+- Uses ValueSegmentFullWidth components
+- Alternating layouts and color schemes
+
+### TestimonialsSection
+- Client testimonials display section
+- Simple layout with header, text, and action button
+- Styled with brand colors
+
+## Usage
+
+```tsx
+import {
+    HeroSection,
+    CTASection,
+    TrainersSection,
+    ValuesSection,
+    TestimonialsSection
+} from "../sections"
+
+export default function Home() {
+    return (
+        <>
+            <HeroSection />
+            <CTASection />
+            <TrainersSection />
+            <ValuesSection />
+            <TestimonialsSection />
+        </>
+    )
+}
+```
+
+## Benefits of this structure
+
+1. **Modularity** - Each section is self-contained
+2. **Maintainability** - Easy to modify individual sections
+3. **Reusability** - Sections can be reused on other pages
+4. **Code organization** - Clear separation of concerns
+5. **Easier testing** - Individual sections can be tested independently
+==> src/sections/TestimonialsSection.tsx <==
+import "./TestimonialsSection.css"
+
+interface TestimonialCardProps {
+    quote: string;
+    name: string;
+    age: string;
+    achievement: string;
+    rating: number;
+    duration: string;
+}
+
+function TestimonialCard({ quote, name, age, achievement, rating, duration }: TestimonialCardProps) {
+    return (
+        <div className="testimonial-card">
+            <div className="testimonial-card__content">
+                <div className="testimonial-card__quote">"{quote}"</div>
+                <div className="testimonial-card__rating">
+                    {[...Array(rating)].map((_, i) => (
+                        <span key={i} className="star">★</span>
+                    ))}
+                </div>
+                <div className="testimonial-card__author">
+                    <div className="testimonial-card__name">{name}, {age}</div>
+                    <div className="testimonial-card__achievement">{achievement}</div>
+                    <div className="testimonial-card__duration">{duration}</div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export default function TestimonialsSection() {
+    const testimonials = [
+        {
+            quote: "Elysium transformed my approach to fitness. The personal attention and tailored nutrition plan helped me lose 35 pounds while building lean muscle. I've never felt stronger or more confident in my body.",
+            name: "Sarah Martinez",
+            age: "34",
+            achievement: "Lost 35 lbs • Gained 8 lbs muscle",
+            rating: 5,
+            duration: "8 months"
+        },
+        {
+            quote: "After my knee surgery, I thought my athletic days were over. The physical therapy and specialized training at Elysium got me back to playing tennis competitively. The team here truly cares about your goals.",
+            name: "Mike Thompson",
+            age: "42",
+            achievement: "Returned to competitive tennis",
+            rating: 5,
+            duration: "1 year"
+        },
+        {
+            quote: "The body tempering and recovery sessions have been game-changers for my training. I'm hitting PRs I never thought possible and recovering faster than ever. The holistic approach here is unmatched.",
+            name: "Jessica Chen",
+            age: "28",
+            achievement: "Achieved lifetime fitness goals",
+            rating: 5,
+            duration: "6 months"
+        },
+    ];
+
+    return (
+        <section className="testimonials">
+            <div className="testimonials__container">
+
+                {/* Section Header */}
+                <div className="testimonials__header-section">
+                    <div className="testimonials__subtitle">
+                        <div className="testimonials__line"></div>
+                        <span className="testimonials__subtitle-text">Success Stories</span>
+                        <div className="testimonials__line"></div>
+                    </div>
+
+                    <h2 className="testimonials__title">Client Testimonials</h2>
+
+                    <p className="testimonials__description">
+                        Real transformations from real people. Discover how our comprehensive approach to fitness has helped clients achieve their goals and transform their lives.
+                    </p>
+                </div>
+
+                {/* Success Metrics */}
+                <div className="testimonials__metrics">
+                    <div className="metric">
+                        <div className="metric__number">200+</div>
+                        <div className="metric__label">Clients Transformed</div>
+                    </div>
+
+                    <div className="metric__divider"></div>
+
+                    <div className="metric">
+                        <div className="metric__number">4.9★</div>
+                        <div className="metric__label">Average Rating</div>
+                    </div>
+
+                    <div className="metric__divider"></div>
+
+                    <div className="metric">
+                        <div className="metric__number">95%</div>
+                        <div className="metric__label">Goal Achievement Rate</div>
+                    </div>
+                </div>
+
+                {/* Testimonials Grid */}
+                <div className="testimonials__grid">
+                    {testimonials.map((testimonial, index) => (
+                        <TestimonialCard
+                            key={index}
+                            quote={testimonial.quote}
+                            name={testimonial.name}
+                            age={testimonial.age}
+                            achievement={testimonial.achievement}
+                            rating={testimonial.rating}
+                            duration={testimonial.duration}
+                        />
+                    ))}
+                </div>
+
+                {/* Call to Action */}
+                <div className="testimonials__cta">
+                    <p className="testimonials__cta-text">
+                        Ready to start your transformation story?
+                    </p>
+                    <button className="testimonials__cta-button">
+                        Schedule Your Consultation
+                    </button>
+                </div>
+
+            </div>
+        </section>
+    )
+}
+==> src/sections/ExpertSpeakerSection.css <==
+/* Expert Speaker Section Styles */
+.expert-speaker-section {
+    background-color: #2d4a2d;
+    width: 100%;
+    position: relative;
+    padding: 4rem 4%;
+
+
+    overflow-x: hidden;
+}
+
+.expert-speaker-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 3rem;
+}
+
+.expert-speaker-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    text-align: center;
+    max-width: 800px;
+}
+
+.expert-speaker-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.expert-speaker-subtitle-line {
+    height: 1px;
+    width: 2rem;
+    background-color: #d19919;
+}
+
+.expert-speaker-subtitle-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: #d19919;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.expert-speaker-title {
+    font-family: 'Jomolhari', sans-serif;
+    font-size: 2.5rem;
+    color: #d19919;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.expert-speaker-description {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: #f4f1ea;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.expert-speaker-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: start;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+/* Expert Speaker Card Styles */
+.expert-speaker-card {
+    background-color: #f4f1ea;
+    border: 1px solid #d19919;
+    border-radius: 20px;
+    padding: 1.5rem;
+    flex-shrink: 0;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    width: calc(50% - 1rem);
+    max-width: 380px;
+    min-width: 320px;
+}
+
+.expert-speaker-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.expert-speaker-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.expert-speaker-month-badge {
+    background-color: #d19919;
+    border-radius: 12px;
+    padding: 0.25rem 0.75rem;
+}
+
+.expert-speaker-month-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: #f4f1ea;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1.4;
+}
+
+.expert-speaker-datetime {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: #666;
+    text-align: right;
+    line-height: 1.4;
+}
+
+.expert-speaker-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.expert-speaker-name {
+    font-family: 'Jomolhari', sans-serif;
+    font-size: 1.25rem;
+    color: #232323;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.expert-speaker-expertise {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: #d19919;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.expert-speaker-topic {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #232323;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.expert-speaker-button {
+    border: 1px solid #d19919;
+    background-color: transparent;
+    color: #d19919;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.expert-speaker-button:hover {
+    background-color: #d19919;
+    color: #f4f1ea;
+}
+
+.expert-speaker-button-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-align: center;
+    white-space: nowrap;
+    line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 1028px) {
+    .expert-speaker-section {
+        padding: 4rem 4%;
+    }
+
+    .expert-speaker-grid {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .expert-speaker-container {
+        padding: 2rem 1rem;
+        gap: 2rem;
+    }
+
+    .expert-speaker-title {
+        font-size: 2rem;
+    }
+
+    .expert-speaker-description {
+        font-size: 1rem;
+    }
+
+    /* Horizontally scrollable list for mobile */
+    .expert-speaker-grid {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        gap: 1.5rem;
+        overflow-x: auto;
+        /* enables swipe scrolling         */
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        padding: 0 calc(50vw - 160px) 1rem;
+        /* center cards on left/right edges */
+        margin: 0;
+        /* REMOVED negative margins        */
+        max-width: 100vw;
+        /* ensure the row stays in bounds  */
+    }
+
+    .expert-speaker-card {
+        width: 320px;
+        min-width: 320px;
+        flex-shrink: 0;
+        scroll-snap-align: center;
+    }
+
+    /* Hide scrollbar but keep functionality */
+    .expert-speaker-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .expert-speaker-grid {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .expert-speaker-container {
+        padding: 1.5rem 0.75rem;
+    }
+
+    .expert-speaker-title {
+        font-size: 1.75rem;
+    }
+
+    .expert-speaker-grid {
+        padding: 0 calc(50vw - 140px) 1rem;
+        /* center cards on left/right edges */
+        /* margin removed here as well */
+    }
+
+    .expert-speaker-card {
+        width: 280px;
+        min-width: 280px;
+        padding: 1rem;
+    }
+}==> src/sections/HeroSection.tsx <==
+import "./HeroSection.css"
+
+export default function HeroSection() {
+    const scrollToSection = (sectionClass: string) => {
+        const element = document.querySelector(`.${sectionClass}`)
+        if (element) {
+            const navbarHeight = 80 // Approximate navbar height in pixels
+            const elementPosition = (element as HTMLElement).offsetTop - navbarHeight
+
+            window.scrollTo({
+                top: elementPosition,
+                behavior: 'smooth'
+            })
+        }
+    }
+
+    return (
+        <section className="home">
+            <div className="home__hero">
+                <h1>WELCOME<br />TO ELYSIUM</h1>
+                <h4>Discover Goleta's premiere private personal training gym located conveniently off the 101 across from cottage hospital.</h4>
+                <a href="https://elysium.pushpress.com/landing/calendar" className="button__tertiary">SCHEDULE FREE CONSULTATION</a>
+            </div>
+
+            <div className="home__options">
+                <div className="home__scroll-buttons">
+                    <div className="left">
+                        <button className="button__secondary" onClick={() => scrollToSection('trainers')}>
+                            MEET YOUR TRAINERS
+                        </button>
+                    </div>
+                    <button className="button__secondary" onClick={() => scrollToSection('values-full-width')}>
+                        MISSION & VALUES
+                    </button>
+                    <div className="right">
+                        <button className="button__secondary" onClick={() => scrollToSection('testimonials')}>
+                            CLIENT TESTIMONIALS
+                        </button>
+                    </div>
+                </div>
+                <div className="scroll__more">
+                    <p>SCROLL TO SEE MORE</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-down" viewBox="0 0 16 16">
+                        <path fillRule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                    </svg>
+                </div>
+            </div>
+        </section>
+    )
+}
+==> src/sections/TestimonialsSection.css <==
+@import './sections.css';
+
+section.testimonials {
+    background-color: #F8F4EE;
+    width: 100%;
+    position: relative;
+}
+
+.testimonials__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    width: 100%;
+}
+
+/* Section Header */
+.testimonials__header-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    text-align: center;
+    max-width: 800px;
+}
+
+.testimonials__subtitle {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.testimonials__line {
+    height: 1px;
+    width: 2rem;
+    background-color: #D19919;
+}
+
+.testimonials__subtitle-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #D19919;
+    font-size: 0.875rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.testimonials__title {
+    font-family: 'Jomolhari', sans-serif;
+    line-height: 1.2;
+    color: #232323;
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 0;
+}
+
+.testimonials__description {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #232323;
+    font-size: 1.125rem;
+    text-align: center;
+    margin: 0;
+}
+
+/* Success Metrics */
+.testimonials__metrics {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.metric {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.metric__number {
+    font-family: 'Jomolhari', sans-serif;
+    line-height: 1.2;
+    color: #D19919;
+    font-size: 2.25rem;
+    text-align: center;
+}
+
+.metric__label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #232323;
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+.metric__divider {
+    height: 3rem;
+    width: 1px;
+    background-color: #D19919;
+    opacity: 0.3;
+}
+
+/* Testimonials Grid */
+.testimonials__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 1200px;
+}
+
+/* Testimonial Cards */
+.testimonial-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 360px;
+    flex: 1;
+    min-width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.testimonial-card__quote {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    font-style: italic;
+}
+
+.testimonial-card__rating {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.star {
+    color: #D19919;
+    font-size: 1.25rem;
+}
+
+.testimonial-card__author {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.testimonial-card__name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #232323;
+    font-size: 1rem;
+}
+
+.testimonial-card__achievement {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: #D19919;
+    font-size: 0.875rem;
+}
+
+.testimonial-card__duration {
+    font-family: 'Montserrat', sans-serif;
+    color: #666;
+    font-size: 0.75rem;
+}
+
+/* Call to Action */
+.testimonials__cta {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    text-align: center;
+}
+
+.testimonials__cta-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #232323;
+    font-size: 1.125rem;
+    margin: 0;
+}
+
+.testimonials__cta-button {
+    background-color: #D19919;
+    border: 1px solid #D19919;
+    color: #F8F4EE;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.125rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.testimonials__cta-button:hover {
+    background-color: #B8821A;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(209, 153, 25, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    section.testimonials {
+        overflow-x: hidden;
+    }
+
+    .testimonials__container {
+        padding: 3rem 1.5rem;
+        gap: 3rem;
+    }
+
+    .testimonials__title {
+        font-size: 2rem;
+    }
+
+    .testimonials__description {
+        font-size: 1rem;
+    }
+
+    .testimonials__metrics {
+        gap: 2rem;
+    }
+
+    .metric__divider {
+        display: none;
+    }
+
+    /* Horizontally scrollable list for mobile */
+    .testimonials__grid {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        gap: 1.5rem;
+        overflow-x: auto;
+        /* enables swipe scrolling */
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        padding: 0 calc(50vw - 180px) 1rem;
+        /* center cards on left/right edges */
+        margin: 0;
+        max-width: 100vw;
+        /* ensure the row stays in bounds */
+    }
+
+    .testimonial-card {
+        width: 360px;
+        min-width: 360px;
+        flex-shrink: 0;
+        scroll-snap-align: center;
+        padding: 1.5rem;
+    }
+
+    /* Hide scrollbar but keep functionality */
+    .testimonials__grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .testimonials__grid {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonials__grid {
+        padding: 0 calc(50vw - 160px) 1rem;
+        /* center cards on left/right edges for smaller screens */
+    }
+
+    .testimonial-card {
+        width: 320px;
+        min-width: 320px;
+        padding: 1.25rem;
+    }
+}==> src/sections/AdditionalServicesSection.tsx <==
+import ServiceCard from "../components/ServiceCard"
+import "./AdditionalServicesSection.css"
+
+export default function AdditionalServicesSection() {
+    const services = [
+        {
+            title: "Nutrition Counseling",
+            description: "Custom plans rooted in science, backed by care. Our nutrition philosophy is grounded in real, whole foods and real human connection. We meet you where you are—whether navigating weight loss, hormone shifts, chronic conditions, or simply trying to feel better in your body.",
+            features: [
+                "Custom meal planning with certified nutritionists",
+                "Monthly check-ins & weekly phone support",
+                "Lab results integration & doctor collaboration",
+                "In-house physician partnership",
+                "Specialized condition support (thyroid, PCOS, diabetes)",
+                "Sustainable, individualized guidance"
+            ]
+        },
+        {
+            title: "Body Tempering",
+            description: "Where strength and recovery meet science. Advanced soft tissue technique using weighted steel rollers to apply deep, consistent pressure to muscle groups. Proven to improve tissue quality, increase range of motion, and reduce muscle soreness.",
+            features: [
+                "Certified specialists with massage therapy backgrounds",
+                "Release fascial adhesions & improve lymphatic flow",
+                "Enhanced muscle activation & recovery",
+                "Reduced soreness & improved range of motion",
+                "Dedicated 50-minute focused sessions",
+                "Immediate relief with long-term benefits"
+            ]
+        }
+    ];
+
+    return (
+        <section className="additional-services">
+            <div className="additional-services__container">
+                <div className="additional-services__content">
+                    {/* Section Header */}
+                    <div className="additional-services__header">
+                        <h2 className="additional-services__title">
+                            Additional Areas of Support
+                        </h2>
+                        <div className="additional-services__divider"></div>
+                        <p className="additional-services__subtitle">
+                            Comprehensive wellness services that go beyond training—nutrition rooted in science and care, plus advanced recovery techniques to support every aspect of your health journey.
+                        </p>
+                    </div>
+
+                    {/* Services Grid */}
+                    <div className="additional-services__grid">
+                        {services.map((service, index) => (
+                            <ServiceCard
+                                key={index}
+                                title={service.title}
+                                description={service.description}
+                                features={service.features}
+                            />
+                        ))}
+                    </div>
+
+                    {/* Call to Action */}
+                    <a href="/wellness" className="additional-services__cta-text button__secondary">
+                        EXPLORE ALL SERVICES
+                    </a>
+                </div>
+            </div>
+        </section>
+    );
+}
+==> src/sections/index.ts <==
+// Export all sections for easier importing
+export { default as HeroSection } from './HeroSection'
+export { default as CTASection } from './CTASection'
+export { default as TrainersSection } from './TrainersSection'
+export { default as MissionSection } from './MissionSection'
+export { default as AdditionalServicesSection } from './AdditionalServicesSection'
+export { default as ValuesSection } from './ValuesSection'
+export { default as TestimonialsSection } from './TestimonialsSection'
+export { default as ExpertSpeakerSection } from './ExpertSpeakerSection'
+==> src/sections/TrainersSection.tsx <==
+import { useRef, useEffect, useState } from "react";
+import TrainerCard from "../components/TrainerCard";
+import { TRAINERS } from "../data/trainers";
+import "./TrainersSection.css";
+
+/* ---------- constants must match the CSS ---------- */
+const CARD = 340;   // px  – width in .trainer-card-container
+const GAP = 32;    // px  – 4 rem gap in .trainer-list
+const FADE_MS = 400; // duration of fade animation
+
+
+export default function TrainersSection() {
+	const rowRef = useRef<HTMLDivElement>(null);
+	const fadeRef = useRef<ReturnType<typeof setTimeout> | null>(null); // store timeout id
+	const [visible, setVisible] = useState(TRAINERS.length); // cards per page
+	const [currentPage, setPage] = useState(0);               // zero-based
+	const [isFading, setFading] = useState(false);           // for CSS class
+	const [isMobile, setIsMobile] = useState(false);          // track if mobile
+	const [flippedCards, setFlippedCards] = useState<Set<number>>(new Set()); // track flipped cards
+
+	/* ────────── check if mobile view ────────── */
+	useEffect(() => {
+		const checkMobile = () => {
+			setIsMobile(window.innerWidth <= 768);
+		};
+
+		checkMobile();
+		window.addEventListener('resize', checkMobile);
+		return () => window.removeEventListener('resize', checkMobile);
+	}, []);
+
+	/* ────────── recalc cards-per-row on resize (desktop only) ────────── */
+	useEffect(() => {
+		if (isMobile) return; // Skip pagination logic on mobile
+
+		const calc = () => {
+			const el = rowRef.current;
+			if (!el) return;
+			const fit = Math.floor((el.clientWidth + GAP) / (CARD + GAP));
+			setVisible(Math.max(Math.min(fit, TRAINERS.length), 1));
+		};
+
+		calc();                               // initial
+		const ro = new ResizeObserver(calc);  // subsequent resizes
+		rowRef.current && ro.observe(rowRef.current);
+		return () => ro.disconnect();
+	}, [isMobile]);
+
+	/* ────────── derive paging data (desktop only) ────────── */
+	const rawTotalPages = Math.ceil(TRAINERS.length / visible);
+	const totalPages = isMobile ? 1 : Math.min(rawTotalPages, 3);          // cap at 3, mobile shows all
+	const maxTrainerCount = isMobile ? TRAINERS.length : totalPages * visible;                // trainers exposed
+	const trainersSubset = TRAINERS.slice(0, maxTrainerCount);
+
+	/* keep page index in-bounds whenever totals change */
+	useEffect(() => {
+		if (currentPage >= totalPages) setPage(totalPages - 1);
+	}, [totalPages, currentPage]);
+
+	/* helper to run fade-out → page change → fade-in (desktop only) */
+	const goToPage = (next: number) => {
+		if (next === currentPage || isFading || isMobile) return;        // ignore duplicates and mobile
+		setFading(true);
+		if (fadeRef.current !== null) {
+			clearTimeout(fadeRef.current);
+		}
+		fadeRef.current = window.setTimeout(() => {
+			setPage(next);
+			setFading(false);
+		}, FADE_MS);
+	};
+
+	/* helper to toggle card flip state */
+	const toggleCardFlip = (trainerId: number) => {
+		setFlippedCards(prev => {
+			const newSet = new Set(prev);
+			if (newSet.has(trainerId)) {
+				newSet.delete(trainerId);
+			} else {
+				newSet.add(trainerId);
+			}
+			return newSet;
+		});
+	};
+
+	/* ────────── automatic paging every 8s (desktop only) ────────── */
+	useEffect(() => {
+		if (totalPages <= 1 || isMobile) return;                          // nothing to flip or mobile
+		const id = window.setInterval(() => {
+			goToPage((currentPage + 1) % totalPages);
+		}, 8000);                                  // 8s
+		return () => clearInterval(id);
+	}, [visible, totalPages, currentPage, isMobile]);                 // deps: reset on change
+
+	/* cleanup for unmount */
+	useEffect(() => () => {
+		if (fadeRef.current !== null) {
+			clearTimeout(fadeRef.current);
+		}
+	}, []);
+
+	/* current slice */
+	const offset = currentPage * visible;
+	const trainersToShow = isMobile ? trainersSubset : trainersSubset.slice(offset, offset + visible);
+	const dotIndices = [...Array(totalPages).keys()];
+
+	/* ────────── render ────────── */
+	return (
+		<section className="trainers">
+			<h2 className="trainer__header">Meet Our Trainers</h2>
+
+			<div
+				className={`trainer-list ${isFading && !isMobile ? "fading" : ""}`}
+				ref={rowRef}
+			>
+				{trainersToShow.map(t => (
+					<TrainerCard
+						key={t.id}
+						{...t}
+						isFlipped={flippedCards.has(t.id)}
+						onClick={() => toggleCardFlip(t.id)}
+					/>
+				))}
+			</div>
+
+			{/* dots - only show on desktop */}
+			{!isMobile && (
+				<div className="trainer-dots">
+					{dotIndices.map(i => (
+						<button
+							key={i}
+							className={`dot ${i === currentPage ? "active" : ""}`}
+							onClick={() => goToPage(i)}
+							aria-label={`Show trainer set ${i + 1}`}
+						/>
+					))}
+				</div>
+			)}
+
+			{/* CTA */}
+			<div className="trainers__action">
+				<a href="/trainers" className="button__gold">
+					View All Trainers
+					<svg className="chevron" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+						<path d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06Z" />
+					</svg>
+				</a>
+			</div>
+		</section>
+	);
+}==> src/sections/HeroSection.css <==
+@import './sections.css';
+
+section.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    width: 100%;
+    height: 100vh;
+    padding: 4rem 10%;
+    padding-top: 10rem;
+
+    background-image: linear-gradient(115deg,
+            rgba(0, 0, 0, .80) 45%,
+            rgba(0, 0, 0, 0.35)),
+        url(../assets/landing_image.png);
+    background-size: cover;
+    background-position: center;
+    background-position: 50% 2rem;
+}
+
+@media (max-width: 768px) {
+    section.home {
+        padding: 2rem 5%;
+    }
+
+    .home__hero {
+        text-align: center;
+        align-items: center;
+    }
 }
 
 .home__hero {
-	width: 100%;
-	max-width: 525px;
+    width: 100%;
+    max-width: 525px;
 
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	gap: .5rem;
+    flex-grow: 1;
 
-	h1 {
-		color: #D19919;
-		margin: 0;
-	}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .5rem;
 
-	h4 {
-		color: #ffffff;
-		margin: 0 0 1rem 0;
-	}
+    h1 {
+        letter-spacing: .25rem;
+        color: #D19919;
+        margin: 0;
+    }
+
+    h4 {
+        color: #ffffff;
+        margin: 0 0 1rem 0;
+    }
+
+    .button__tertiary {
+        font-size: 1.125rem;
+        letter-spacing: .175rem;
+    }
 }
 
-
 .home__title {
-	font-size: 2.25rem;
-	font-weight: 700;
-	color: #1a1a1a;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #1a1a1a;
 }
 
 .home__text {
-	font-size: 1rem;
-	color: #555;
+    font-size: 1rem;
+    color: #555;
 }
 
 .home__options {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-	gap: 5rem;
+    gap: 5rem;
 }
 
 @media (max-width: 1024px) {
-	.home__options {
-		display: none;
-	}
+    .home__options {
+        display: none;
+    }
 
-	section.home {
-		justify-content: center;
-		align-items: center;
-	}
+    section.home {
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .home__scroll-buttons {
-	width: 100%;
+    width: 100%;
 
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
-	button {
-		background-color: rgba(0, 0, 0, 0.20);
-	}
+    button {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        background-color: rgba(0, 0, 0, 0.20);
+        padding: 0.375rem 1.75rem;
+    }
 
-	.left, .right {
-		flex-grow: 1;
-		flex-basis: 0;
-	}
+    .left,
+    .right {
+        flex-grow: 1;
+        flex-basis: 0;
+    }
 
-	.right {
-		text-align: right;
-	}	
+    .right {
+        text-align: right;
+    }
 }
 
 .scroll__more {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-	* {
-		color: #D19919;
+    * {
+        color: #D19919;
 
-		margin: 0;
-		height:fit-content
-	}
+        margin: 0;
+        height: fit-content;
+    }
+}==> src/sections/sections.css <==
+/* Common section styles */
+section {
+    width: 100%;
+    padding: 4rem 10%;
+}
+
+.separator {
+    width: 120px;
+    height: 2px;
+    background-color: #ccc;
+    margin: 2rem auto;
+    border: none;
+    opacity: 0.5;
+    border-radius: 1px;
+    display: block;
+}==> src/sections/AdditionalServicesSection.css <==
+/* src/sections/AdditionalServicesSection.css */
+.additional-services {
+    background-color: #2d4a2d;
+    position: relative;
+    width: 100%;
+    padding: 4rem 10%;
+}
+
+.additional-services__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.additional-services__content {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    width: 100%;
+}
+
+.additional-services__header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+}
+
+.additional-services__title {
+    font-weight: bold;
+    line-height: 1.4;
+    font-style: normal;
+    color: #d19919;
+    font-size: 40px;
+    text-align: center;
+    margin: 0;
+}
+
+.additional-services__divider {
+    height: 1px;
+    width: 80%;
+    background-color: #d19919;
+}
+
+.additional-services__subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #f4f1ea;
+    font-size: 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0;
+}
+
+.additional-services__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 1400px;
+    width: 100%;
 }
 
 
+@media (max-width: 768px) {
+    .additional-services {
+        padding: 4rem 4%;
+        overflow-x: hidden;
+    }
+
+    .additional-services__content {
+        padding: 32px 16px;
+        gap: 48px;
+    }
+
+    .additional-services__title {
+        font-size: 32px;
+    }
+
+    .additional-services__subtitle {
+        font-size: 18px;
+    }
+
+    /* Horizontally scrollable list for mobile */
+    .additional-services__grid {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        gap: 1.5rem;
+        overflow-x: auto;
+        /* enables swipe scrolling */
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        padding: 0 calc(50vw - 200px) 1rem;
+        /* center cards on left/right edges */
+        margin: 0;
+        max-width: 100vw;
+        /* ensure the row stays in bounds */
+    }
+
+    /* Hide scrollbar but keep functionality */
+    .additional-services__grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .additional-services__grid {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .additional-services__cta-text {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .additional-services__content {
+        padding: 24px 12px;
+        gap: 32px;
+    }
+
+    .additional-services__title {
+        font-size: 28px;
+    }
+
+    .additional-services__subtitle {
+        font-size: 16px;
+    }
+
+    .additional-services__grid {
+        padding: 0 calc(50vw - 170px) 1rem;
+        /* center cards on left/right edges for smaller screens */
+    }
+}==> src/sections/ExpertSpeakerSection.tsx <==
+import './ExpertSpeakerSection.css';
+
+interface ExpertSpeakerCardProps {
+    month: string;
+    speaker: string;
+    topic: string;
+    expertise: string;
+    date: string;
+    time: string;
+}
+
+function ExpertSpeakerCard({
+    month,
+    speaker,
+    topic,
+    expertise,
+    date,
+    time,
+}: ExpertSpeakerCardProps) {
+    return (
+        <div className="expert-speaker-card">
+            <div className="expert-speaker-card-content">
+                <div className="expert-speaker-card-header">
+                    <div className="expert-speaker-month-badge">
+                        <div className="expert-speaker-month-text">{month}</div>
+                    </div>
+                    <div className="expert-speaker-datetime">
+                        {date} • {time}
+                    </div>
+                </div>
+
+                <div className="expert-speaker-info">
+                    <div className="expert-speaker-name">{speaker}</div>
+                    <div className="expert-speaker-expertise">{expertise}</div>
+                </div>
+
+                <div className="expert-speaker-topic">{topic}</div>
+
+                <button className="expert-speaker-button">
+                    <div className="expert-speaker-button-text">RESERVE SPOT</div>
+                </button>
+            </div>
+        </div>
+    );
+}
+
+function ExpertSpeakerSection() {
+    const speakers = [
+        {
+            month: 'February',
+            speaker: 'Dr. Sarah Mitchell',
+            expertise: 'Sports Medicine Physician',
+            topic:
+                'Injury Prevention Strategies for Athletes: Building Resilience Through Movement',
+            date: 'Feb 15',
+            time: '7:00 PM',
+        },
+        {
+            month: 'March',
+            speaker: 'Chef Marcus Rodriguez',
+            expertise: 'Clinical Nutritionist',
+            topic:
+                'Meal Prep Mastery: Fueling Performance with Whole Foods and Strategic Nutrition',
+            date: 'Mar 20',
+            time: '6:30 PM',
+        },
+        {
+            month: 'April',
+            speaker: 'Dr. Amanda Chen',
+            expertise: 'Recovery Specialist',
+            topic:
+                'The Science of Recovery: How Temperature Therapy Optimizes Performance',
+            date: 'Apr 18',
+            time: '7:00 PM',
+        },
+    ];
+
+    return (
+        <section className="expert-speaker-section">
+            <div className="expert-speaker-container">
+                <div className="expert-speaker-header">
+                    <div className="expert-speaker-subtitle">
+                        <div className="expert-speaker-subtitle-line" />
+                        <div className="expert-speaker-subtitle-text">
+                            Monthly Education
+                        </div>
+                        <div className="expert-speaker-subtitle-line" />
+                    </div>
+
+                    <div className="expert-speaker-title">
+                        Expert Speaker Series
+                    </div>
+
+                    <div className="expert-speaker-description">
+                        Join us monthly for exclusive educational sessions with
+                        leading experts in wellness, nutrition, and recovery.
+                        Expand your knowledge and enhance your fitness journey.
+                    </div>
+                </div>
+
+                {/* horizontally scrollable list */}
+                <div className="expert-speaker-grid">
+                    {speakers.map((speaker, index) => (
+                        <ExpertSpeakerCard
+                            key={index}
+                            month={speaker.month}
+                            speaker={speaker.speaker}
+                            expertise={speaker.expertise}
+                            topic={speaker.topic}
+                            date={speaker.date}
+                            time={speaker.time}
+                        />
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}
+
+export default ExpertSpeakerSection;
+==> src/sections/TrainersSection.css <==
+@import './sections.css';
+
 section.trainers {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  padding: 4rem 10%;
+  background-image: url("../assets/background_weights.png");
+  background-repeat: no-repeat;
+  background-position: 90% -100%;
 }
 
 @media (max-width: 1240px) {
-	section.trainers {
-		padding: 2rem 5%;
-	}
+  section.trainers {
+    padding: 2rem 5%;
+  }
 }
 
 .trainer__header {
-	width: fit-content;
-	padding-right: 4rem;
-
-	color: #D19919;
-	border-bottom: 1px solid #D19919;
+  width: fit-content;
+  padding-right: 4rem;
+  color: #B1831A;
+  border-bottom: 1px solid #B1831A;
 }
 
+/* ▾▾  UPDATED: no wrapping + hidden overflow ▾▾ */
 .trainer-list {
-	padding: 2.5rem 0;
-	width: 100%;
-	max-width: 1200px;
+  padding: 2.5rem 0;
+  width: 100%;
+  max-width: 1200px;
 
-	display: flex;
-	flex-wrap: wrap;
-	row-gap: 4rem;
-	flex-direction: row;
-	align-self: center;
-	justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  /* hide any cards that don't fully fit */
+  align-items: center;
+  justify-content: space-around;
+  align-self: center;
 }
 
-section.survey {
-	/* temp */
-	height: 40vh;
-	padding-bottom: 6.25rem;
-
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-between;
+/* predictable card width for the JS math */
+.trainer-card-container {
+  flex: 0 0 340px;
+  /* 340 px  -> keep in sync with JS CARD */
 }
 
-section.mission {
-	min-height: 740px;
-	width: 100%;
-	padding: 6rem 10%;
-
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	align-items: center;
-	flex-wrap: wrap-reverse;
-	column-gap: 3rem;
-	row-gap: 3rem;
-
-	background-color: #1E2A1D;
+/* ▸ pagination dots */
+.trainer-dots {
+  display: flex;
+  gap: 0.5rem;
+  align-self: center;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
-.mission__image {
-	width: 560px;
-	height: 376px;
-
-	background-color: white;
+.trainer-dots .dot {
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 50%;
+  background: #d0d0d0;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s ease-in-out;
 }
 
-.mission__info {
-	width: 436px;
-
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: end;
-	gap: .75rem;
-
-	color: #D19919;
+.trainer-dots .dot.active {
+  background: #B1831A;
+  /* gold accent */
 }
 
-.mission__info * {
-	color: #D19919;
-	margin: 0;
+.trainers__action {
+  position: relative;
+  align-self: flex-end;
 }
 
-section.values {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
-	gap: 2rem;
+@media (max-width: 768px) {
+  section.trainers {
+    padding: 4rem 4%;
+    overflow-x: hidden;
+  }
 
-	padding-bottom: 8rem;
+  /* Horizontally scrollable list for mobile */
+  .trainer-list {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 1.5rem;
+    overflow-x: auto;
+    /* enables swipe scrolling */
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding: 2.5rem calc(50vw - 170px) 1rem;
+    /* center cards on left/right edges */
+    margin: 0;
+    max-width: 100vw;
+    /* ensure the row stays in bounds */
+  }
+
+  .trainer-card-container {
+    flex: 0 0 340px;
+    width: 340px;
+    min-width: 340px;
+    scroll-snap-align: center;
+  }
+
+  /* Hide pagination dots on mobile since we're using horizontal scroll */
+  .trainer-dots {
+    display: none;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .trainer-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .trainer-list {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .trainers__action {
+    margin-top: 2rem;
+  }
 }
 
-.values__header {
-	width: fit-content;
-	padding: 0 4rem 1.5rem 4rem;
+@media (max-width: 480px) {
+  .trainer-list {
+    padding: 2.5rem calc(50vw - 140px) 1rem;
+    /* center cards on left/right edges for smaller screens */
+  }
 
-	color: #D19919;
-	border-bottom: 1px solid #D19919;
+  .trainer-card-container {
+    flex: 0 0 280px;
+    width: 280px;
+    min-width: 280px;
+  }
 }
 
-.values__segments {
-	width: 100%;
-	max-width: 1024px;
-
-	display: flex;
-	flex-direction: column;
-	gap: 2rem;
+/* fade animation for page switches */
+.trainer-list {
+  transition: opacity 0.4s ease-in-out;
 }
 
-section.footer {
-	padding: 4rem 10%;
+.trainer-list.fading {
+  opacity: 0;
+}==> src/sections/MissionSection.css <==
+/* MissionSection.css */
 
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	flex-wrap: wrap-reverse;
-
-	row-gap: 6rem;
-
-	background-color: #1E2A1D;
+.mission-section {
+    background: linear-gradient(to bottom, #f4f1ea 0%, #f4f1ea 50%, #e9e5dc 100%);
+    position: relative;
+    flex-shrink: 0;
+    width: 100%;
 }
 
-.footer .company__info {
-	display: flex;
-	flex-direction: column;
-	gap: 2rem;
+.mission-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
-.footer .company__info .logo {
-	display: flex;
-	align-items: center;
-	gap: 0.5rem;
-
-	.icon {
-		width: 2.5rem;
-	}
+.mission-content-wrapper {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 4rem;
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
 }
 
-.company__title {
-	font-family: 'Jomolhari', sans-serif;
-	color: #D19919;
-
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+.mission-decorative-header {
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-.elysium {
-	font-size: 2.5rem;
-	line-height: 1;
+.mission-decorative-elements {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
 }
 
-.strength_wellness {
-	font-size: 1.25rem;
-	line-height: 1;
+.mission-line-left {
+    height: 1px;
+    width: 4rem;
+    background: linear-gradient(to right, transparent, #d19919);
 }
 
-.contact {
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
+.mission-line-right {
+    height: 1px;
+    width: 4rem;
+    background: linear-gradient(to left, transparent, #d19919);
 }
 
-.address {
-	display: flex;
-	flex-direction: column;
-
-	p {
-		color: #ffffff;
-		margin: 0;
-	}
+.mission-dot {
+    height: 0.5rem;
+    width: 0.5rem;
+    background-color: #d19919;
+    border-radius: 50%;
 }
 
-.email p {
-	color: #ffffff;
-	margin: 0;
+.mission-main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 900px;
 }
 
-.copyright p {
-	color: #505050;
-	margin: 0;
+.mission-overline-container {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    align-items: center;
 }
 
-.footer__links {
-	display: flex;
-	gap: 2rem;
-	padding-top: 1.5rem;
+.mission-overline-line {
+    height: 1px;
+    width: 2rem;
+    background-color: #d19919;
+}
 
-	.footer__category {
-		display: flex;
-		flex-direction: column;
-		gap: .375rem;
-	}
+.mission-overline-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #d19919;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
 
-	h3 {
-		font-size: 1.25rem;
-		font-family: "Jomolhari", sans-serif;
-		color: #505050;
-		margin: 0;
-	}
+.mission-headline {
+    font-weight: 700;
+    line-height: 1.2;
+    color: #232323;
+    font-size: 2.5rem;
+    /* 48px */
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 0;
+}
 
-	ul {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-	}
+.mission-quote-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+}
 
-	a {
-		font-family: "Jomolhari", sans-serif;
-		color: #ffffff;
-		text-decoration: none;
-		font-weight: 500;
-		transition: color 0.2s ease;
-	}
-}==> src/pages/Home.tsx <==
-import TrainerCard from "../components/TrainerCard"
-import ValueSegment from "../components/ValueSegement"
+.mission-quote-left {
+    position: absolute;
+    top: -1rem;
+    left: -2rem;
+    font-family: "Jomolhari", sans-serif;
+    font-weight: 700;
+    font-size: 5rem;
+    /* 80px */
+    line-height: 1;
+    opacity: 0.3;
+    color: #d19919;
+}
 
-import icon from "../assets/elysium_icon.png"
-import Mission from "../assets/Mission.jpg"
+.mission-quote-right {
+    position: absolute;
+    bottom: -1rem;
+    right: -2rem;
+    font-family: "Jomolhari", sans-serif;
+    font-weight: 700;
+    font-size: 5rem;
+    /* 80px */
+    line-height: 1;
+    opacity: 0.3;
+    color: #d19919;
+    transform: rotate(180deg);
+}
+
+.mission-statement {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    line-height: 1.8;
+    color: #333;
+    font-size: 1.25rem;
+    /* 22px */
+    text-align: center;
+    padding: 0 3rem;
+    margin-bottom: 0;
+}
+
+.mission-values-container {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.mission-value-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 240px;
+}
+
+.mission-value-icon {
+    background-color: #d19919;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mission-value-number {
+    font-family: "Jomolhari", sans-serif;
+    font-weight: 700;
+    color: #f4f1ea;
+    font-size: 1.25rem;
+    /* 20px */
+}
+
+.mission-value-title {
+    font-family: "Jomolhari", sans-serif;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #232323;
+    font-size: 1.25rem;
+    /* 20px */
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.mission-value-description {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #333;
+    font-size: 0.875rem;
+    /* 14px */
+    text-align: center;
+    margin-bottom: 0;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .mission-content-wrapper {
+        padding: 3rem 2rem;
+    }
+
+    .mission-headline {
+        font-size: 2.25rem;
+        /* 36px - using h1 size from global */
+    }
+
+    .mission-statement {
+        font-size: 1.125rem;
+        /* 18px */
+        padding: 0 1rem;
+    }
+
+    .mission-values-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .mission-quote-left {
+        left: -1rem;
+        font-size: 3.75rem;
+        /* 60px */
+    }
+
+    .mission-quote-right {
+        right: -1rem;
+        font-size: 3.75rem;
+        /* 60px */
+    }
+}
+
+@media (max-width: 480px) {
+    .mission-content-wrapper {
+        padding: 2rem 1rem;
+    }
+
+    .mission-headline {
+        font-size: 2rem;
+        /* 32px - using h2 size from global */
+    }
+
+    .mission-statement {
+        font-size: 1rem;
+        /* 16px */
+    }
+
+    .mission-quote-left {
+        left: -0.5rem;
+        font-size: 2.5rem;
+        /* 40px */
+    }
+
+    .mission-quote-right {
+        right: -0.5rem;
+        font-size: 2.5rem;
+        /* 40px */
+    }
+
+    .mission-decorative-header {
+        top: 1rem;
+    }
+}
+
+/* Mission CTA Styles */
+.mission-cta-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.mission-cta-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #666;
+    font-size: 1.125rem;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+
+
+@media (max-width: 768px) {
+    .mission-cta-text {
+        font-size: 1rem;
+    }
+}==> src/sections/ValuesSection.tsx <==
+import ValueSegmentFullWidth from "../components/ValueSegmentFullWidth"
+
 import Personalized_Excellence from "../assets/Personalized_Excellence.jpg"
-import Integrity_Trust from "../assets/Integrity_Trust.jpg"
-import Results_Through_Consistency from "../assets/Results_Through_Consistency.jpg"
+import Gym_Interior from "../assets/Gym_Interior.jpg"
+import Landing_Image from "../assets/landing_image.png"
+
+import "./ValuesSection.css"
+
+export default function ValuesSection() {
+    return (
+        <section className="values-full-width">
+            <ValueSegmentFullWidth
+                imageUrl={Personalized_Excellence}
+                heading="Results Through Consistency"
+                text="At Elysium, we believe consistency thrives on real results. That's why every member gets more than just expert training—we provide full access to our professional programming app. Track every custom workout, rep, set, and the weight you've moved over time. With clear, measurable progress and built-in accountability, you'll stay focused, motivated, and confident—knowing you're getting stronger every session."
+                variant="beige"
+                buttonText="Schedule a Consultation"
+                buttonLink="https://elysium.pushpress.com/landing/calendar"
+                imagePosition="right"
+            />
+            <ValueSegmentFullWidth
+                imageUrl={Gym_Interior}
+                heading={`Integrity and Trust`}
+                text="At Elysium, we believe strength should last a lifetime. Fitness is deeply personal, and we're here to honor that. Our team of expert trainers and wellness professionals brings integrity, experience, and genuine care to every session— combining proven sports performance methods with a commitment to longevity and injury prevention. We value your privacy and strive to make every step of your journey feel safe, supportive, and empowering. At Elysium, we're not just a gym. We're your trusted partners in building a resilient, thriving body you can rely on for years to come."
+                variant="green"
+                buttonText="Meet Your Trainers"
+                buttonLink="/trainers"
+                imagePosition="left"
+            />
+            <ValueSegmentFullWidth
+                imageUrl={Landing_Image}
+                heading={`Locally Connected,\n Invested In You`}
+                text="At Elysium, we believe in the power of community—and Goleta is a word-of-mouth town. We proudly partner with a trusted network of local professionals we believe in: doctors, therapists, physical therapists, massage therapists, sports leagues, beauty professionals, and more. These are real relationships built on shared values and a commitment to whole-person wellness."
+                variant="beige"
+                buttonText="Join Our Community"
+                buttonLink="/community"
+                imagePosition="right"
+            />
+        </section>
+    )
+}
+==> src/data/trainers.ts <==
+export interface Trainer {
+    id: number;
+    imageUrl: string;
+    name: string;
+    trainerType: string;
+    bio: string;
+    extendedBio: string;
+    specializations: string[];
+}
+
+export const TRAINERS: Trainer[] = [
+    {
+        id: 1,
+        imageUrl: "/images/trainer-jane.jpg",
+        name: "Jane Smith",
+        trainerType: "Strength & Conditioning",
+        bio: "8+ years helping clients build strength through evidence-based training and corrective exercise.",
+        extendedBio: "With 8+ years of experience, Jane holds NASM and NSCA certifications. She specializes in comprehensive strength training programs that build muscle and improve functional movement patterns. Her approach combines traditional strength training with modern recovery techniques, helping athletes and individuals overcome chronic pain through corrective exercise protocols.",
+        specializations: ['Weightlifting', 'Posture', 'Rehabilitation']
+    },
+    {
+        id: 2,
+        imageUrl: "/images/trainer-john.jpg",
+        name: "John Martinez",
+        trainerType: "Functional Movement",
+        bio: "Former collegiate athlete specializing in movement quality and athletic performance optimization.",
+        extendedBio: "As a former collegiate athlete and certified Functional Movement Screen practitioner, John understands the relationship between mobility, stability, and performance. His programs focus on movement patterns that translate to real-world activities and sport-specific demands. He has worked with professional athletes in baseball, basketball, and soccer, earning recognition as a premier movement specialist.",
+        specializations: ['Movement', 'Mobility', 'Performance']
+    },
+    {
+        id: 3,
+        imageUrl: "/images/trainer-sarah.jpg",
+        name: "Sarah Chen",
+        trainerType: "Wellness Coach",
+        bio: "Master's in Nutrition Science with expertise in sustainable lifestyle changes and weight management.",
+        extendedBio: "With a Master's in Nutrition Science and certifications in personal training and health coaching, Sarah bridges exercise and nutrition seamlessly. Her programs create sustainable lifestyle changes rather than quick fixes. She has helped hundreds achieve lasting weight management success through evidence-based protocols, specializing in practical solutions for busy professionals.",
+        specializations: ['Nutrition', 'Weight Loss', 'Lifestyle']
+    },
+    {
+        id: 4,
+        imageUrl: "/images/trainer-mike.jpg",
+        name: "Mike Thompson",
+        trainerType: "Powerlifting Coach",
+        bio: "15+ years competitive powerlifter and coach with multiple state records and national experience.",
+        extendedBio: "Mike's 15+ year journey spans from competitive athlete to renowned coach. He competed nationally, holds multiple state records, and emphasizes technical precision and progressive overload. Mike has guided numerous athletes to national competitions and helped recreational lifters achieve personal bests through meticulously planned programs with individualized recovery protocols.",
+        specializations: ['Powerlifting', 'Strength', 'Competition']
+    },
+    {
+        id: 5,
+        imageUrl: "/images/trainer-lisa.jpg",
+        name: "Lisa Rodriguez",
+        trainerType: "Rehabilitation Specialist",
+        bio: "Physical therapy background specializing in injury recovery and corrective exercise protocols.",
+        extendedBio: "Lisa's physical therapy and corrective exercise background makes her uniquely qualified for injury recovery and chronic pain conditions. She holds advanced certifications in corrective exercise and pain management. Her rehabilitation programs are designed with healthcare providers to ensure safe recovery, helping clients return to activity after surgeries and overcome chronic pain.",
+        specializations: ['Rehabilitation', 'Corrective', 'Pain Relief']
+    },
+    {
+        id: 6,
+        imageUrl: "/images/trainer-david.jpg",
+        name: "David Park",
+        trainerType: "Weightlifting Coach",
+        bio: "Elite-level competitor turned coach with international experience in Olympic weightlifting.",
+        extendedBio: "David's Olympic weightlifting expertise comes from years of elite-level training and international competition. He represented his country internationally and transitioned to coaching with the same passion and precision. His technical knowledge of the snatch and clean & jerk is unparalleled, with an ability to break down complex movements into teachable progressions for competition strategy and athlete development.",
+        specializations: ['Olympic Lifting', 'Technique', 'Competition']
+    }
+];
+==> src/pages/Wellness.tsx <==
+import { ExpertSpeakerSection } from '../sections';
+import Nutrition from '../assets/Nutrition.jpg';
+import './Wellness.css';
+
+interface ServiceDetailSectionProps {
+    title: string;
+    description: string;
+    benefits: string[];
+    process: string[];
+    bgColor: string;
+    textColor: string;
+    headerColor?: string;
+    isReversed?: boolean;
+}
+
+// Detailed Service Sections
+function ServiceDetailSection({ title, description, benefits, process, bgColor, textColor, headerColor, isReversed = false }: ServiceDetailSectionProps) {
+    return (
+        <section className={`service-detail-section ${bgColor}`}>
+            <div className="service-detail-container">
+                <div className={`service-detail-content ${isReversed ? 'service-detail-content--reversed' : ''}`}>
+
+                    {/* Content Side */}
+                    <div className="service-detail-text">
+                        <div className="service-detail-header">
+                            <div className="service-detail-title-row">
+                                <div className="service-detail-dot" />
+                                <h2 className={`service-detail-title ${headerColor || textColor}`}>
+                                    {title}
+                                </h2>
+                            </div>
+
+                            <p className={`service-detail-description ${textColor}`}>
+                                {description}
+                            </p>
+                        </div>
+
+                        <div className="service-detail-info">
+                            <div className="service-detail-benefits">
+                                <h4 className={`service-detail-subtitle ${headerColor || textColor}`}>
+                                    Key Benefits
+                                </h4>
+                                <div className="service-detail-list">
+                                    {benefits.map((benefit, index) => (
+                                        <div key={index} className="service-detail-list-item">
+                                            <div className="service-detail-bullet" />
+                                            <p className={`service-detail-list-text ${textColor}`}>
+                                                {benefit}
+                                            </p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="service-detail-process">
+                                <h4 className={`service-detail-subtitle ${headerColor || textColor}`}>
+                                    Our Process
+                                </h4>
+                                <div className="service-detail-process-list">
+                                    {process.map((step, index) => (
+                                        <div key={index} className="service-detail-process-item">
+                                            <div className="service-detail-process-number">
+                                                <small className="service-detail-process-number-text">
+                                                    {index + 1}
+                                                </small>
+                                            </div>
+                                            <p className={`service-detail-process-text ${textColor}`}>
+                                                {step}
+                                            </p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+
+                        <button className="button__primary">
+                            LEARN MORE
+                        </button>
+                    </div>
+
+                    {/* Image Side */}
+                    <div className="service-detail-image-container">
+                        <div className="service-detail-image" style={{ backgroundImage: `url('${Nutrition}')` }} />
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    );
+}
+
+// CTA Section
+function WellnessCTA() {
+    return (
+        <div className="wellness-cta">
+            <div className="wellness-cta-container">
+                <div className="wellness-cta-content">
+
+                    <div className="wellness-cta-text">
+                        <h1 className="wellness-cta-title">
+                            Ready to Transform Your Wellness Journey?
+                        </h1>
+
+                        <p className="wellness-cta-description">
+                            Our comprehensive wellness approach combines cutting-edge techniques with personalized care. Start your journey toward optimal health today.
+                        </p>
+                    </div>
+
+                    <div className="wellness-cta-buttons">
+                        <button className="button__primary">
+                            BOOK CONSULTATION
+                        </button>
+
+                        <button className="button__secondary">
+                            VIEW PRICING
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+function Wellness() {
+    const nutritionData = {
+        title: "Nutrition Counseling",
+        description: "Custom plans. Rooted in science. Backed by care. At Elysium, our nutrition philosophy centers on whole foods and whole-person support. Whether you're navigating weight loss, hormonal shifts, chronic conditions, or just aiming to feel better in your body, we build thoughtful, sustainable plans tailored specifically to you—no fads, no one-size-fits-all solutions.",
+        benefits: [
+            "Truly personalized meal plans built around your lifestyle and goals",
+            "Better energy, clarity, and sustainable progress",
+            "Support for conditions like thyroid issues, PCOS, and metabolic resistance",
+            "Access to in-house medical collaboration with Dr. Priti Gagneja",
+            "Care from certified nutritionists with psychology-informed guidance"
+        ],
+        process: [
+            "Initial consultation to assess your needs, history, and lab results",
+            "Custom meal plans with revisions based on feedback and progress",
+            "Weekly and monthly check-ins for accountability and alignment",
+            "Education on food choices, label reading, and eating strategies",
+            "Ongoing support and adjustments with long-term maintenance in mind"
+        ],
+        bgColor: "service-detail-section--light",
+        textColor: "service-detail-text--dark",
+    };
+
+    const bodyTemperingData = {
+        title: "Body Tempering",
+        description: "Where strength and recovery meet science. At Elysium, we use weighted steel rollers to apply deep, consistent pressure that improves mobility, reduces soreness, and enhances performance. Our experienced team integrates this technique into training or recovery to help you move better and feel your best.",
+        benefits: [
+            "Reduces muscle soreness and tightness",
+            "Improves mobility and joint function",
+            "Enhances recovery and performance",
+            "Promotes circulation and lymphatic flow",
+            "Relieves chronic tension and supports injury prevention"
+        ],
+        process: [
+            "Assessment and targeted treatment planning",
+            "Guided body tempering by certified specialists",
+            "Focused sessions for pre-lift prep or post-workout recovery",
+            "Integration with your existing training regimen",
+            "Adjustments based on feedback and results"
+        ],
+        bgColor: "service-detail-section--dark",
+        textColor: "service-detail-text--light",
+        headerColor: "service-detail-text--gold"
+    };
+
+    return (
+        <div className="wellness-page">
+            {/* Hero Section with Image and Header */}
+            <section className="wellness-hero">
+                <div className="wellness-hero__overlay">
+                    <h1 className="wellness-hero__title">WELLNESS</h1>
+                </div>
+            </section>
+
+            {/* Wellness Content */}
+            <div className="wellness-content">
+                <ExpertSpeakerSection />
+
+                <ServiceDetailSection {...nutritionData} />
+                <ServiceDetailSection {...bodyTemperingData} isReversed={true} />
+
+                <WellnessCTA />
+            </div>
+        </div>
+    );
+}
+
+export default Wellness;
+==> src/pages/Home.css <==
+/* Home page specific styles */
+/* Individual section styles have been moved to their respective section CSS files */
+
+/* If you need any page-specific styles that aren't handled by individual sections, add them here */
+==> src/pages/Home.tsx <==
+import {
+    HeroSection,
+    CTASection,
+    TrainersSection,
+    MissionSection,
+    AdditionalServicesSection,
+    ValuesSection,
+    TestimonialsSection
+} from "../sections"
 
 import "./Home.css"
 
@@ -928,143 +4328,568 @@ import "./Home.css"
 export default function Home() {
     return (
         <>
-            <section className="home">
-                <div className="home__hero">
-                    <h1>STRONGER <br /> EVERY SESSION</h1>
-                    <h4>Discover the ultimate private gym and Personal Trainer destination in Santa Barbara at ELYSIUM Strength & Wellness</h4>
-                    <div className="button__tertiary">SCHEDULE A CONSULT</div>
-                </div>
-
-                <div className="home__options">
-                    <div className="home__scroll-buttons">
-                        <div className="left">
-                            <button className="button__secondary">MEET YOUR TRAINERS</button>
-                        </div>
-                        <button className="button__secondary">TAKE OUR SURVEY</button>
-                        <div className="right">
-                            <button className="button__secondary">ABOUT US</button>
-                        </div>
-                    </div>
-                    <div className="scroll__more">
-                        <p>SCROLL TO SEE MORE</p>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-down" viewBox="0 0 16 16">
-                            <path fillRule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
-                        </svg>
-                    </div>
-                </div>
-            </section>
-            <section className="trainers">
-                <h2 className="trainer__header">Meet Our Trainers</h2>
-                <div className="trainer-list">
-                    <TrainerCard
-                        imageUrl="/images/trainer-jane.jpg"
-                        name="Jane Doe"
-                        trainerType="Strength & Conditioning Coach"
-                        bio="Passionate about helping people transform their bodies safely and sustainably."
-                        specializations={['Weightlifting', 'Posture Correction', 'Injury Recovery']}
-                    />
-                    <TrainerCard
-                        imageUrl="/images/trainer-jane.jpg"
-                        name="Jane Doe"
-                        trainerType="Strength & Conditioning Coach"
-                        bio="Passionate about helping people transform their bodies safely and sustainably."
-                        specializations={['Weightlifting', 'Posture Correction', 'Injury Recovery']}
-                    /><TrainerCard
-                        imageUrl="/images/trainer-jane.jpg"
-                        name="Jane Doe"
-                        trainerType="Strength & Conditioning Coach"
-                        bio="Passionate about helping people transform their bodies safely and sustainably."
-                        specializations={['Weightlifting', 'Posture Correction', 'Injury Recovery']}
-                    />
-
-                </div>
-            </section>
-            {/* line that separates the two sections */}
-            <hr className="separator" />
-            <section className="survey">
-                <h2 className="survey__header">Survey</h2>
-                <p className="survey__text">We value your feedback! Please take a moment to fill out our survey.</p>
-                <div className="button__secondary">Submit</div>
-            </section>
-            <section className="mission">
-                <img src={Mission} alt="Mission Image" className="mission__image" />
-                <div className="mission__info">
-                    <h2 className="mission__header">Our Mission</h2>
-                    <p className="mission__text">At our core, we are committed to empowering individuals to reach their full potential through personalized, results-driven training in a private, supportive environment. Our mission is to deliver expert guidance, build lasting confidence, and create sustainable fitness habits—one client, one session, one goal at a time.</p>
-                </div>
-            </section>
-            <section className="values">
-                <h2 className="values__header">Our Values</h2>
-                <div className="values__segments">
-                    <ValueSegment
-                        imageUrl={Personalized_Excellence}
-                        heading="Personalized Excellence"
-                        text="We believe that every body is unique—so every workout should be, too. Our training programs are fully customized to align with your goals, lifestyle, and fitness level. With 1-on-1 attention and expert guidance, we ensure you make steady, sustainable progress at a pace that suits you."
-                    />
-                    <ValueSegment
-                        imageUrl={Integrity_Trust}
-                        heading="Integrity & Trust"
-                        text="Fitness is personal—and so is trust. We create a safe, judgment-free environment where transparency and honesty are at the heart of every session. Our certified trainers are committed to your wellbeing, always putting your health and long-term success first."
-                        reverse // ✅ This puts the image on the right side
-                    />
-                    <ValueSegment
-                        imageUrl={Results_Through_Consistency}
-                        heading="Results Through Consistency"
-                        text="We know that real, lasting results come from dedication and consistency—not gimmicks. That’s why we focus on building smart, habit-driven routines that work with your lifestyle. Every session moves you forward, helping you build confidence and long-term momentum."
-                    />
-                </div>
-
-            </section>
-            <section className="footer">
-                <div className="company__info">
-                    <div className="logo">
-                        <img src={icon} alt="Elysium Icon" className="icon" />
-                        <div className="company__title">
-                            <div className='elysium'>ELYSIUM</div>
-                            <div className='strength_wellness'>Strength & Wellness</div>
-                        </div>
-                    </div>
-                    <div className="contact">
-                        <div className="address">
-                            <p>123 Fitness Lane</p>
-                            <p>Wellness City, ST 12345</p>
-                        </div>
-                        <div className="email">
-                            <p>elysiumsw@gmail.com</p>
-                        </div>
-                    </div>
-                    <div className="copyright">
-                        <p>&copy; 2023 Elysium Strength & Wellness. All rights reserved.</p>
-                    </div>
-                </div>
-                <div className="footer__links">
-                    <div className="footer__category follow__us">
-                        <h3>Follow Us</h3>
-                        <ul className="social__links">
-                            <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-                            <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                            <li><a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
-                        </ul>
-                    </div>
-                    <div className="footer__category contant__us">
-                        <h3>Contact Us</h3>
-                        <ul className="contact__links">
-                            <li><a href="" target="_blank" rel="noopener noreferrer">Appointment</a></li>
-                        </ul>
-                    </div>
-                    <div className="footer__category learn">
-                        <h3>Learn More</h3>
-                        <ul className="learn__links">
-                            <li><a href="" target="_blank" rel="noopener noreferrer">About Us</a></li>
-                            <li><a href="" target="_blank" rel="noopener noreferrer">Blog</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+            <HeroSection />
+            <CTASection />
+            <MissionSection />
+            <TrainersSection />
+            <AdditionalServicesSection />
+            <ValuesSection />
+            <TestimonialsSection />
         </>
     )
 }
-==> src/pages/About.tsx <==
+==> src/pages/NotFound.css <==
+section.not-found {
+    padding: 8rem;
+    height: calc(80vh);
+}==> src/pages/Wellness.css <==
+/* Wellness Page Styles */
+
+/* Hero Section */
+.wellness-hero {
+    position: relative;
+    height: 30vh;
+    min-height: 400px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../assets/Nutrition.jpg');
+    background-size: cover;
+    background-position: center 40%;
+}
+
+.wellness-hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.wellness-hero__title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    letter-spacing: 0.2em;
+}
+
+/* Content wrapper for proper spacing */
+.wellness-content {
+    background-color: #F8F4EE;
+}
+
+/* Service Detail Section Styles */
+.service-detail-section {
+    position: relative;
+    flex-shrink: 0;
+    width: 100%;
+}
+
+.service-detail-section--dark {
+    background-color: #2d4a2d;
+}
+
+.service-detail-section--light {
+    background-color: #f4f1ea;
+}
+
+.service-detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.service-detail-content {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    gap: 6rem;
+    width: 100%;
+    max-width: 1400px;
+}
+
+.service-detail-content--reversed {
+    flex-direction: row-reverse;
+}
+
+.service-detail-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: center;
+    flex: 1;
+    max-width: 600px;
+}
+
+.service-detail-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.service-detail-title-row {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.service-detail-dot {
+    height: 0.75rem;
+    width: 0.75rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background-color: #d19919;
+}
+
+.service-detail-title {
+    font-weight: 700;
+    line-height: 1.4;
+    font-size: 2.25rem;
+    text-align: left;
+}
+
+.service-detail-text--light {
+    color: #f4f1ea;
+}
+
+.service-detail-text--dark {
+    color: #232323;
+}
+
+.service-detail-text--gold {
+    color: #d19919;
+}
+
+.service-detail-description {
+    font-weight: 500;
+    line-height: 1.6;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.service-detail-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.service-detail-benefits,
+.service-detail-process {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.service-detail-subtitle {
+    font-weight: 700;
+    line-height: 1.4;
+    font-size: 1.25rem;
+    text-align: left;
+}
+
+.service-detail-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.service-detail-list-item {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    align-items: flex-start;
+}
+
+.service-detail-bullet {
+    height: 0.375rem;
+    width: 0.375rem;
+    background-color: #d19919;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 0.5rem;
+}
+
+.service-detail-list-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.service-detail-process-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.service-detail-process-item {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    align-items: flex-start;
+}
+
+.service-detail-process-number {
+    background-color: #d19919;
+    color: #f4f1ea;
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.service-detail-process-number-text {
+    color: #f4f1ea;
+    font-weight: 700;
+    font-size: 0.75rem;
+}
+
+.service-detail-process-text {
+    line-height: 1.6;
+}
+
+
+.service-detail-image-container {
+    flex: 1;
+}
+
+.service-detail-image {
+    background-size: 193.38% 136.51%;
+    aspect-ratio: 500/400;
+    background-position: 21.72% 49.85%;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+/* Wellness CTA Section Styles */
+.wellness-cta {
+    background: linear-gradient(to bottom, #f4f1ea, #e9e5dc);
+    position: relative;
+    flex-shrink: 0;
+    width: 100%;
+}
+
+.wellness-cta-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.wellness-cta-content {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 4rem;
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+.wellness-cta-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+
+.wellness-cta-description {
+    line-height: 1.6;
+    color: #232323;
+    font-size: 1.125rem;
+    text-align: center;
+}
+
+.wellness-cta-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.wellness-cta-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.wellness-cta-contact-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #666;
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+
+@media (max-width: 1280px) {
+    /* Service Detail Section Mobile */
+    .service-detail-content {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .service-detail-content--reversed {
+        flex-direction: column;
+    }
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .wellness-hero {
+        height: 25vh;
+        min-height: 300px;
+    }
+
+    .wellness-hero__title {
+        font-size: 2.5rem;
+        letter-spacing: 0.1em;
+    }
+
+    /* Service Detail Section Mobile */
+    .service-detail-content {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .service-detail-content--reversed {
+        flex-direction: column;
+    }
+
+    .service-detail-text {
+        max-width: 100%;
+        order: 2;
+    }
+
+    .service-detail-image-container {
+        max-width: 100%;
+        order: 1;
+    }
+
+    .service-detail-title {
+        font-size: 1.875rem;
+    }
+
+    .service-detail-description {
+        font-size: 1rem;
+    }
+
+    .service-detail-info {
+        gap: 1.25rem;
+    }
+
+    .service-detail-benefits,
+    .service-detail-process {
+        gap: 0.5rem;
+    }
+
+    .service-detail-list {
+        gap: 0.375rem;
+    }
+
+    .service-detail-process-list {
+        gap: 0.5rem;
+    }
+
+    /* Wellness CTA Mobile */
+    .wellness-cta-content {
+        padding: 3rem 2rem;
+    }
+
+    .wellness-cta-title {
+        font-size: 2rem;
+    }
+
+    .wellness-cta-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.75rem;
+    }
+
+    .wellness-cta-buttons button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    /* Service Detail Section Tablet */
+    .service-detail-title {
+        font-size: 2rem;
+    }
+
+    .service-detail-description {
+        font-size: 1rem;
+    }
+
+    .service-detail-image-container {
+        max-width: 450px;
+    }
+}
+
+@media (max-width: 480px) {
+    .wellness-hero {
+        height: 20vh;
+        min-height: 250px;
+    }
+
+    .wellness-hero__title {
+        font-size: 2rem;
+        letter-spacing: 0.05em;
+    }
+
+    /* Service Detail Section Small Mobile */
+    .service-detail-header {
+        gap: 0.75rem;
+    }
+
+    .service-detail-title {
+        font-size: 1.5rem;
+    }
+
+    .service-detail-description {
+        font-size: 0.875rem;
+    }
+
+    .service-detail-info {
+        gap: 1rem;
+    }
+
+    .service-detail-benefits,
+    .service-detail-process {
+        gap: 0.375rem;
+    }
+
+    .service-detail-list {
+        gap: 0.25rem;
+    }
+
+    .service-detail-process-list {
+        gap: 0.375rem;
+    }
+
+    .service-detail-list-text,
+    .service-detail-process-text {
+        font-size: 0.875rem;
+    }
+
+    .service-detail-bullet {
+        height: 0.25rem;
+        width: 0.25rem;
+        margin-top: 0.375rem;
+    }
+
+    .service-detail-process-number {
+        height: 1.25rem;
+        width: 1.25rem;
+        margin-top: 0.125rem;
+    }
+
+    .service-detail-process-number-text {
+        font-size: 0.625rem;
+    }
+
+    .service-detail-image {
+        aspect-ratio: 1/1;
+        border-radius: 15px;
+    }
+
+    /* Wellness CTA Small Mobile */
+    .wellness-cta-content {
+        padding: 2rem 1rem;
+        gap: 1.5rem;
+    }
+
+    .wellness-cta-text {
+        gap: 1rem;
+    }
+
+    .wellness-cta-title {
+        font-size: 1.75rem;
+    }
+
+    .wellness-cta-description {
+        font-size: 1rem;
+    }
+
+    .wellness-cta-buttons {
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 360px) {
+
+    /* Service Detail Section Extra Small Mobile */
+
+    .service-detail-title {
+        font-size: 1.25rem;
+    }
+
+    .service-detail-description {
+        font-size: 0.8rem;
+    }
+
+    .service-detail-list-text,
+    .service-detail-process-text {
+        font-size: 0.8rem;
+    }
+
+    .service-detail-title-row {
+        gap: 0.5rem;
+    }
+
+    .service-detail-dot {
+        height: 0.5rem;
+        width: 0.5rem;
+    }
+
+    /* Wellness CTA Extra Small Mobile */
+    .wellness-cta-content {
+        padding: 1.5rem 0.75rem;
+    }
+
+    .wellness-cta-title {
+        font-size: 1.5rem;
+    }
+
+    .wellness-cta-description {
+        font-size: 0.875rem;
+    }
+}==> src/pages/About.tsx <==
 // src/pages/About.tsx
 export default function About() {
   return (
@@ -1075,12 +4900,259 @@ export default function About() {
   )
 }
 ==> src/pages/NotFound.tsx <==
-// src/pages/Home.tsx
-export default function Home() {
+import Footer from "../components/Footer"
+import Navbar from "../components/Navbar"
+
+import './NotFound.css'
+
+
+// src/pages/NotFound.tsx
+export default function NotFound() {
   return (
-    <section>
-      <h1>Not Found</h1>
-    </section>
+    <>
+      <Navbar />
+      <section className="not-found">
+        <h1>Not Found</h1>
+      </section>
+      <Footer />
+    </>
   )
 }
 ==> src/pages/Trainers.tsx <==
+import { useState, useEffect, useRef } from "react"
+import TrainerCard from "../components/TrainerCard"
+import { TRAINERS } from "../data/trainers"
+import "./Trainers.css"
+
+export default function Trainers() {
+    const [flippedTrainerIds, setFlippedTrainerIds] = useState<Set<number>>(new Set())
+    const containerRef = useRef<HTMLDivElement>(null)
+
+    // Handle click outside to close flipped cards
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (flippedTrainerIds.size > 0 && containerRef.current && !containerRef.current.contains(event.target as Node)) {
+                setFlippedTrainerIds(new Set())
+            }
+        }
+
+        if (flippedTrainerIds.size > 0) {
+            document.addEventListener('mousedown', handleClickOutside)
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+        }
+    }, [flippedTrainerIds])
+
+    const handleTrainerClick = (trainerId: number) => {
+        setFlippedTrainerIds(prev => {
+            const newSet = new Set(prev)
+            if (newSet.has(trainerId)) {
+                newSet.delete(trainerId) // Flip back if already flipped
+            } else {
+                newSet.add(trainerId) // Add to flipped trainers
+            }
+            return newSet
+        })
+    }
+
+    return (
+        <div className="trainers-page">
+            {/* Hero Section with Image and Header */}
+            <section className="trainers-hero">
+                <div className="trainers-hero__overlay">
+                    <h1 className="trainers-hero__title">TRAINERS</h1>
+                </div>
+            </section>
+
+            {/* Trainers Grid Section */}
+            <section className="trainers-content">
+                <div className="trainers-content__intro">
+                    <h2>Meet Our Expert Team</h2>
+                    <p>Our certified trainers bring years of experience and specialized expertise to help you achieve your fitness goals. Each trainer is dedicated to providing personalized attention and results-driven programming.</p>
+                </div>
+
+                <div className="trainers-grid-container" ref={containerRef}>
+                    <div className="trainers-grid">
+                        {TRAINERS.map((trainer) => (
+                            <TrainerCard
+                                key={trainer.id}
+                                imageUrl={trainer.imageUrl}
+                                name={trainer.name}
+                                trainerType={trainer.trainerType}
+                                bio={trainer.bio}
+                                specializations={trainer.specializations}
+                                isFlipped={flippedTrainerIds.has(trainer.id)}
+                                onClick={() => handleTrainerClick(trainer.id)}
+                                extendedBio={trainer.extendedBio}
+                            />
+                        ))}
+                    </div>
+                </div>
+            </section>
+        </div>
+    )
+}==> src/pages/Trainers.css <==
+/* Trainers Page Styles */
+
+.trainers-page {
+    min-height: 100vh;
+}
+
+/* Hero Section */
+.trainers-hero {
+    position: relative;
+    height: 30vh;
+    min-height: 400px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../assets/landing_image.png');
+    background-size: cover;
+    background-position: 0rem 25%;
+}
+
+.trainers-hero__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+}
+
+.trainers-hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.trainers-hero__title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    letter-spacing: 0.2em;
+}
+
+/* Content Section */
+.trainers-content {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.trainers-content__intro {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.trainers-content__intro h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.trainers-content__intro p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Trainers Grid Container */
+.trainers-grid-container {
+    width: 100%;
+    position: relative;
+}
+
+.trainers-grid-with-expanded {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Add a subtle backdrop when a card is expanded */
+.trainers-grid-container:has(.trainer-card--expanded)::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.05);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.trainers-grid-container:has(.trainer-card--expanded) {
+    position: relative;
+    z-index: 1;
+}
+
+/* Trainers Grid */
+.trainers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+
+/* Expanded trainer container */
+.trainers-expanded-container {
+    width: 100%;
+    margin: 6rem 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .trainers-hero__title {
+        font-size: 3rem;
+    }
+
+    .trainers-content {
+        padding: 2rem 1rem;
+    }
+
+    .trainers-content__intro h2 {
+        font-size: 2rem;
+    }
+
+    .trainers-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .trainers-grid-with-expanded {
+        gap: 1.5rem;
+    }
+
+    .trainers-expanded-container {
+        margin: 0.5rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .trainers-hero {
+        height: 40vh;
+        min-height: 300px;
+    }
+
+    .trainers-hero__title {
+        font-size: 2.5rem;
+    }
+
+    .trainers-content__intro h2 {
+        font-size: 1.8rem;
+    }
+}
