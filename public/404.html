@@ -1,0 +1,18 @@
+<!-- public/404.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting...</title>
+    <script>
+      if (!sessionStorage.redirected) {
+        sessionStorage.redirect = location.pathname;
+        sessionStorage.redirected = 'true';
+        window.location.replace('/');
+      }
+    </script>
+  </head>
+  <body>
+    <p>Redirecting...</p>
+  </body>
+</html>
