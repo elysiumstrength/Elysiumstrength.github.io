@@ -5,14 +5,11 @@ import { RouterProvider } from 'react-router-dom';
 import { router } from './routes/router';
 import './styles/global.css';
 
-// Only redirect once
-const redirectPath = sessionStorage.redirect;
-const alreadyRedirected = sessionStorage.redirected;
-
-if (redirectPath && alreadyRedirected) {
-  sessionStorage.removeItem('redirect');
-  sessionStorage.removeItem('redirected');
-  window.history.replaceState(null, '', redirectPath);
+// ✅ Restore correct path BEFORE React Router runs
+const storedRedirect = sessionStorage.getItem("redirectPath");
+if (storedRedirect) {
+  sessionStorage.removeItem("redirectPath");
+  window.history.replaceState(null, "", storedRedirect);
 }
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
