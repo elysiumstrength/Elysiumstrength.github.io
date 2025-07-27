@@ -4,32 +4,36 @@ import { TRAINERS } from "../data/trainers"
 import "./Trainers.css"
 
 export default function Trainers() {
-    const [flippedTrainerId, setFlippedTrainerId] = useState<number | null>(null)
+    const [flippedTrainerIds, setFlippedTrainerIds] = useState<Set<number>>(new Set())
     const containerRef = useRef<HTMLDivElement>(null)
 
-    // Handle click outside to close flipped card
+    // Handle click outside to close flipped cards
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            if (flippedTrainerId !== null && containerRef.current && !containerRef.current.contains(event.target as Node)) {
-                setFlippedTrainerId(null)
+            if (flippedTrainerIds.size > 0 && containerRef.current && !containerRef.current.contains(event.target as Node)) {
+                setFlippedTrainerIds(new Set())
             }
         }
 
-        if (flippedTrainerId !== null) {
+        if (flippedTrainerIds.size > 0) {
             document.addEventListener('mousedown', handleClickOutside)
         }
 
         return () => {
             document.removeEventListener('mousedown', handleClickOutside)
         }
-    }, [flippedTrainerId])
+    }, [flippedTrainerIds])
 
     const handleTrainerClick = (trainerId: number) => {
-        if (flippedTrainerId === trainerId) {
-            setFlippedTrainerId(null) // Flip back if already flipped
-        } else {
-            setFlippedTrainerId(trainerId) // Flip the clicked trainer
-        }
+        setFlippedTrainerIds(prev => {
+            const newSet = new Set(prev)
+            if (newSet.has(trainerId)) {
+                newSet.delete(trainerId) // Flip back if already flipped
+            } else {
+                newSet.add(trainerId) // Add to flipped trainers
+            }
+            return newSet
+        })
     }
 
     return (
@@ -58,7 +62,7 @@ export default function Trainers() {
                                 trainerType={trainer.trainerType}
                                 bio={trainer.bio}
                                 specializations={trainer.specializations}
-                                isFlipped={flippedTrainerId === trainer.id}
+                                isFlipped={flippedTrainerIds.has(trainer.id)}
                                 onClick={() => handleTrainerClick(trainer.id)}
                                 extendedBio={trainer.extendedBio}
                             />
