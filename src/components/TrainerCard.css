@@ -291,31 +291,29 @@
         height: 500px;
     }
 
+    .trainer-card-container:hover .trainer-card:not(.trainer-card--flipped) {
+        transform: none;
+    }
+
+    .trainer-card-container:hover .trainer-card__front {
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
     .trainer-card__back-content {
         padding: 1.5rem;
     }
 
-    .trainer-card__back-header h3 {
+    .trainer-card__name {
         font-size: 1.3rem;
     }
 
-    .trainer-card__extended-bio {
-        font-size: 0.95rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .trainer-card-container {
-        max-width: 300px;
-        height: 450px;
+    .trainer-card__type {
+        font-size: 0.9rem;
     }
 
-    .trainer-card__content {
-        padding: 1.25rem;
-    }
-
-    .trainer-card__back-content {
-        padding: 1.25rem;
+    .trainer-card__bio {
+        font-size: 0.9rem;
     }
 
     .trainer-card__back-header h3 {
@@ -324,6 +322,42 @@
 
     .trainer-card__extended-bio {
         font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .trainer-card-container {
+        max-width: 400px;
+        min-width: 300px;
+        height: 450px;
+    }
+
+    .trainer-card__content {
+        padding: 1.25rem;
+    }
+
+    .trainer-card__name {
+        font-size: 1.2rem;
+    }
+
+    .trainer-card__type {
+        font-size: 0.85rem;
+    }
+
+    .trainer-card__bio {
+        font-size: 0.85rem;
+    }
+
+    .trainer-card__back-content {
+        padding: 1.25rem;
+    }
+
+    .trainer-card__back-header h3 {
+        font-size: 1.1rem;
+    }
+
+    .trainer-card__extended-bio {
+        font-size: 0.85rem;
     }
 
     .trainer-card__spec {
