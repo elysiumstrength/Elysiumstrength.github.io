@@ -11,7 +11,11 @@ export default function Navbar() {
 
     useEffect(() => {
         const checkScreenSize = () => {
-            setIsMobile(window.innerWidth <= 480)
+            setIsMobile(window.innerWidth <= 768)
+            // Close menu when screen becomes larger
+            if (window.innerWidth > 1480) {
+                setMenuOpen(false)
+            }
         }
 
         checkScreenSize()
@@ -20,8 +24,31 @@ export default function Navbar() {
         return () => window.removeEventListener('resize', checkScreenSize)
     }, [])
 
+    // Close menu on escape key
+    useEffect(() => {
+        const handleEscape = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                setMenuOpen(false)
+            }
+        }
+
+        if (menuOpen) {
+            document.addEventListener('keydown', handleEscape)
+            // Prevent body scroll when menu is open
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = 'unset'
+        }
+
+        return () => {
+            document.removeEventListener('keydown', handleEscape)
+            document.body.style.overflow = 'unset'
+        }
+    }, [menuOpen])
+
     return (
         <header className="navbar">
+            {menuOpen && <div className="navbar__backdrop" onClick={() => setMenuOpen(false)}></div>}
             <div className="navbar__container">
                 <nav className="left__nav">
                     <a href="https://elysium.pushpress.com/landing/calendar" className="button__tertiary" onClick={() => setMenuOpen(false)}>
@@ -40,7 +67,7 @@ export default function Navbar() {
                         CONSULT
                     </a>
                     <button
-                        className="navbar__hamburger"
+                        className={`navbar__hamburger${menuOpen ? ' navbar__hamburger--open' : ''}`}
                         aria-label="Toggle navigation"
                         onClick={() => setMenuOpen((open) => !open)}
                     >
@@ -51,19 +78,25 @@ export default function Navbar() {
                 </nav>
                 <nav className={`right__nav navbar__nav${menuOpen ? ' navbar__nav--open' : ''}`}>
                     {isMobile && (
-                        <a href="https://elysium.pushpress.com/landing/calendar" className="button__tertiary" onClick={() => setMenuOpen(false)}>
-                            CONSULT
-                        </a>
+                        <>
+                            <a href="https://elysium.pushpress.com/landing/calendar" className="button__tertiary" onClick={() => setMenuOpen(false)}>
+                                CONSULT
+                            </a>
+                            <div className="navbar__nav-divider"></div>
+                        </>
                     )}
                     <NavLink to="/trainers" className="button__tertiary" onClick={() => setMenuOpen(false)}>
                         TRAINERS
                     </NavLink>
+                    <div className="navbar__nav-divider"></div>
                     <NavLink to="/wellness" className="button__tertiary" onClick={() => setMenuOpen(false)}>
                         WELLNESS
                     </NavLink>
+                    <div className="navbar__nav-divider"></div>
                     <NavLink to="/community" className="button__tertiary" onClick={() => setMenuOpen(false)}>
                         COMMUNITY
                     </NavLink>
+                    <div className="navbar__nav-divider"></div>
                     <NavLink to="/pricing" className="button__tertiary" onClick={() => setMenuOpen(false)}>
                         PRICING
                     </NavLink>
