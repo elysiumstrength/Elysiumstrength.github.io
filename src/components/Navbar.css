@@ -98,6 +98,7 @@ nav.right__nav .button__tertiary {
     font-size: 1rem;
     font-weight: 600;
     padding: 0;
+    transition: all 0.2s ease;
 }
 
 /* Remove background animations for right nav buttons */
@@ -110,7 +111,7 @@ nav.right__nav .button__tertiary:hover {
     border-color: transparent;
     box-shadow: none;
     /* Keep other hover effects but remove background animation */
-    transform: translateY(-2px);
+    transform: translateY(-1px);
     text-decoration: none;
 }
 
@@ -142,7 +143,7 @@ nav.right__nav .button__tertiary:hover {
 }
 
 /* Responsive styles */
-@media (max-width: 1480px) {
+@media (max-width: 5000px) {
     .navbar {
         padding: 1rem 5%;
     }
