@@ -4,7 +4,7 @@ import {
     TrainersSection,
     MissionSection,
     AdditionalServicesSection,
-    ValuesSection,
+    // ValuesSection,
     TestimonialsSection
 } from "../sections"
 
@@ -19,7 +19,7 @@ export default function Home() {
             <MissionSection />
             <TrainersSection />
             <AdditionalServicesSection />
-            <ValuesSection />
+            {/* <ValuesSection /> */}
             <TestimonialsSection />
         </>
     )
