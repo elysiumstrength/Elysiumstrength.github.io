@@ -79,7 +79,7 @@
     }
 
     .additional-services__content {
-        padding: 32px 16px;
+        padding: 32px 0;
         gap: 48px;
     }
 
@@ -125,7 +125,7 @@
 
 @media (max-width: 480px) {
     .additional-services__content {
-        padding: 24px 12px;
+        padding: 24px 0;
         gap: 32px;
     }
 
