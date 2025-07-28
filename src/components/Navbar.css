@@ -56,7 +56,6 @@
     line-height: 1;
 }
 
-.left__nav,
 .navbar__nav,
 .navbar__spacer {
     display: flex;
@@ -64,17 +63,24 @@
     align-items: center;
 }
 
-.left__nav {
-    min-width: 140px;
-}
-
-.right__nav {
-    min-width: 356px;
-}
-
 .navbar__nav {
-    justify-content: flex-end;
-    gap: 2rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #2D4A2D;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    padding: 1.25rem 0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1001;
 }
 
 .navbar__spacer {
@@ -86,42 +92,46 @@
     }
 }
 
-nav.left__nav .button__tertiary,
 .navbar__spacer .button__tertiary {
     font-size: 1rem;
     font-weight: 600;
     padding: 0.375rem 1.125rem;
 }
 
-nav.right__nav .button__tertiary {
+.navbar__nav .button__tertiary {
+    width: 100%;
+    text-align: center;
+    color: #D19919;
+    background: none;
     border: none;
-    font-size: 1rem;
-    font-weight: 600;
     padding: 0;
-    transition: all 0.2s ease;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 0;
+    transition: all 0.3s ease;
 }
 
 /* Remove background animations for right nav buttons */
-nav.right__nav .button__tertiary::before {
+nav.navbar__nav .button__tertiary::before {
     display: none;
 }
 
-nav.right__nav .button__tertiary:hover {
+.navbar__nav .button__tertiary:hover,
+.navbar__nav .button__tertiary:focus {
     background-color: transparent;
     border-color: transparent;
     box-shadow: none;
-    /* Keep other hover effects but remove background animation */
-    transform: translateY(-1px);
-    text-decoration: none;
+    transform: translateY(-2px);
+    outline: none;
 }
 
 /* Hamburger menu styles */
 .navbar__spacer {
-    display: none;
+    display: flex;
 }
 
 .navbar__hamburger {
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 5px;
@@ -142,75 +152,24 @@ nav.right__nav .button__tertiary:hover {
     transition: all 0.3s ease;
 }
 
+.navbar__nav--open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.navbar__nav-divider {
+    height: 1px;
+    width: 60%;
+    /* gradient background */
+    background: linear-gradient(90deg, #2D4A2D 0%, #D19919 50%, #2D4A2D 100%);
+    margin: 1rem 0;
+}
+
 /* Responsive styles */
-@media (max-width: 5000px) {
+@media (max-width: 1480px) {
     .navbar {
         padding: 1rem 5%;
-    }
-
-    .navbar__nav {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: #2D4A2D;
-        flex-direction: column;
-        align-items: center;
-        gap: 0;
-        width: 100%;
-        padding: 1.25rem 0;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-        border-radius: 0;
-        opacity: 0;
-        pointer-events: none;
-        transform: translateY(-10px);
-        transition: opacity 0.3s ease, transform 0.3s ease;
-        z-index: 1001;
-    }
-
-    .navbar__nav--open {
-        opacity: 1;
-        pointer-events: auto;
-        transform: translateY(0);
-    }
-
-    .navbar__nav .button__tertiary {
-        width: 100%;
-        text-align: center;
-        color: #D19919;
-        background: none;
-        border: none;
-        font-size: 1rem;
-        padding: 1rem 2rem;
-        border-radius: 0;
-        transition: background-color 0.2s ease;
-    }
-
-    .navbar__nav-divider {
-        height: 1px;
-        width: 60%;
-        /* gradient background */
-        background: linear-gradient(90deg, #2D4A2D 0%, #D19919 50%, #2D4A2D 100%);
-        margin: 1rem 0;
-    }
-
-    .navbar__nav .button__tertiary:hover,
-    .navbar__nav .button__tertiary:focus {
-        background-color: rgba(209, 153, 25, 0.1);
-        transform: none;
-        outline: none;
-    }
-
-    .left__nav {
-        display: none;
-    }
-
-    .navbar__spacer {
-        display: flex;
-    }
-
-    .navbar__hamburger {
-        display: flex;
     }
 }
 

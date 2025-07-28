@@ -50,11 +50,6 @@ export default function Navbar() {
         <header className="navbar">
             {menuOpen && <div className="navbar__backdrop" onClick={() => setMenuOpen(false)}></div>}
             <div className="navbar__container">
-                <nav className="left__nav">
-                    <a href="https://elysium.pushpress.com/landing/calendar" className="button__tertiary" onClick={() => setMenuOpen(false)}>
-                        CONSULT
-                    </a>
-                </nav>
                 <Link to="/" className="navbar__logo">
                     <img src={icon} alt="Elysium Icon" className="navbar__icon" />
                     <div className="navbar__title">
@@ -76,7 +71,7 @@ export default function Navbar() {
                         <span className="navbar__hamburger-bar"></span>
                     </button>
                 </nav>
-                <nav className={`right__nav navbar__nav${menuOpen ? ' navbar__nav--open' : ''}`}>
+                <nav className={`navbar__nav${menuOpen ? ' navbar__nav--open' : ''}`}>
                     {isMobile && (
                         <>
                             <a href="https://elysium.pushpress.com/landing/calendar" className="button__tertiary" onClick={() => setMenuOpen(false)}>
