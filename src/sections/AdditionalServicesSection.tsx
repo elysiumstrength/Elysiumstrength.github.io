@@ -35,13 +35,13 @@ export default function AdditionalServicesSection() {
                 <div className="additional-services__content">
                     {/* Section Header */}
                     <div className="additional-services__header">
-                        <h2 className="additional-services__title">
+                        <h1 className="additional-services__title">
                             Additional Areas of Support
-                        </h2>
+                        </h1>
                         <div className="additional-services__divider"></div>
-                        <p className="additional-services__subtitle">
+                        <h5 className="additional-services__subtitle">
                             Comprehensive wellness services that go beyond training—nutrition rooted in science and care, plus advanced recovery techniques to support every aspect of your health journey.
-                        </p>
+                        </h5>
                     </div>
 
                     {/* Services Grid */}

@@ -13,16 +13,16 @@ function TestimonialCard({ quote, name, age, achievement, rating, duration }: Te
     return (
         <div className="testimonial-card">
             <div className="testimonial-card__content">
-                <div className="testimonial-card__quote">"{quote}"</div>
+                <p className="testimonial-card__quote">"{quote}"</p>
                 <div className="testimonial-card__rating">
                     {[...Array(rating)].map((_, i) => (
                         <span key={i} className="star">★</span>
                     ))}
                 </div>
                 <div className="testimonial-card__author">
-                    <div className="testimonial-card__name">{name}, {age}</div>
-                    <div className="testimonial-card__achievement">{achievement}</div>
-                    <div className="testimonial-card__duration">{duration}</div>
+                    <h4 className="testimonial-card__name">{name}, {age}</h4>
+                    <h6 className="testimonial-card__achievement">{achievement}</h6>
+                    <small className="testimonial-card__duration">{duration}</small>
                 </div>
             </div>
         </div>
@@ -65,36 +65,36 @@ export default function TestimonialsSection() {
                 <div className="testimonials__header-section">
                     <div className="testimonials__subtitle">
                         <div className="testimonials__line"></div>
-                        <span className="testimonials__subtitle-text">Success Stories</span>
+                        <h6 className="testimonials__subtitle-text">Success Stories</h6>
                         <div className="testimonials__line"></div>
                     </div>
 
-                    <h2 className="testimonials__title">Client Testimonials</h2>
+                    <h1 className="testimonials__title">Client Testimonials</h1>
 
-                    <p className="testimonials__description">
+                    <h5 className="testimonials__description">
                         Real transformations from real people. Discover how our comprehensive approach to fitness has helped clients achieve their goals and transform their lives.
-                    </p>
+                    </h5>
                 </div>
 
                 {/* Success Metrics */}
                 <div className="testimonials__metrics">
                     <div className="metric">
-                        <div className="metric__number">200+</div>
-                        <div className="metric__label">Clients Transformed</div>
+                        <h2 className="metric__number">200+</h2>
+                        <h6 className="metric__label">Clients Transformed</h6>
                     </div>
 
                     <div className="metric__divider"></div>
 
                     <div className="metric">
-                        <div className="metric__number">4.9★</div>
-                        <div className="metric__label">Average Rating</div>
+                        <h2 className="metric__number">4.9★</h2>
+                        <h6 className="metric__label">Average Rating</h6>
                     </div>
 
                     <div className="metric__divider"></div>
 
                     <div className="metric">
-                        <div className="metric__number">95%</div>
-                        <div className="metric__label">Goal Achievement Rate</div>
+                        <h2 className="metric__number">95%</h2>
+                        <h6 className="metric__label">Goal Achievement Rate</h6>
                     </div>
                 </div>
 

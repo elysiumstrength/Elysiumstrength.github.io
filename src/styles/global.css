@@ -59,7 +59,7 @@ h3 {
 
 h4 {
   font-family: "Jomolhari", sans-serif;
-  font-size: 1.125rem;
+  font-size: 1rem;
   /* 18px on mobile */
   font-weight: 500;
   margin: 0;
@@ -111,8 +111,18 @@ p {
   }
 
   h4 {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     /* 20px on tablet */
+  }
+
+  h5 {
+    font-size: 1.0625rem;
+    /* 17px on tablet */
+  }
+
+  h6 {
+    font-size: 0.9375rem;
+    /* 15px on tablet */
   }
 
   p {
@@ -142,7 +152,17 @@ p {
     font-size: 1.25rem;
     /* 20px on desktop */
   }
-  
+
+  h5 {
+    font-size: 1.125rem;
+    /* 18px on desktop */
+  }
+
+  h6 {
+    font-size: 1rem;
+    /* 16px on desktop */
+  }
+
   p {
     font-size: 1rem;
     /* 16px on desktop */
