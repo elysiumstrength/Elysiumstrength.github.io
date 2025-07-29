@@ -164,13 +164,6 @@
     background-color: #d19919;
 }
 
-.service-detail-title {
-    font-weight: 700;
-    line-height: 1.4;
-    font-size: 2.25rem;
-    text-align: left;
-}
-
 .service-detail-text--light {
     color: #f4f1ea;
 }
@@ -186,7 +179,6 @@
 .service-detail-description {
     font-weight: 500;
     line-height: 1.6;
-    font-size: 1rem;
     text-align: left;
 }
 
@@ -204,9 +196,8 @@
 }
 
 .service-detail-subtitle {
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.4;
-    font-size: 1.25rem;
     text-align: left;
 }
 
@@ -236,7 +227,6 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     line-height: 1.6;
-    font-size: 1rem;
     text-align: left;
 }
 
@@ -333,7 +323,6 @@
 .wellness-cta-description {
     line-height: 1.6;
     color: #232323;
-    font-size: 1.125rem;
     text-align: center;
 }
 
@@ -352,16 +341,6 @@
     gap: 0.5rem;
     align-items: center;
 }
-
-.wellness-cta-contact-text {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    line-height: 1.6;
-    color: #666;
-    font-size: 0.875rem;
-    text-align: center;
-}
-
 
 @media (max-width: 1280px) {
 
@@ -385,10 +364,6 @@
     .service-detail-title {
         font-size: 2rem;
     }
-
-    .service-detail-description {
-        font-size: 1rem;
-    }
 }
 
 /* Responsive Design */
@@ -405,14 +380,6 @@
 
     .wellness-header-section {
         padding: 3rem 5%;
-    }
-
-    .wellness-header__title {
-        font-size: 2rem;
-    }
-
-    .wellness-header__text {
-        font-size: 0.95rem;
     }
 
     /* Service Detail Section Mobile */
@@ -446,14 +413,6 @@
         max-height: 400px;
     }
 
-    .service-detail-title {
-        font-size: 1.875rem;
-    }
-
-    .service-detail-description {
-        font-size: 1rem;
-    }
-
     .service-detail-info {
         gap: 1.25rem;
     }
@@ -474,10 +433,6 @@
     /* Wellness CTA Mobile */
     .wellness-cta-content {
         padding: 3rem 2rem;
-    }
-
-    .wellness-cta-title {
-        font-size: 2rem;
     }
 
     .wellness-cta-buttons {
@@ -508,25 +463,10 @@
         padding: 2rem 4%;
     }
 
-    .wellness-header__title {
-        font-size: 1.75rem;
-    }
-
-    .wellness-header__text {
-        font-size: 0.9rem;
-    }
 
     /* Service Detail Section Small Mobile */
     .service-detail-header {
         gap: 0.75rem;
-    }
-
-    .service-detail-title {
-        font-size: 1.5rem;
-    }
-
-    .service-detail-description {
-        font-size: 0.875rem;
     }
 
     .service-detail-info {
@@ -544,11 +484,6 @@
 
     .service-detail-process-list {
         gap: 0.375rem;
-    }
-
-    .service-detail-list-text,
-    .service-detail-process-text {
-        font-size: 0.875rem;
     }
 
     .service-detail-bullet {
@@ -588,55 +523,7 @@
         gap: 1rem;
     }
 
-    .wellness-cta-title {
-        font-size: 1.75rem;
-    }
-
-    .wellness-cta-description {
-        font-size: 1rem;
-    }
-
     .wellness-cta-buttons {
         gap: 0.5rem;
-    }
-}
-
-@media (max-width: 360px) {
-
-    /* Service Detail Section Extra Small Mobile */
-
-    .service-detail-title {
-        font-size: 1.25rem;
-    }
-
-    .service-detail-description {
-        font-size: 0.8rem;
-    }
-
-    .service-detail-list-text,
-    .service-detail-process-text {
-        font-size: 0.8rem;
-    }
-
-    .service-detail-title-row {
-        gap: 0.5rem;
-    }
-
-    .service-detail-dot {
-        height: 0.5rem;
-        width: 0.5rem;
-    }
-
-    /* Wellness CTA Extra Small Mobile */
-    .wellness-cta-content {
-        padding: 1.5rem 0.75rem;
-    }
-
-    .wellness-cta-title {
-        font-size: 1.5rem;
-    }
-
-    .wellness-cta-description {
-        font-size: 0.875rem;
     }
 }

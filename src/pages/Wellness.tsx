@@ -99,9 +99,9 @@ function WellnessCTA() {
                 <div className="wellness-cta-content">
 
                     <div className="wellness-cta-text">
-                        <h1 className="wellness-cta-title">
+                        <h2 className="wellness-cta-title">
                             Ready to Transform Your Wellness Journey?
-                        </h1>
+                        </h2>
 
                         <p className="wellness-cta-description">
                             Our comprehensive wellness approach combines cutting-edge techniques with personalized care. Start your journey toward optimal health today.
