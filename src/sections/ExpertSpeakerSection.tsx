@@ -30,13 +30,13 @@ function ExpertSpeakerCard({
                 </div>
 
                 <div className="expert-speaker-info">
-                    <div className="expert-speaker-name">{speaker}</div>
-                    <div className="expert-speaker-expertise">{expertise}</div>
+                    <h4 className="expert-speaker-name">{speaker}</h4>
+                    <h6 className="expert-speaker-expertise">{expertise}</h6>
                 </div>
 
-                <div className="expert-speaker-topic">{topic}</div>
+                <p className="expert-speaker-topic">{topic}</p>
 
-                <button className="expert-speaker-button">
+                <button className="button-secondary expert-speaker-button">
                     <div className="expert-speaker-button-text">RESERVE SPOT</div>
                 </button>
             </div>
@@ -81,21 +81,21 @@ function ExpertSpeakerSection() {
                 <div className="expert-speaker-header">
                     <div className="expert-speaker-subtitle">
                         <div className="expert-speaker-subtitle-line" />
-                        <div className="expert-speaker-subtitle-text">
+                        <h6 className="expert-speaker-subtitle-text">
                             Monthly Education
-                        </div>
+                        </h6>
                         <div className="expert-speaker-subtitle-line" />
                     </div>
 
-                    <div className="expert-speaker-title">
+                    <h1 className="expert-speaker-title">
                         Expert Speaker Series
-                    </div>
+                    </h1>
 
-                    <div className="expert-speaker-description">
+                    <p className="expert-speaker-description">
                         Join us monthly for exclusive educational sessions with
                         leading experts in wellness, nutrition, and recovery.
                         Expand your knowledge and enhance your fitness journey.
-                    </div>
+                    </p>
                 </div>
 
                 {/* horizontally scrollable list */}

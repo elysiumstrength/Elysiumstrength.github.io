@@ -42,24 +42,17 @@
 .expert-speaker-subtitle-text {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    font-size: 0.875rem;
     color: #d19919;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
 .expert-speaker-title {
-    font-family: 'Jomolhari', sans-serif;
-    font-size: 2.5rem;
     color: #d19919;
-    line-height: 1.2;
     text-align: center;
 }
 
 .expert-speaker-description {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 1.125rem;
     color: #f4f1ea;
     line-height: 1.6;
     text-align: center;
@@ -134,7 +127,6 @@
 
 .expert-speaker-name {
     font-family: 'Jomolhari', sans-serif;
-    font-size: 1.25rem;
     color: #232323;
     line-height: 1.4;
     text-align: left;
@@ -143,7 +135,6 @@
 .expert-speaker-expertise {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 0.875rem;
     color: #d19919;
     line-height: 1.4;
     text-align: left;
@@ -152,7 +143,6 @@
 .expert-speaker-topic {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-    font-size: 1rem;
     color: #232323;
     line-height: 1.6;
     text-align: left;
@@ -204,14 +194,6 @@
         gap: 2rem;
     }
 
-    .expert-speaker-title {
-        font-size: 2rem;
-    }
-
-    .expert-speaker-description {
-        font-size: 1rem;
-    }
-
     /* Horizontally scrollable list for mobile */
     .expert-speaker-grid {
         display: flex;
@@ -249,11 +231,6 @@
 }
 
 @media (max-width: 480px) {
-
-    .expert-speaker-title {
-        font-size: 1.75rem;
-    }
-
     .expert-speaker-grid {
         padding: 0 calc(50vw - 140px) 1rem;
         /* center cards on left/right edges */
