@@ -1,9 +1,10 @@
 import "./MissionSection.css"
+import mapConfig from "../config/map-config.json"
 
 // src/sections/MissionSection.tsx
 export default function MissionSection() {
     return (
-        <div className="mission-section">
+        <section className="mission-section">
             <div className="mission-container">
                 <div className="mission-content-wrapper">
 
@@ -33,19 +34,35 @@ export default function MissionSection() {
                             What is Elysium?
                         </h2>
 
-                        {/* Large Quote Marks */}
-                        <div className="mission-quote-container">
-                            <div className="mission-quote-left">
-                                "
-                            </div>
-                            <div className="mission-quote-right">
-                                "
+                        {/* Mission Content with Map */}
+                        <div className="mission-content-with-map">
+                            {/* Large Quote Marks */}
+                            <div className="mission-quote-container">
+                                <div className="mission-quote-left">
+                                    "
+                                </div>
+                                <div className="mission-quote-right">
+                                    "
+                                </div>
+
+                                {/* Mission Statement */}
+                                <p className="mission-statement">
+                                    We're a team of passionate, professional trainers united by diverse expertise and a shared commitment to growth. From former pro athletes to lifelong fitness specialists, our coaches bring a wide range of experience to the table. We set a high standard—holding monthly knowledge-sharing sessions and requiring continuing education every year—so our team is always evolving. It's how we ensure we stay at the top of our game, so you can reach the top of yours.
+                                </p>
                             </div>
 
-                            {/* Mission Statement */}
-                            <p className="mission-statement">
-                                We're a team of passionate, professional trainers united by diverse expertise and a shared commitment to growth. From former pro athletes to lifelong fitness specialists, our coaches bring a wide range of experience to the table. We set a high standard—holding monthly knowledge-sharing sessions and requiring continuing education every year—so our team is always evolving. It's how we ensure we stay at the top of our game, so you can reach the top of yours.
-                            </p>
+                            {/* Map Section */}
+                            <div className="mission-map-container">
+                                <iframe
+                                    width="600"
+                                    height="450"
+                                    style={{ border: 0 }}
+                                    loading="lazy"
+                                    allowFullScreen
+                                    src={mapConfig.mapUrl}
+                                    title="Elysium Location"
+                                />
+                            </div>
                         </div>
 
                         {/* Call to Action */}
@@ -61,6 +78,6 @@ export default function MissionSection() {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
