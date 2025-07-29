@@ -85,9 +85,7 @@
 .mission-overline-text {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    line-height: 1.4;
     color: #d19919;
-    font-size: 14px;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
@@ -96,8 +94,6 @@
     font-weight: 700;
     line-height: 1.2;
     color: #232323;
-    font-size: 2.5rem;
-    /* 48px */
     text-align: center;
     margin-bottom: 0;
     margin-top: 0;
@@ -144,8 +140,6 @@
     font-weight: 500;
     line-height: 1.8;
     color: #333;
-    font-size: 1.25rem;
-    /* 22px */
     text-align: center;
     padding: 0 3rem;
     margin-bottom: 0;
@@ -168,45 +162,6 @@
     max-width: 240px;
 }
 
-.mission-value-icon {
-    background-color: #d19919;
-    height: 3rem;
-    width: 3rem;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.mission-value-number {
-    font-family: "Jomolhari", sans-serif;
-    font-weight: 700;
-    color: #f4f1ea;
-    font-size: 1.25rem;
-    /* 20px */
-}
-
-.mission-value-title {
-    font-family: "Jomolhari", sans-serif;
-    font-weight: 600;
-    line-height: 1.4;
-    color: #232323;
-    font-size: 1.25rem;
-    /* 20px */
-    text-align: center;
-    margin-bottom: 0;
-}
-
-.mission-value-description {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    line-height: 1.6;
-    color: #333;
-    font-size: 0.875rem;
-    /* 14px */
-    text-align: center;
-    margin-bottom: 0;
-}
 
 /* Mission CTA Styles */
 .mission-cta-container {
@@ -245,28 +200,17 @@
     font-weight: 400;
     line-height: 1.6;
     color: #666;
-    font-size: 1.125rem;
     text-align: center;
     margin-bottom: 0;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1440px) {
     .mission-statement {
         font-size: 1.125rem;
-        /* 18px */
     }
 }
 
 @media (max-width: 1028px) {
-    .mission-headline {
-        font-size: 2.25rem;
-        /* 36px */
-    }
-
-    .mission-statement {
-        font-size: 1rem;
-        /* 16px */
-    }
 
     .mission-content-with-map {
         flex-direction: column;
@@ -282,20 +226,17 @@
         width: 100%;
     }
 
-    .mission-headline {
-        font-size: 2.25rem;
-        /* 36px - using h1 size from global */
-    }
-
     .mission-statement {
-        font-size: 1.125rem;
-        /* 18px */
         padding: 0 1rem;
     }
 
     .mission-values-container {
         flex-direction: column;
         gap: 2rem;
+    }
+
+    .mission-statement {
+        font-size: 1rem;
     }
 
     .mission-quote-left {
@@ -318,14 +259,8 @@
         height: 300px;
     }
 
-    .mission-headline {
-        font-size: 2rem;
-        /* 32px - using h2 size from global */
-    }
-
     .mission-statement {
-        font-size: 1rem;
-        /* 16px */
+        font-size: 0.875rem;
     }
 
     .mission-quote-left {
@@ -338,17 +273,5 @@
         right: -0.5rem;
         font-size: 2.5rem;
         /* 40px */
-    }
-
-    .mission-decorative-header {
-        top: 1rem;
-    }
-}
-
-
-
-@media (max-width: 768px) {
-    .mission-cta-text {
-        font-size: 1rem;
     }
 }
