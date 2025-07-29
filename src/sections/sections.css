@@ -14,3 +14,9 @@ section {
     border-radius: 1px;
     display: block;
 }
+
+@media (max-width: 768px) {
+    section {
+        padding: 4rem 5%;
+    }
+}
