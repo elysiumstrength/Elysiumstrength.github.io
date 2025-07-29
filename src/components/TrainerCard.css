@@ -92,16 +92,12 @@
 }
 
 .trainer-card__name {
-    font-size: 1.5rem;
-    font-weight: 700;
     margin: 0 0 0.5rem 0;
     color: #222;
     font-family: "Jomolhari", sans-serif;
 }
 
 .trainer-card__type {
-    font-size: 1rem;
-    font-weight: 600;
     color: #D19919;
     margin: 0 0 1rem 0;
     text-transform: uppercase;
@@ -109,7 +105,6 @@
 }
 
 .trainer-card__bio {
-    font-size: 0.95rem;
     margin-bottom: 1rem;
     color: #555;
     line-height: 1.6;
@@ -132,7 +127,6 @@
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
     border: 1px solid rgba(30, 42, 29, 0.2);
-    font-weight: 500;
     margin: 0;
     transition: all 0.2s ease;
 }
@@ -149,6 +143,7 @@
     transition: all 0.3s ease;
     opacity: 0.8;
     margin-top: auto;
+    font-size: 1rem;
 }
 
 .trainer-card-container:hover .trainer-card__click-indicator {
@@ -159,9 +154,7 @@
 }
 
 .trainer-card__click-text {
-    font-size: 0.85rem;
     color: #D19919;
-    font-weight: 600;
     letter-spacing: 0.3px;
 }
 
@@ -207,11 +200,7 @@
 }
 
 .trainer-card__back-header h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin: 0;
     color: #222;
-    font-family: "Jomolhari", sans-serif;
 }
 
 .trainer-card__close-btn {
@@ -245,44 +234,12 @@
 }
 
 .trainer-card__extended-bio {
-    font-size: 1rem;
     line-height: 1.7;
     color: #444;
     margin-bottom: 1.5rem;
     flex: 1;
 }
 
-.trainer-card__back-specializations {
-    margin-top: auto;
-}
-
-.trainer-card__back-specializations h4 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #D19919;
-    margin: 0 0 0.75rem 0;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.trainer-card__back-specializations ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.trainer-card__back-specializations li {
-    font-size: 0.85rem;
-    color: #1E2A1D;
-    padding: 0.4rem 0.9rem;
-    border-radius: 20px;
-    border: 1px solid rgba(30, 42, 29, 0.2);
-    font-weight: 500;
-    background-color: rgba(255, 255, 255, 0.7);
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -303,26 +260,6 @@
     .trainer-card__back-content {
         padding: 1.5rem;
     }
-
-    .trainer-card__name {
-        font-size: 1.3rem;
-    }
-
-    .trainer-card__type {
-        font-size: 0.9rem;
-    }
-
-    .trainer-card__bio {
-        font-size: 0.9rem;
-    }
-
-    .trainer-card__back-header h3 {
-        font-size: 1.2rem;
-    }
-
-    .trainer-card__extended-bio {
-        font-size: 0.9rem;
-    }
 }
 
 @media (max-width: 480px) {
@@ -336,38 +273,13 @@
         padding: 1.25rem;
     }
 
-    .trainer-card__name {
-        font-size: 1.2rem;
-    }
-
-    .trainer-card__type {
-        font-size: 0.85rem;
-    }
-
-    .trainer-card__bio {
-        font-size: 0.85rem;
-    }
-
     .trainer-card__back-content {
         padding: 1.25rem;
-    }
-
-    .trainer-card__back-header h3 {
-        font-size: 1.1rem;
-    }
-
-    .trainer-card__extended-bio {
-        font-size: 0.85rem;
     }
 
     .trainer-card__spec {
         font-size: 0.75rem;
         padding: 0.25rem 0.6rem;
-    }
-
-    .trainer-card__back-specializations li {
-        font-size: 0.75rem;
-        padding: 0.3rem 0.7rem;
     }
 
     .trainer-card__close-btn {

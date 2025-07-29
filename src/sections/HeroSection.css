@@ -19,17 +19,6 @@ section.home {
     background-position: 50% 2rem;
 }
 
-@media (max-width: 768px) {
-    section.home {
-        padding: 2rem 5%;
-    }
-
-    .home__hero {
-        text-align: center;
-        align-items: center;
-    }
-}
-
 .home__hero {
     width: 100%;
     max-width: 525px;
@@ -48,25 +37,14 @@ section.home {
     }
 
     h4 {
+        font-family: "Montserrat", sans-serif;
         color: #ffffff;
         margin: 0 0 1rem 0;
     }
 
     .button__tertiary {
-        font-size: 1.125rem;
         letter-spacing: .175rem;
     }
-}
-
-.home__title {
-    font-size: 2.25rem;
-    font-weight: 700;
-    color: #1a1a1a;
-}
-
-.home__text {
-    font-size: 1rem;
-    color: #555;
 }
 
 .home__options {
@@ -77,16 +55,6 @@ section.home {
     gap: 5rem;
 }
 
-@media (max-width: 1024px) {
-    .home__options {
-        display: none;
-    }
-
-    section.home {
-        justify-content: center;
-        align-items: center;
-    }
-}
 
 .home__scroll-buttons {
     width: 100%;
@@ -96,10 +64,7 @@ section.home {
     justify-content: space-between;
 
     button {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 600;
         background-color: rgba(0, 0, 0, 0.20);
-        padding: 0.375rem 1.75rem;
     }
 
     .left,
@@ -124,4 +89,28 @@ section.home {
         margin: 0;
         height: fit-content;
     }
+}
+
+@media (max-width: 1024px) {
+    .home__options {
+        display: none;
+    }
+
+
+    .home__hero {
+        text-align: center;
+        align-items: center;
+    }
+
+    section.home {
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    section.home {
+        padding: 2rem 5%;
+    }
+
 }

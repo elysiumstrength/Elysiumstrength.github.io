@@ -46,7 +46,6 @@
 
 .service-card__title {
     font-weight: bold;
-    font-size: 24px;
     color: #d19919;
     line-height: 1.4;
     margin: 0;
@@ -55,7 +54,6 @@
 .service-card__description {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-    font-size: 16px;
     color: #f4f1ea;
     line-height: 1.6;
     margin: 0;
@@ -103,12 +101,8 @@
         box-shadow: none;
     }
 
-    .service-card__title {
-        font-size: 20px;
-    }
-
-    .service-card__description {
-        font-size: 14px;
+    .service-card__feature {
+        font-size: 12px;
     }
 }
 

@@ -36,8 +36,8 @@ export default function TrainerCard({
                 <div className="trainer-card__front">
                     <img src={imageUrl} alt={`${name} photo`} className="trainer-card__img" />
                     <div className="trainer-card__content">
-                        <h1 className="trainer-card__name">{name}</h1>
-                        <h2 className="trainer-card__type">{trainerType}</h2>
+                        <h3 className="trainer-card__name">{name}</h3>
+                        <h5 className="trainer-card__type">{trainerType}</h5>
                         <p className="trainer-card__bio">{bio}</p>
                         <ul className="trainer-card__specializations">
                             {specializations.map((item, idx) => (

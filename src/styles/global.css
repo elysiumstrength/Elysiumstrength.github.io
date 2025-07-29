@@ -28,59 +28,142 @@ body {
   overflow-x: hidden;
 }
 
-/* Typography */
+/* Typography - Mobile First (Base styles for mobile) */
 h1 {
   font-family: "Jomolhari", sans-serif;
-  font-size: 2.25rem;
-  /* 36px */
+  font-size: 1.75rem;
+  /* 28px on mobile */
   font-weight: 700;
   margin: 0;
 }
 
 h2 {
   font-family: "Jomolhari", sans-serif;
-  font-size: 2rem;
-  /* 28px */
+  font-size: 1.5rem;
+  /* 24px on mobile */
   font-weight: 600;
   margin: 0;
 }
 
 h3 {
-  font-size: 1.5rem;
-  /* 24px */
+  font-family: "Jomolhari", sans-serif;
+  font-size: 1.25rem;
+  /* 20px on mobile */
   font-weight: 600;
   margin: 0;
 }
-  
+
 
 h4 {
-  font-size: 1.25rem;
-  /* 20px */
+  font-family: "Jomolhari", sans-serif;
+  font-size: 1.125rem;
+  /* 18px on mobile */
   font-weight: 500;
   margin: 0;
 }
 
 h5 {
+  font-family: "Jomolhari", sans-serif;
   font-size: 1rem;
-  /* 16px */
+  /* 16px on mobile */
   font-weight: 500;
   margin: 0;
 }
 
 h6 {
+  font-family: "Jomolhari", sans-serif;
   font-size: 0.875rem;
-  /* 14px */
+  /* 14px on mobile */
   font-weight: 500;
   margin: 0;
 }
 
 p {
-  font-size: 1rem;
-  /* 16px */
+  font-size: 0.875rem;
+  /* 14px on mobile */
   font-weight: 400;
   color: #333;
   margin: 0;
 }
+
+/* Tablet styles */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.25rem;
+    /* 36px on tablet */
+  }
+
+  h2 {
+    font-size: 2rem;
+    /* 32px on tablet */
+  }
+
+  h3 {
+    font-size: 1.375rem;
+    /* 22px on tablet */
+  }
+
+  h4 {
+    font-size: 1.25rem;
+    /* 20px on tablet */
+  }
+
+  p {
+    font-size: 0.9375rem;
+    /* 15px on tablet */
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 2.5rem;
+    /* 40px on desktop */
+  }
+
+  h2 {
+    font-size: 2.25rem;
+    /* 36px on desktop */
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    /* 24px on desktop */
+  }
+
+  h4 {
+    font-size: 1.25rem;
+    /* 20px on desktop */
+  }
+
+  p {
+    font-size: 1rem;
+    /* 16px on desktop */
+  }
+}
+
+/* Large desktop styles */
+/* @media (min-width: 1440px) {
+  h1 {
+    font-size: 2.75rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  h3 {
+    font-size: 1.625rem;
+  }
+
+  h4 {
+    font-size: 1.375rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+} */
 
 small {
   font-size: 0.875rem;
@@ -200,7 +283,7 @@ button {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   color: #f4f1ea;
-  padding: 0.75rem 2rem;
+  padding: 0.625rem 1.5rem;
   background-color: #D19919;
   border: 1px solid #D19919;
   border-radius: 25px;
@@ -208,6 +291,8 @@ button {
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  font-size: 0.875rem;
+  /* 14px on mobile */
 }
 
 .button__primary:hover {
@@ -226,7 +311,7 @@ button {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   color: #D19919;
-  padding: 0.75rem 2rem;
+  padding: 0.625rem 1.5rem;
   border: 1px solid #D19919;
   background-color: transparent;
   border-radius: 25px;
@@ -234,6 +319,8 @@ button {
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  font-size: 0.875rem;
+  /* 14px on mobile */
 }
 
 .button__secondary:hover {
@@ -252,9 +339,10 @@ button {
 .button__tertiary {
   font-family: 'Montserrat', sans-serif;
   color: #ffffff;
-  font-size: 1.125rem;
+  font-size: 1rem;
+  /* 16px on mobile */
   font-weight: 800;
-  padding: .70rem 2rem;
+  padding: .60rem 1.5rem;
   width: fit-content;
 
   background-color: transparent;
@@ -264,6 +352,39 @@ button {
   position: relative;
   overflow: hidden;
   cursor: pointer;
+}
+
+/* Responsive button font sizes */
+@media (min-width: 768px) {
+
+  .button__primary,
+  .button__secondary {
+    font-size: 0.9375rem;
+    /* 15px on tablet */
+    padding: 0.75rem 1.75rem;
+  }
+
+  .button__tertiary {
+    font-size: 1.0625rem;
+    /* 17px on tablet */
+    padding: .65rem 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .button__primary,
+  .button__secondary {
+    font-size: 1rem;
+    /* 16px on desktop */
+    padding: 0.75rem 2rem;
+  }
+
+  .button__tertiary {
+    font-size: 1.125rem;
+    /* 18px on desktop */
+    padding: .70rem 2rem;
+  }
 }
 
 .button__tertiary::before {
