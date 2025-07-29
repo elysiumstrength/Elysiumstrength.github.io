@@ -1,5 +1,6 @@
 import { ExpertSpeakerSection } from '../sections';
 import Nutrition from '../assets/Nutrition.jpg';
+import PersonalizedExcellence from '../assets/Personalized_Excellence.jpg';
 import './Wellness.css';
 
 interface ServiceDetailSectionProps {
@@ -11,10 +12,11 @@ interface ServiceDetailSectionProps {
     textColor: string;
     headerColor?: string;
     isReversed?: boolean;
+    image: string;
 }
 
 // Detailed Service Sections
-function ServiceDetailSection({ title, description, benefits, process, bgColor, textColor, headerColor, isReversed = false }: ServiceDetailSectionProps) {
+function ServiceDetailSection({ title, description, benefits, process, bgColor, textColor, headerColor, isReversed = false, image }: ServiceDetailSectionProps) {
     return (
         <section className={`service-detail-section ${bgColor}`}>
             <div className="service-detail-container">
@@ -80,7 +82,7 @@ function ServiceDetailSection({ title, description, benefits, process, bgColor, 
 
                     {/* Image Side */}
                     <div className="service-detail-image-container">
-                        <div className="service-detail-image" style={{ backgroundImage: `url('${Nutrition}')` }} />
+                        <div className="service-detail-image" style={{ backgroundImage: `url('${image}')` }} />
                     </div>
 
                 </div>
@@ -141,6 +143,7 @@ function Wellness() {
         ],
         bgColor: "service-detail-section--light",
         textColor: "service-detail-text--dark",
+        image: Nutrition,
     };
 
     const bodyTemperingData = {
@@ -162,7 +165,8 @@ function Wellness() {
         ],
         bgColor: "service-detail-section--dark",
         textColor: "service-detail-text--light",
-        headerColor: "service-detail-text--gold"
+        headerColor: "service-detail-text--gold",
+        image: PersonalizedExcellence,
     };
 
     return (
@@ -177,6 +181,25 @@ function Wellness() {
             {/* Wellness Content */}
             <div className="wellness-content">
                 <ExpertSpeakerSection />
+
+                {/* Wellness Header */}
+                <section className="wellness-header-section">
+                    <div className="wellness-header__container">
+                        <div className="wellness-header__row">
+                            <div className="wellness-header__line" />
+                            <div className="wellness-header__subtitle">
+                                Comprehensive Wellness
+                            </div>
+                            <div className="wellness-header__line" />
+                        </div>
+                        <h1 className="wellness-header__title">
+                            Holistic Health & Recovery Solutions
+                        </h1>
+                        <p className='wellness-header__text'>
+                            At Elysium, we believe true wellness extends beyond the gym. Our comprehensive approach combines evidence-based nutrition counseling with advanced recovery techniques to optimize your health, performance, and overall well-being.
+                        </p>
+                    </div>
+                </section>
 
                 <ServiceDetailSection {...nutritionData} />
                 <ServiceDetailSection {...bodyTemperingData} isReversed={true} />
