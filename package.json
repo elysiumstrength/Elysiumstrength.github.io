@@ -5,9 +5,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "generate-config": "node scripts/generate-map-config.js",
-    "dev": "npm run generate-config && vite",
-    "build": "npm run generate-config && tsc -b && vite build",
+    "dev": "vite",
+    "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
