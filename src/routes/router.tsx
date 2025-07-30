@@ -3,10 +3,11 @@ import { createBrowserRouter } from 'react-router-dom';
 import RootLayout from '../layouts/RootLayout';
 import NotFound from '../pages/NotFound';
 
-const Home      = lazy(() => import('../pages/Home'));
-const About     = lazy(() => import('../pages/About'));
-const Trainers  = lazy(() => import('../pages/Trainers'));
-const Wellness  = lazy(() => import('../pages/Wellness'));
+const Home = lazy(() => import('../pages/Home'));
+const About = lazy(() => import('../pages/About'));
+const Trainers = lazy(() => import('../pages/Trainers'));
+const Wellness = lazy(() => import('../pages/Wellness'));
+const Community = lazy(() => import('../pages/Community'));
 
 export const createAppRouter = () =>
   createBrowserRouter([
@@ -44,6 +45,14 @@ export const createAppRouter = () =>
           element: (
             <Suspense fallback={<div>Loading...</div>}>
               <Wellness />
+            </Suspense>
+          ),
+        },
+        {
+          path: 'community',
+          element: (
+            <Suspense fallback={<div>Loading...</div>}>
+              <Community />
             </Suspense>
           ),
         },

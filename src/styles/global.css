@@ -93,6 +93,11 @@ p {
   line-height: 1.4;
 }
 
+a {
+  font-size: 0.875rem;
+  /* 14px on mobile */
+}
+
 /* Tablet styles */
 @media (min-width: 768px) {
   h1 {
@@ -126,6 +131,11 @@ p {
   }
 
   p {
+    font-size: 0.9375rem;
+    /* 15px on tablet */
+  }
+
+  a {
     font-size: 0.9375rem;
     /* 15px on tablet */
   }
@@ -167,6 +177,11 @@ p {
     font-size: 1rem;
     /* 16px on desktop */
   }
+
+  a {
+    font-size: 1rem;
+    /* 16px on desktop */
+  }
 }
 
 /* Large desktop styles */
@@ -196,11 +211,6 @@ small {
   font-size: 0.875rem;
   /* 14px */
   color: #666;
-}
-
-a {
-  color: #0077cc;
-  text-decoration: none;
 }
 
 a:hover {
