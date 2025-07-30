@@ -96,6 +96,7 @@ p {
 a {
   font-size: 0.875rem;
   /* 14px on mobile */
+  text-decoration: none;
 }
 
 /* Tablet styles */
