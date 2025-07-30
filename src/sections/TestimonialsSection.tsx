@@ -119,7 +119,7 @@ export default function TestimonialsSection() {
                         Ready to start your transformation story?
                     </p>
                     <button className="testimonials__cta-button">
-                        Schedule Your Consultation
+                        Book Your Consultation
                     </button>
                 </div>
 

@@ -19,7 +19,7 @@ export default function HeroSection() {
             <div className="home__hero">
                 <h1>WELCOME<br />TO ELYSIUM</h1>
                 <h4>Discover Goleta's premiere private personal training gym located conveniently off the 101 across from cottage hospital.</h4>
-                <a href="https://elysium.pushpress.com/landing/calendar" className="button__tertiary">SCHEDULE FREE CONSULTATION</a>
+                <a href="https://elysium.pushpress.com/landing/calendar" className="button__tertiary">BOOK FREE CONSULTATION</a>
             </div>
 
             <div className="home__options">

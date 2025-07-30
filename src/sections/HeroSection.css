@@ -41,10 +41,6 @@ section.home {
         color: #ffffff;
         margin: 0 0 1rem 0;
     }
-
-    .button__tertiary {
-        letter-spacing: .175rem;
-    }
 }
 
 .home__options {
