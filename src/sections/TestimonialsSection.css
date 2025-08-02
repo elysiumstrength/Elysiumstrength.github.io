@@ -103,6 +103,36 @@ section.testimonials {
     align-items: flex-start;
     justify-content: center;
     max-width: 1200px;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.testimonials__grid.fading {
+    opacity: 0;
+}
+
+/* Pagination dots */
+.testimonials__dots {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.testimonials__dots .dot {
+    width: 10px;
+    height: 10px;
+    border: none;
+    border-radius: 50%;
+    background: #d0d0d0;
+    cursor: pointer;
+    padding: 0;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.testimonials__dots .dot.active {
+    background: #D19919;
 }
 
 /* Testimonial Cards */
@@ -209,6 +239,7 @@ section.testimonials {
     .testimonials__container {
         padding: 3rem 1.5rem;
         gap: 3rem;
+        overflow: visible;
     }
 
     .testimonials__metrics {
@@ -219,6 +250,11 @@ section.testimonials {
         display: none;
     }
 
+    /* Hide pagination dots on mobile since we're using horizontal scroll */
+    .testimonials__dots {
+        display: none;
+    }
+
     /* Horizontally scrollable list for mobile */
     .testimonials__grid {
         display: flex;
@@ -226,10 +262,11 @@ section.testimonials {
         flex-wrap: nowrap;
         gap: 1.5rem;
         overflow-x: auto;
+        overflow-y: visible;
         /* enables swipe scrolling */
         -webkit-overflow-scrolling: touch;
         scroll-snap-type: x mandatory;
-        padding: 0 calc(50vw - 180px) 1rem;
+        padding: 1rem calc(50vw - 180px) 1rem;
         /* center cards on left/right edges */
         margin: 0;
         max-width: 100vw;

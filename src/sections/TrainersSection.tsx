@@ -4,8 +4,8 @@ import { TRAINERS } from "../data/trainers";
 import "./TrainersSection.css";
 
 /* ---------- constants must match the CSS ---------- */
-const CARD = 340;   // px  – width in .trainer-card-container
-const GAP = 32;    // px  – 4 rem gap in .trainer-list
+const CARD = 380;   // px  – width in .trainer-card-container
+const GAP = 20;    // px  – 4 rem gap in .trainer-list
 const FADE_MS = 400; // duration of fade animation
 
 

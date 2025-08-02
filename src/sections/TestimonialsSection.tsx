@@ -1,5 +1,9 @@
+import { useRef, useEffect, useState } from "react";
 import "./TestimonialsSection.css"
 import { TESTIMONIALS } from "../data/testimonials"
+
+/* ---------- constants ---------- */
+const FADE_MS = 400; // duration of fade animation
 
 interface TestimonialCardProps {
     quote: string;
@@ -33,6 +37,92 @@ function TestimonialCard({ quote, name, age, achievement, rating, duration }: Te
 }
 
 export default function TestimonialsSection() {
+    const rowRef = useRef<HTMLDivElement>(null);
+    const fadeRef = useRef<ReturnType<typeof setTimeout> | null>(null); // store timeout id
+    const [visible, setVisible] = useState(TESTIMONIALS.length); // cards per page
+    const [currentPage, setPage] = useState(0);               // zero-based
+    const [isFading, setFading] = useState(false);           // for CSS class
+    const [isMobile, setIsMobile] = useState(false);          // track if mobile
+
+    /* ────────── check if mobile view ────────── */
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    /* ────────── recalc cards-per-row on resize (desktop only) ────────── */
+    useEffect(() => {
+        if (isMobile) return; // Skip pagination logic on mobile
+
+        const calc = () => {
+            const screenWidth = window.innerWidth;
+            let cardsPerPage = 3; // default to 3 cards
+
+            if (screenWidth < 1200) {
+                cardsPerPage = 2;
+            }
+            if (screenWidth < 800) {
+                cardsPerPage = 1;
+            }
+
+            setVisible(Math.min(cardsPerPage, TESTIMONIALS.length));
+        };
+
+        calc();                               // initial
+        window.addEventListener('resize', calc); // subsequent resizes
+        return () => window.removeEventListener('resize', calc);
+    }, [isMobile]);
+
+    /* ────────── derive paging data (desktop only) ────────── */
+    const rawTotalPages = Math.ceil(TESTIMONIALS.length / visible);
+    const totalPages = isMobile ? 1 : rawTotalPages;          // show all pages on desktop, mobile shows all
+    const maxTestimonialCount = isMobile ? TESTIMONIALS.length : TESTIMONIALS.length;                // show all testimonials
+    const testimonialsSubset = TESTIMONIALS.slice(0, maxTestimonialCount);
+
+    /* keep page index in-bounds whenever totals change */
+    useEffect(() => {
+        if (currentPage >= totalPages) setPage(totalPages - 1);
+    }, [totalPages, currentPage]);
+
+    /* helper to run fade-out → page change → fade-in (desktop only) */
+    const goToPage = (next: number) => {
+        if (next === currentPage || isFading || isMobile) return;        // ignore duplicates and mobile
+        setFading(true);
+        if (fadeRef.current !== null) {
+            clearTimeout(fadeRef.current);
+        }
+        fadeRef.current = window.setTimeout(() => {
+            setPage(next);
+            setFading(false);
+        }, FADE_MS);
+    };
+
+    /* ────────── automatic paging every 8s (desktop only) ────────── */
+    useEffect(() => {
+        if (totalPages <= 1 || isMobile) return;                          // nothing to flip or mobile
+        const id = window.setInterval(() => {
+            goToPage((currentPage + 1) % totalPages);
+        }, 8000);                                  // 8s
+        return () => clearInterval(id);
+    }, [visible, totalPages, currentPage, isMobile]);                 // deps: reset on change
+
+    /* cleanup for unmount */
+    useEffect(() => () => {
+        if (fadeRef.current !== null) {
+            clearTimeout(fadeRef.current);
+        }
+    }, []);
+
+    /* current slice */
+    const offset = currentPage * visible;
+    const testimonialsToShow = isMobile ? testimonialsSubset : testimonialsSubset.slice(offset, offset + visible);
+    const dotIndices = [...Array(totalPages).keys()];
+
     return (
         <section className="testimonials">
             <div className="testimonials__container">
@@ -75,8 +165,11 @@ export default function TestimonialsSection() {
                 </div>
 
                 {/* Testimonials Grid */}
-                <div className="testimonials__grid">
-                    {TESTIMONIALS.map((testimonial, index) => (
+                <div
+                    className={`testimonials__grid ${isFading && !isMobile ? "fading" : ""}`}
+                    ref={rowRef}
+                >
+                    {testimonialsToShow.map((testimonial, index) => (
                         <TestimonialCard
                             key={index}
                             quote={testimonial.quote}
@@ -88,6 +181,20 @@ export default function TestimonialsSection() {
                         />
                     ))}
                 </div>
+
+                {/* dots - only show on desktop */}
+                {!isMobile && totalPages > 1 && (
+                    <div className="testimonials__dots">
+                        {dotIndices.map(i => (
+                            <button
+                                key={i}
+                                className={`dot ${i === currentPage ? "active" : ""}`}
+                                onClick={() => goToPage(i)}
+                                aria-label={`Show testimonial set ${i + 1}`}
+                            />
+                        ))}
+                    </div>
+                )}
 
                 {/* Call to Action */}
                 <div className="testimonials__cta">
