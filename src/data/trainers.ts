@@ -15,7 +15,11 @@ export const TRAINERS: Trainer[] = [
         name: "Anna Carroll",
         trainerType: "Founder | Strength Coach",
         bio: "15-year athletics veteran and hormone-aware strength coach empowering women to build bone density and lasting strength.",
-        extendedBio: `With over 15 years in athletics and more than 8 years as a certified trainer, Anna Carroll brings a powerful blend of expertise, empathy, and precision to every session. A former competitive powerlifter trained under top coaches, Anna redirected her focus to women's health after overcoming her own hormonal imbalance. She now specializes in training that supports bone density, energy, and confidence through menopause and beyond. Since opening her private gym in 2021, Anna has created a space where individualized coaching, smart science, and whole-body wellness come together—helping every client move better, feel stronger, and live empowered.`,
+        extendedBio: `With over 15 years of experience in athletics and more than 8 years as a certified trainer, Anna Carroll brings a powerful blend of expertise, empathy, and precision to every session. A former competitive powerlifter, Anna trained under some of the best minds in the field — sharpening her eye for technique, programming, and long-term performance.
+
+        After facing her own struggles with hormonal imbalance, Anna shifted her focus to women's health. She has since dedicated her career to understanding how hormones impact training, nutrition, and recovery — particularly through menopause and beyond. Her specialty lies in building bone density, improving energy, and helping women feel strong in every phase of life.
+
+        Anna has owned and operated a private gym since 2021, creating a space where personalized coaching, smart science, and whole-body wellness come together. Whether you're new to lifting, navigating midlife shifts, or looking to train with intention, Anna is committed to helping you move better, feel stronger, and live empowered.`,
         specializations: ["Hormone-Aware Training", "Bone Density", "Women's Health"]
     },
     {
@@ -49,7 +53,7 @@ export const TRAINERS: Trainer[] = [
         id: 4, // update if this slot is taken
         imageUrl: "/images/trainer-addi.jpg",
         name: "Addi Zerrenner",
-        trainerType: "Endurance Coach & Group Fitness Instructor",
+        trainerType: "Endurance Coach",
         bio: "Olympic-Trials marathoner turned coach empowering clients with endurance-driven, joyful training rooted in six years of personal and group fitness experience.",
         extendedBio: `Born and raised in Santa Barbara, Addi Zerrenner brings over six years of experience as a personal trainer and group fitness instructor. With a deep-rooted passion for movement and human potential, Addi's journey in fitness began on the soccer field and running track and evolved into a lifelong pursuit of health, performance, and purpose.
 
@@ -80,8 +84,8 @@ export const TRAINERS: Trainer[] = [
         id: 6, // adjust if this slot is taken
         imageUrl: "/images/trainer-marcus.jpg",
         name: "Marcus Almanza",
-        trainerType: "Personal Trainer & Body Tempering Specialist",
-        bio: "10-year trainer and body-tempering expert blending massage-therapy insight and patient coaching to ease pain, restore mobility, and build lasting strength.",
+        trainerType: "Body Tempering Specialist",
+        bio: "10-year body-tempering trainer using massage-informed techniques to relieve pain, boost mobility, and build strength.",
         extendedBio: `Hello, my name is Marcus Almanza. I'm a dedicated personal trainer and body tempering specialist with over 10 years of experience and a lifelong background in athletics, including basketball and martial arts.
 
         Years ago, I suffered a severe back injury that changed my approach to health and recovery. Determined to walk again pain-free, I immersed myself in learning how the body heals. I attended multiple massage therapy programs, gaining over 600 hours of hands-on training, with a special focus on reflexology—my greatest passion in bodywork.
