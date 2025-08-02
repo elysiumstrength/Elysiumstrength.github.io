@@ -1,4 +1,5 @@
 import "./TestimonialsSection.css"
+import { TESTIMONIALS } from "../data/testimonials"
 
 interface TestimonialCardProps {
     quote: string;
@@ -20,7 +21,9 @@ function TestimonialCard({ quote, name, age, achievement, rating, duration }: Te
                     ))}
                 </div>
                 <div className="testimonial-card__author">
-                    <h4 className="testimonial-card__name">{name}, {age}</h4>
+                    <h4 className="testimonial-card__name">
+                        {name}{age && `, ${age}`}
+                    </h4>
                     <h6 className="testimonial-card__achievement">{achievement}</h6>
                     <small className="testimonial-card__duration">{duration}</small>
                 </div>
@@ -30,33 +33,6 @@ function TestimonialCard({ quote, name, age, achievement, rating, duration }: Te
 }
 
 export default function TestimonialsSection() {
-    const testimonials = [
-        {
-            quote: "Elysium transformed my approach to fitness. The personal attention and tailored nutrition plan helped me lose 35 pounds while building lean muscle. I've never felt stronger or more confident in my body.",
-            name: "Sarah Martinez",
-            age: "34",
-            achievement: "Lost 35 lbs • Gained 8 lbs muscle",
-            rating: 5,
-            duration: "8 months"
-        },
-        {
-            quote: "After my knee surgery, I thought my athletic days were over. The physical therapy and specialized training at Elysium got me back to playing tennis competitively. The team here truly cares about your goals.",
-            name: "Mike Thompson",
-            age: "42",
-            achievement: "Returned to competitive tennis",
-            rating: 5,
-            duration: "1 year"
-        },
-        {
-            quote: "The body tempering and recovery sessions have been game-changers for my training. I'm hitting PRs I never thought possible and recovering faster than ever. The holistic approach here is unmatched.",
-            name: "Jessica Chen",
-            age: "28",
-            achievement: "Achieved lifetime fitness goals",
-            rating: 5,
-            duration: "6 months"
-        },
-    ];
-
     return (
         <section className="testimonials">
             <div className="testimonials__container">
@@ -100,7 +76,7 @@ export default function TestimonialsSection() {
 
                 {/* Testimonials Grid */}
                 <div className="testimonials__grid">
-                    {testimonials.map((testimonial, index) => (
+                    {TESTIMONIALS.map((testimonial, index) => (
                         <TestimonialCard
                             key={index}
                             quote={testimonial.quote}
