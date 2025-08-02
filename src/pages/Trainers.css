@@ -50,7 +50,7 @@
 /* Content Section */
 .trainers-content {
     padding: 4rem 2rem;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -104,7 +104,7 @@
 /* Trainers Grid */
 .trainers-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
     gap: 2rem;
     justify-items: center;
 }

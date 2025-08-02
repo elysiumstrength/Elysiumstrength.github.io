@@ -41,8 +41,8 @@ section.trainers {
 
 /* predictable card width for the JS math */
 .trainer-card-container {
-  flex: 0 0 340px;
-  /* 340 px  -> keep in sync with JS CARD */
+  flex: 0 0 360px;
+  /* 360 px  -> keep in sync with JS CARD */
 }
 
 /* ▸ pagination dots */
@@ -99,9 +99,9 @@ section.trainers {
   }
 
   .trainer-card-container {
-    flex: 0 0 340px;
-    width: 340px;
-    min-width: 340px;
+    flex: 0 0 360px;
+    width: 360px;
+    min-width: 360px;
     scroll-snap-align: center;
   }
 
@@ -133,8 +133,8 @@ section.trainers {
 
   .trainer-card-container {
     flex: 0 0 280px;
-    width: 280px;
-    min-width: 280px;
+    width: 320px;
+    min-width: 320px;
   }
 }
 
