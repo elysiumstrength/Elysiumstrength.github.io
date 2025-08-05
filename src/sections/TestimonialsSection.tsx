@@ -26,7 +26,7 @@ function TestimonialCard({ quote, name, age, achievement, rating, duration }: Te
                 </div>
                 <div className="testimonial-card__author">
                     <h4 className="testimonial-card__name">
-                        {name}{age && `, ${age}`}
+                        {name || "Anonymous"}{age && `, ${age}`}
                     </h4>
                     <h6 className="testimonial-card__achievement">{achievement}</h6>
                     <small className="testimonial-card__duration">{duration}</small>
