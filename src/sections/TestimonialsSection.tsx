@@ -201,9 +201,9 @@ export default function TestimonialsSection() {
                     <p className="testimonials__cta-text">
                         Ready to start your transformation story?
                     </p>
-                    <button className="testimonials__cta-button">
+                    <a href="https://elysium.pushpress.com/landing/appointments/apptpkg_b7bc861cb2f843e908da036e2ee4" className="testimonials__cta-button">
                         Book Your Consultation
-                    </button>
+                    </a>
                 </div>
 
             </div>

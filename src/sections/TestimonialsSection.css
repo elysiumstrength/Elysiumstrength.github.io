@@ -225,6 +225,7 @@ section.testimonials {
 }
 
 .testimonials__cta-button:hover {
+    text-decoration: none;
     background-color: #B8821A;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(209, 153, 25, 0.3);

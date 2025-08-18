@@ -58,7 +58,7 @@ export default function Navbar() {
                     </div>
                 </Link>
                 <nav className="navbar__spacer">
-                    <a href="https://elysium.pushpress.com/landing/calendar" className="button__tertiary" onClick={() => setMenuOpen(false)}>
+                    <a href="https://elysium.pushpress.com/landing/appointments/apptpkg_b7bc861cb2f843e908da036e2ee4" className="button__tertiary" onClick={() => setMenuOpen(false)}>
                         CONSULT
                     </a>
                     <button
@@ -74,7 +74,7 @@ export default function Navbar() {
                 <nav className={`navbar__nav${menuOpen ? ' navbar__nav--open' : ''}`}>
                     {isMobile && (
                         <>
-                            <a href="https://elysium.pushpress.com/landing/calendar" className="button__tertiary" onClick={() => setMenuOpen(false)}>
+                            <a href="https://elysium.pushpress.com/landing/appointments/apptpkg_b7bc861cb2f843e908da036e2ee4" className="button__tertiary" onClick={() => setMenuOpen(false)}>
                                 CONSULT
                             </a>
                             <div className="navbar__nav-divider"></div>

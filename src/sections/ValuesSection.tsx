@@ -15,7 +15,7 @@ export default function ValuesSection() {
                 text="At Elysium, we believe consistency thrives on real results. That's why every member gets more than just expert training—we provide full access to our professional programming app. Track every custom workout, rep, set, and the weight you've moved over time. With clear, measurable progress and built-in accountability, you'll stay focused, motivated, and confident—knowing you're getting stronger every session."
                 variant="beige"
                 buttonText="Schedule a Consultation"
-                buttonLink="https://elysium.pushpress.com/landing/calendar"
+                buttonLink="https://elysium.pushpress.com/landing/appointments/apptpkg_b7bc861cb2f843e908da036e2ee4"
                 imagePosition="right"
             />
             <ValueSegmentFullWidth
