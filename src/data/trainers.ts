@@ -37,19 +37,6 @@ export const TRAINERS: Trainer[] = [
 
     },
     {
-        id: 3, // adjust if this slot is taken
-        imageUrl: "/images/trainer-reggie.jpg",
-        name: "Reggie Stovell",
-        trainerType: "Performance Coach",
-        bio: "18-year coach and ex-pro basketball player delivering dynamic, functional workouts for athletes and everyday clients.",
-        extendedBio: `Reggie Stovell brings over 18 years of fitness coaching and training experience to Elysium. Originally from Chicago, he spent 3 years as an overseas professional basketball player in Germany, France, and Sweden, and has held basketball clinics worldwide—including Indonesia, Spain, Japan, China, the Maldives, Greece, and Singapore. Reggie also served as a group fitness instructor at the White House Athletic Center during the Obama administration, teaching spin, HIIT, core, and boot-camp classes.
-
-        Variation is his specialty: he blends classic methods with functional movements and tempo work to maximize results. Reggie has coached middle-school and varsity teams in Washington, D.C., trained athletes for Swedish clubs, and launched an AAU program in Savannah, GA. At Elysium, he aims to help athletes elevate their performance while guiding everyday clients of all ages to stay engaged, fit, and ready for action.
-
-        Looking forward to the challenge!`,
-        specializations: ["Functional Training", "Basketball Skills", "Group Fitness"]
-    },
-    {
         id: 4, // update if this slot is taken
         imageUrl: "/images/trainer-addi.jpg",
         name: "Addi Zerrenner",
@@ -79,23 +66,4 @@ export const TRAINERS: Trainer[] = [
         Nutrition should feel good, make sense, and fit into your life — and that's exactly what I help you create.`,
         specializations: ["Weight Loss", "Metabolic Health", "Lifestyle Coaching"]
     },
-
-    {
-        id: 6, // adjust if this slot is taken
-        imageUrl: "/images/trainer-marcus.jpg",
-        name: "Marcus Almanza",
-        trainerType: "Body Tempering Specialist",
-        bio: "10-year body-tempering trainer using massage-informed techniques to relieve pain, boost mobility, and build strength.",
-        extendedBio: `Hello, my name is Marcus Almanza. I'm a dedicated personal trainer and body tempering specialist with over 10 years of experience and a lifelong background in athletics, including basketball and martial arts.
-
-        Years ago, I suffered a severe back injury that changed my approach to health and recovery. Determined to walk again pain-free, I immersed myself in learning how the body heals. I attended multiple massage therapy programs, gaining over 600 hours of hands-on training, with a special focus on reflexology—my greatest passion in bodywork.
-
-        This massage background makes me especially effective at body tempering. I know how to listen to the body and apply the right techniques to release tension, improve mobility, and ease pain so clients can move and train with confidence.
-
-        I also love working with people who feel new or uncomfortable in gym settings. My years as an early-childhood education teacher have given me patience and compassion, and I strive to create a welcoming, supportive space where everyone feels safe and cared for.
-
-        My mission is to help you build strength, recover fully, and enjoy a healthy, pain-free life outside the gym. I look forward to working with you on your journey to better movement and long-term wellness.`,
-        specializations: ["Body Tempering", "Injury Recovery", "Beginner Coaching"]
-    },
-
 ];
