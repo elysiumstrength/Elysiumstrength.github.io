@@ -37,7 +37,7 @@ export const TRAINERS: Trainer[] = [
 
     },
     {
-        id: 4, // update if this slot is taken
+        id: 3, // update if this slot is taken
         imageUrl: "/images/trainer-addi.jpg",
         name: "Addi Zerrenner",
         trainerType: "Endurance Coach",
@@ -52,7 +52,7 @@ export const TRAINERS: Trainer[] = [
         specializations: ["Endurance Training", "Running Technique", "Mindset Coaching"]
     },
     {
-        id: 5, // change if this slot is already taken
+        id: 4, // change if this slot is already taken
         imageUrl: "/images/trainer-coach-g.jpg",
         name: "Coach G",
         trainerType: "Certified Nutritionist",

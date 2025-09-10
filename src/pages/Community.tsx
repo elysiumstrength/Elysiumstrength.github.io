@@ -1,4 +1,5 @@
 import './Community.css';
+import { PARTNERS } from '../data/partners';
 
 interface PartnerCardProps {
     name: string;
@@ -104,29 +105,7 @@ function CommunityCTA() {
 }
 
 function Community() {
-    const dynamitePickleballData = {
-        name: "Dynamite Pickleball",
-        category: "Sports",
-        description: "Our mission is to create a vibrant and inclusive community that fosters a love for pickleball at all levels of play. We are dedicated to promoting a culture of fun, fitness, and fellowship through accessible and engaging programs, expert coaching, and a supportive environment.",
-        website: "dynamitepickleball.com",
-        logoImage: "/src/assets/Dynamite Pickleball.svg",
-    };
-
-    const gagnejaHealthData = {
-        name: "Gagneja Health",
-        category: "Medical & Wellness",
-        description: "At Gagneja Health, we believe in whole-body health. We hope to work with you closely on various aspects of your health, and we emphasize the impact that lifestyle, diet, and environmental factors have on your health.",
-        website: "gagnejahealth.com",
-        logoImage: "/src/assets/GAGNEJA HEALTH.svg",
-    };
-
-    const insightTherapyData = {
-        name: "Insight Therapy",
-        category: "Mental Health",
-        description: "We are a group of psychotherapists and physicians who provide quality mental health care. As a mental health center, we assist client's by providing therapy, coordinated medication management with psychiatrists, coaching, and dreamwork.",
-        website: "insighttherapy.com",
-        logoImage: "/src/assets/Insight Therapy.webp",
-    }; return (
+    return (
         <div className="community-page">
             {/* Hero Section */}
             <section className="community-hero">
@@ -159,9 +138,16 @@ function Community() {
                 {/* Featured Partners Section */}
                 <section className="partners-section">
                     <div className="partners-container">
-                        <PartnerCard {...dynamitePickleballData} />
-                        <PartnerCard {...gagnejaHealthData} />
-                        <PartnerCard {...insightTherapyData} />
+                        {PARTNERS.map((p) => (
+                            <PartnerCard
+                                key={p.id}
+                                name={p.name}
+                                category={p.category}
+                                description={p.description}
+                                website={p.website}
+                                logoImage={p.logoImage}
+                            />
+                        ))}
                     </div>
                 </section>
 
