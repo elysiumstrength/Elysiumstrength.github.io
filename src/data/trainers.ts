@@ -51,19 +51,4 @@ export const TRAINERS: Trainer[] = [
         Her mission is simple: empower others to push past their limits, find joy in the process, and become the strongest version of themselves.`,
         specializations: ["Endurance Training", "Running Technique", "Mindset Coaching"]
     },
-    {
-        id: 4, // change if this slot is already taken
-        imageUrl: "/images/trainer-coach-g.jpg",
-        name: "Coach G",
-        trainerType: "Certified Nutritionist",
-        bio: "Holistic nutritionist specializing in sustainable weight loss and metabolic health through individualized, evidence-based guidance.",
-        extendedBio: `As a certified nutritionist, I take a holistic and individualized approach to health and wellness. I don't believe in one-size-fits-all diets or quick fixes. My philosophy is grounded in evidence-based, sustainable strategies that promote long-term success and a healthy relationship with food.
-
-        I emphasize whole, nutrient-dense foods, balanced eating, and realistic lifestyle shifts — not restrictions. My goal is to help you feel empowered, nourished, and in control of your health journey.
-
-        While I specialize in weight loss, I'm also experienced in supporting clients with a range of conditions, including PCOS, diabetes, thyroid issues, and metabolic resistance. Every client is unique, and I'm here to provide education, structure, and support tailored to your needs.
-
-        Nutrition should feel good, make sense, and fit into your life — and that's exactly what I help you create.`,
-        specializations: ["Weight Loss", "Metabolic Health", "Lifestyle Coaching"]
-    },
 ];
