@@ -31,15 +31,6 @@ export const PARTNERS: Partner[] = [
         website: "https://www.insighttherapy.center/",
         logoImage: insightLogo,
     },
-  */  {
-   */     id: 3,
-    */    name: "Vital Motion Chiropractic",
-    */    category: "Chiropractic",
-    */    description:
-            "Dr. Alex is a National Board Certified Doctor of Chiropractic who wants to help you take control of your body wellness. She loves helping active individuals optimize performance and be pain free through diversified chiropractic adjustments, professional level body work and personalized rehab programs.",
-    */    website: "https://linktr.ee/camarillochiropractic",
-      */  logoImage: vitalMotionLogo,
-  */  },
     {
         id: 3,
         name: "Bissell Clinic",
