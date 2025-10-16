@@ -9,7 +9,7 @@ export interface Partner {
 
 import gagnejaLogo from '../assets/Gagneja_Health.svg';
 import insightLogo from '../assets/Insight_Therapy.webp';
-import vitalMotionLogo from '../assets/Vital_Motion_Chiropractic.webp';
+*/import vitalMotionLogo from '../assets/Vital_Motion_Chiropractic.webp'
 import bissellLogo from '../assets/Bissell_Clinic.png';
 
 export const PARTNERS: Partner[] = [
@@ -31,17 +31,17 @@ export const PARTNERS: Partner[] = [
         website: "https://www.insighttherapy.center/",
         logoImage: insightLogo,
     },
+  */  {
+   */     id: 3,
+    */    name: "Vital Motion Chiropractic",
+    */    category: "Chiropractic",
+    */    description:
+            "Dr. Alex is a National Board Certified Doctor of Chiropractic who wants to help you take control of your body wellness. She loves helping active individuals optimize performance and be pain free through diversified chiropractic adjustments, professional level body work and personalized rehab programs.",
+    */    website: "https://linktr.ee/camarillochiropractic",
+      */  logoImage: vitalMotionLogo,
+  */  },
     {
         id: 3,
-        name: "Vital Motion Chiropractic",
-        category: "Chiropractic",
-        description:
-            "Dr. Alex is a National Board Certified Doctor of Chiropractic who wants to help you take control of your body wellness. She loves helping active individuals optimize performance and be pain free through diversified chiropractic adjustments, professional level body work and personalized rehab programs.",
-        website: "https://linktr.ee/camarillochiropractic",
-        logoImage: vitalMotionLogo,
-    },
-    {
-        id: 4,
         name: "Bissell Clinic",
         category: "Physical Therapy",
         description:
