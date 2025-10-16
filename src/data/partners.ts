@@ -9,7 +9,6 @@ export interface Partner {
 
 import gagnejaLogo from '../assets/Gagneja_Health.svg';
 import insightLogo from '../assets/Insight_Therapy.webp';
-*/import vitalMotionLogo from '../assets/Vital_Motion_Chiropractic.webp'
 import bissellLogo from '../assets/Bissell_Clinic.png';
 
 export const PARTNERS: Partner[] = [
