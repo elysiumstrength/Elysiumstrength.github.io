@@ -24,7 +24,7 @@ export default function Footer() {
                         <p>Goleta, CA 93111</p>
                     </div>
                     <div className="email">
-                        <p>elysiumsw@gmail.com</p>
+                        <p>anna@elysium.training</p>
                     </div>
                 </div>
             </div>
