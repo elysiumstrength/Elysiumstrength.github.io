@@ -22,6 +22,7 @@ export default function Footer() {
                         {/* 187 S Patterson Ave, Goleta, CA 93111 */}
                         <p>187 S Patterson Ave</p>
                         <p>Goleta, CA 93111</p>
+                        <p>805-453-7635</p>
                     </div>
                     <div className="email">
                         <p>anna@elysium.training</p>
