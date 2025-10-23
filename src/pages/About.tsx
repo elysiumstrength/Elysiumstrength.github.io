@@ -1,6 +1,6 @@
 // src/pages/About.tsx
 import './About.css';
-import gymInterior from '../assets/gym.jpg';
+import gymInterior from '../assets/Gym_Interior.jpg';
 
 interface TeamMemberProps {
 	name: string;
