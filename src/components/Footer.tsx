@@ -19,10 +19,11 @@ export default function Footer() {
             <div className="contact__info">
                 <div className="contact">
                     <div className="address">
-                        <div classname="phone">
                         {/* 187 S Patterson Ave, Goleta, CA 93111 */}
                         <p>187 S Patterson Ave</p>
                         <p>Goleta, CA 93111</p>
+                    </div>
+                    <div className="phone">
                         <p>805-453-7635</p>
                     </div>
                     <div className="email">

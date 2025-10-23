@@ -74,6 +74,11 @@ section.footer {
     }
 }
 
+.phone p {
+    color: #ffffff;
+    margin: 0;
+}
+
 .email p {
     color: #ffffff;
     margin: 0;
