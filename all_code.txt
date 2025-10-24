@@ -1819,12 +1819,13 @@ section.cta {
 }
 
 .cta__image {
-    min-width: 600px;
+    min-width: 80vh0px;
     height: 540px;
     position: relative;
     z-index: 1;
     background-image: url("../assets/coaching.jpg");
     background-size: cover;
+    background-position: center;
 
 }
 

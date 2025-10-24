@@ -1,3 +1,5 @@
+import trainerAnna from "../assets/trainer-anna.jpg";
+
 export interface Trainer {
     id: number;
     imageUrl: string;
@@ -11,7 +13,7 @@ export interface Trainer {
 export const TRAINERS: Trainer[] = [
     {
         id: 1, // update if this ID is already taken
-        imageUrl: URL(".../assets/trainer-anna.jpg"),
+        imageUrl: trainerAnna,
         name: "Anna Carroll",
         trainerType: "Founder | Strength Coach",
         bio: "15-year athletics veteran and hormone-aware strength coach empowering women to build bone density and lasting strength.",
