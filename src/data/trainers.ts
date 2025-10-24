@@ -1,4 +1,5 @@
 import trainerAnna from "../assets/trainer-anna.jpg";
+import trainerAddi from ".../assets/trainer-addi.jpg"
 
 export interface Trainer {
     id: number;
@@ -40,7 +41,7 @@ export const TRAINERS: Trainer[] = [
     },
     {
         id: 3, // update if this slot is taken
-        imageUrl: "/images/trainer-addi.jpg",
+        imageUrl: trainerAddi
         name: "Addi Zerrenner",
         trainerType: "Endurance Coach",
         bio: "Olympic-Trials marathoner turned coach empowering clients with endurance-driven, joyful training rooted in six years of personal and group fitness experience.",
