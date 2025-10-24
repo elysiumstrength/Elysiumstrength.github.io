@@ -1,6 +1,6 @@
 // src/pages/About.tsx
 import './About.css';
-import gymInterior from '../assets/Gym_Interior.jpg';
+import Coaching from '../assets/coaching.jpg';
 
 interface TeamMemberProps {
 	name: string;
@@ -50,7 +50,7 @@ export default function About() {
 		name: "Anna & Ryan Ortiz",
 		title: "Founders & Head Trainers",
 		bio: "Anna and Ryan met at the gym six years ago—Anna had her eye on Ryan as a potential client, while Ryan was more interested in getting to know Anna. As Anna tried to convince him to book a training session, she found herself developing feelings too.\n Six years later, Anna still hasn't landed that session—but Ryan sure made serious gains anyway! He remains an avid lifter, with numbers that impress even the most seasoned gym-goers.\n Today, they're happily married and living in a cozy home in Goleta. When they're not working, you'll likely find them lifting together at the gym, tending to their vegetable garden, or getting hands-on with a DIY project around the house. They're also active members of Santa Barbara Community Church and proud pet parents to Brutus, their loyal Dogo Argentino, and two cats—Cleo and Chloe.\n Soon, they hope to welcome a new (human!) addition to the family—an adventure they're both excited and a little nervous about.\n We're so excited to get to know you too!",
-		image: gymInterior,
+		image: Coaching,
 	};
 
 	return (
