@@ -11,7 +11,7 @@ export interface Trainer {
 export const TRAINERS: Trainer[] = [
     {
         id: 1, // update if this ID is already taken
-        imageUrl: "/images/trainer-anna.jpg",
+        imageUrl: URL(".../assets/trainer-anna.jpg"),
         name: "Anna Carroll",
         trainerType: "Founder | Strength Coach",
         bio: "15-year athletics veteran and hormone-aware strength coach empowering women to build bone density and lasting strength.",
