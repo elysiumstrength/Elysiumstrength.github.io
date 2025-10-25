@@ -1,6 +1,6 @@
 // src/pages/About.tsx
 import './About.css';
-import Ortiz from '../assets/Ortizs.jpg';
+import Ortiz from "../assets/Ortizs.jpg";
 
 interface TeamMemberProps {
 	name: string;
@@ -17,8 +17,8 @@ function TeamMemberSection({ name, title, bio, image, isReversed = false }: Team
 			<div className="team-member__photo">
 				<div
 					className="team-member__image"
-					style={{ backgroundImage: `url('${image}')` }}
-				/>
+					style={{ backgroundImage: `url(${image})` }}
+					/>
 			</div>
 
 			{/* Content Side */}
