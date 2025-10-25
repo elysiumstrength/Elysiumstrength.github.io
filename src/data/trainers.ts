@@ -26,21 +26,7 @@ export const TRAINERS: Trainer[] = [
         specializations: ["Hormone-Aware Training", "Bone Density", "Women's Health"]
     },
     {
-        id: 2, // update if needed
-        imageUrl: "/images/trainer-dorny.jpg",
-        name: "Coach Dorny",
-        trainerType: "Certified Personal Trainer",
-        bio: "Certified trainer with 6 years' experience crafting technique-driven, motivational programs that build lasting strength and confidence.",
-        extendedBio: `Hey, I'm Coach Dorny, a Certified Personal Trainer with a deep passion for fitness and helping others achieve their goals. Over the past 6 years I've dedicated thousands of hours to mastering proper technique, smart programming, and, just as importantly, staying consistent and motivated through every season of life. I've learned what works, what doesn't, and how to tailor training to real people with real lives.
-
-        My approach is about more than just sets and reps—it's about building a mindset and routine that lasts. Whether you're just starting out or looking to break through a plateau, I'll meet you where you are and help you build a stronger, more confident version of yourself.
-
-        Let's get to work.`,
-        specializations: ["Technique Coaching", "Program Design", "Mindset & Motivation"]
-
-    },
-    {
-        id: 3, // update if this slot is taken
+        id: 2, // update if this slot is taken
         imageUrl: trainerAddi,
         name: "Addi Zerrenner",
         trainerType: "Endurance Coach",
