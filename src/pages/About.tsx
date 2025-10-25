@@ -1,6 +1,7 @@
 // src/pages/About.tsx
 import './About.css';
 import Ortiz from "../assets/Ortizs.jpg";
+import AboutUs_LandingImage from "..assets/AboutUs_LandingImage.jpg";
 
 interface TeamMemberProps {
 	name: string;
@@ -61,7 +62,7 @@ export default function About() {
 					<h1 className="about-hero__title">ABOUT US</h1>
 				</div>
 				<img
-                    src={founderData.image}
+                    src={AboutUs_LandingImage}
                     alt={`${founderData.name}`}
                     className="about-hero__image"
                 />
