@@ -9,7 +9,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('../assets/landing_image.jpg');
+    background-image: url('../assets/Community_LandingImage.jpg');
     background-size: cover;
     background-position: center 40%;
 }
