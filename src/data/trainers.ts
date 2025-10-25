@@ -1,5 +1,5 @@
 import trainerAnna from "../assets/trainer-anna.jpg";
-import trainerAddi from ".../assets/trainer-addi.jpg"
+import trainerAddi from "../assets/trainer-addi.jpg"
 
 export interface Trainer {
     id: number;
