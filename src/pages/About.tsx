@@ -60,6 +60,11 @@ export default function About() {
 				<div className="about-hero__overlay">
 					<h1 className="about-hero__title">ABOUT US</h1>
 				</div>
+				<img
+                    src={founderData.image}
+                    alt={`${founderData.name}`}
+                    className="about-hero__image"
+                />
 			</section>
 
 			{/* About Content */}
