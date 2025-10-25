@@ -1,7 +1,7 @@
 // src/pages/About.tsx
 import './About.css';
 import Ortiz from "../assets/Ortizs.jpg";
-import AboutUs_LandingImage from "..assets/AboutUs_LandingImage.jpg";
+import AboutUs_LandingImage from "../assets/AboutUs_LandingImage.jpg";
 
 interface TeamMemberProps {
 	name: string;
