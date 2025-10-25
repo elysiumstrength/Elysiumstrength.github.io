@@ -2,7 +2,7 @@ import ValueSegmentFullWidth from "../components/ValueSegmentFullWidth"
 
 import Personalized_Excellence from "../assets/Personalized_Excellence.jpg"
 import Coaching from "../assets/coaching.jpg"
-import Landing_Image from "../assets/landing_image.png"
+import Landing_Image from "../assets/landing_image.jpg"
 
 import "./ValuesSection.css"
 
