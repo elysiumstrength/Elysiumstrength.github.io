@@ -4035,7 +4035,7 @@ export default function ValuesSection() {
                 variant="green"
                 buttonText="Meet Your Trainers"
                 buttonLink="/trainers"
-                imagePosition="left"
+                imagePosition="center"
             />
             <ValueSegmentFullWidth
                 imageUrl={Landing_Image}

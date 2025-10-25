@@ -18,6 +18,7 @@ section.cta {
     z-index: 1;
     background-image: url("../assets/coaching.jpg");
     background-size: cover;
+    background-position: center;
 
 }
 
