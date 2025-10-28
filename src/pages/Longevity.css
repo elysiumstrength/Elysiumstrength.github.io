@@ -1,0 +1,50 @@
+
+/* Hero Section */
+.wesbite-container{
+    max-width: 1400px;
+    min-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.longevity-hero {
+    position: relative;
+    height: 30vh;
+    min-height: 400px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../assets/AboutUs-LandingImage.jpg');
+    background-size: cover;
+    background-position: center 40%;
+}
+
+.longevity-hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.longevity-hero__title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    letter-spacing: 0.2em;
+}
+
+/* Content wrapper for proper spacing */
+.about-content {
+    background-color: #F8F4EE;
+}
