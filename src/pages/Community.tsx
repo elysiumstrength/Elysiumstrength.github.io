@@ -149,7 +149,8 @@ function Community() {
                             />
                         ))}
                     </div>
-                </sectionsection className="partners-section">
+                </section>
+                <section className="partners-section">
                     <div className="partners-container">
                         {PARTNERS.map((p) => (
                             <PartnerCard
@@ -162,7 +163,7 @@ function Community() {
                             />
                         ))}
                     </div>
-                </section>>
+                </section>
 
                 <CommunityCTA />
             </div>
