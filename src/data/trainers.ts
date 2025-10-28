@@ -17,7 +17,7 @@ export const TRAINERS: Trainer[] = [
         imageUrl: trainerAnna,
         name: "Anna Carroll",
         trainerType: "Founder | Strength Coach",
-        bio: "15-year athletics veteran and hormone-aware strength coach empowering women to build bone density and lasting strength.",
+        bio: "15-year athletics veteran and hormone-aware strength coach empowering women to build lasting strength.",
         extendedBio: `With over 15 years of experience in athletics and more than 8 years as a certified trainer, Anna Carroll brings a powerful blend of expertise, empathy, and precision to every session. A former competitive powerlifter, Anna trained under some of the best minds in the field — sharpening her eye for technique, programming, and long-term performance.
 
         After facing her own struggles with hormonal imbalance, Anna shifted her focus to women's health. She has since dedicated her career to understanding how hormones impact training, nutrition, and recovery — particularly through menopause and beyond. Her specialty lies in building bone density, improving energy, and helping women feel strong in every phase of life.
@@ -30,7 +30,7 @@ export const TRAINERS: Trainer[] = [
         imageUrl: trainerAddi,
         name: "Addi Zerrenner",
         trainerType: "Endurance Coach",
-        bio: "Olympic-Trials marathoner turned coach empowering clients with endurance-driven, joyful training rooted in six years of personal and group fitness experience.",
+        bio: "Olympic-Trials marathoner turned coach empowering clients with endurance-driven personal and group fitness experiences.",
         extendedBio: `Born and raised in Santa Barbara, Addi Zerrenner brings over six years of experience as a personal trainer and group fitness instructor. With a deep-rooted passion for movement and human potential, Addi's journey in fitness began on the soccer field and running track and evolved into a lifelong pursuit of health, performance, and purpose.
 
         A former competitive runner, Addi competed at the highest levels of the sport—from high-school and collegiate competition to racing professionally. One of her proudest achievements was qualifying for and competing in the 2020 U.S. Olympic Marathon Trials, a testament to her dedication, discipline, and love for the grind.

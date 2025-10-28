@@ -1,10 +1,10 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useCallback } from "react";
 import TrainerCard from "../components/TrainerCard";
 import { TRAINERS } from "../data/trainers";
 import "./TrainersSection.css";
 
 /* ---------- constants must match the CSS ---------- */
-const CARD = 380;   // px  – width in .trainer-card-container
+const CARD = 400;   // px  – width in .trainer-card-container
 const GAP = 20;    // px  – 4 rem gap in .trainer-list
 const FADE_MS = 400; // duration of fade animation
 
@@ -42,7 +42,9 @@ export default function TrainersSection() {
 
 		calc();                               // initial
 		const ro = new ResizeObserver(calc);  // subsequent resizes
-		rowRef.current && ro.observe(rowRef.current);
+		if (rowRef.current) {
+			ro.observe(rowRef.current);
+		}
 		return () => ro.disconnect();
 	}, [isMobile]);
 
@@ -58,7 +60,7 @@ export default function TrainersSection() {
 	}, [totalPages, currentPage]);
 
 	/* helper to run fade-out → page change → fade-in (desktop only) */
-	const goToPage = (next: number) => {
+	const goToPage = useCallback((next: number) => {
 		if (next === currentPage || isFading || isMobile) return;        // ignore duplicates and mobile
 		setFading(true);
 		if (fadeRef.current !== null) {
@@ -68,7 +70,7 @@ export default function TrainersSection() {
 			setPage(next);
 			setFading(false);
 		}, FADE_MS);
-	};
+	}, [currentPage, isFading, isMobile]);
 
 	/* helper to toggle card flip state */
 	const toggleCardFlip = (trainerId: number) => {
@@ -90,7 +92,7 @@ export default function TrainersSection() {
 			goToPage((currentPage + 1) % totalPages);
 		}, 8000);                                  // 8s
 		return () => clearInterval(id);
-	}, [visible, totalPages, currentPage, isMobile]);                 // deps: reset on change
+	}, [visible, totalPages, currentPage, isMobile, goToPage]);                 // deps: reset on change
 
 	/* cleanup for unmount */
 	useEffect(() => () => {
