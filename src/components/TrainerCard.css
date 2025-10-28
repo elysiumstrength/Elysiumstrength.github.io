@@ -44,8 +44,8 @@
 .trainer-card__front {
     display: flex;
     flex-direction: row;
-    width: 100%;
-    height: 100%;
+    width: 100;
+    height: auto;
 }
 
 /* Image column */
