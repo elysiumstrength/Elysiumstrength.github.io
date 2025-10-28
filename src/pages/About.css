@@ -3,10 +3,18 @@
 
 
 /* Hero Section */
+.wesbite-container{
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
 .about-hero {
     position: relative;
     height: 30vh;
     min-height: 400px;
+    width: 100%;
     overflow: hidden;
     display: flex;
     align-items: center;
