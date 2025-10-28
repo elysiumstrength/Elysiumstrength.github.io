@@ -111,11 +111,7 @@ function WellnessCTA() {
                     <div className="wellness-cta-buttons">
                         <a href="https://elysium.pushpress.com/landing/appointments/apptpkg_b7bc861cb2f843e908da036e2ee4" className="button__primary">
                             BOOK CONSULTATION
-                        </a>
-
-                        <button className="button__secondary">
-                            VIEW PRICING
-                        </button>
+                        </a>    
                     </div>
                 </div>
             </div>

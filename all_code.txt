@@ -1639,10 +1639,7 @@ export default function Navbar() {
                     </NavLink>
                     <NavLink to="/community" className="button__tertiary" onClick={() => setMenuOpen(false)}>
                         COMMUNITY
-                    </NavLink>
-                    <NavLink to="/pricing" className="button__tertiary" onClick={() => setMenuOpen(false)}>
-                        PRICING
-                    </NavLink>
+                    </NavLink> 
                 </nav>
             </div>
         </header>
@@ -4228,10 +4225,6 @@ function WellnessCTA() {
                     <div className="wellness-cta-buttons">
                         <button className="button__primary">
                             BOOK CONSULTATION
-                        </button>
-
-                        <button className="button__secondary">
-                            VIEW PRICING
                         </button>
                     </div>
                 </div>

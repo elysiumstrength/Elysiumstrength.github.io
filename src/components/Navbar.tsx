@@ -94,11 +94,8 @@ export default function Navbar() {
                     <div className="navbar__nav-divider"></div>
                     <NavLink to="/about" className="button__tertiary" onClick={() => setMenuOpen(false)}>
                         ABOUT US
-                    </NavLink>
-                    <div className="navbar__nav-divider"></div>
-                    <NavLink to="/pricing" className="button__tertiary" onClick={() => setMenuOpen(false)}>
-                        PRICING
-                    </NavLink>
+                    </NavLink>     
+                    
                 </nav>
             </div>
         </header>
