@@ -45,7 +45,7 @@ export const PARTNERS: Partner[] = [
         name: "Cerny Performance",
         category: "Athletic Training",
         description:
-            "Cerny Performance helps leaders and teams get unstuck so they can perform at their best. Founded by Air Force Special Operations veteran Cody Cerny, we combine military discipline, martial arts focus, and enterprise consulting to unlock breakthroughs in leadership and teamwork. From executive coaching to team workshops and keynotes, we equip organizations across Santa Barbara and beyond to eliminate friction, build trust, and achieve results that matter most.",
+            "Cerny Performance helps leaders and teams get unstuck so they can perform at their best. We combine military discipline, martial arts focus, and enterprise consulting to unlock breakthroughs in leadership and teamwork.",
         website: "https://cernyperformance.com/",
         logoImage: cernyLogo,
     },
