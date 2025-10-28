@@ -5,6 +5,7 @@
 /* Hero Section */
 .wesbite-container{
     max-width: 1400px;
+    min-width: 1400px;
     margin: 0 auto;
     padding: 0 1rem;
     box-sizing: border-box;
