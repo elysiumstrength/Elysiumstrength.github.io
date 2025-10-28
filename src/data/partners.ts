@@ -7,7 +7,7 @@ export interface Partner {
     logoImage?: string;
 }
 
-import gagnejaLogo from '../assets/Gagneja_Health.svg';
+import gagnejaLogo from '../assets/Gagneja_Health.png';
 import insightLogo from '../assets/Insight_Therapy.webp';
 import bissellLogo from '../assets/Bissell_Clinic.png';
 import cernyLogo from '../assets/Cerny_Performance.webp';

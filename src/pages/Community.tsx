@@ -150,20 +150,6 @@ function Community() {
                         ))}
                     </div>
                 </section>
-                <section className="partners-section">
-                    <div className="partners-container">
-                        {PARTNERS.map((p) => (
-                            <PartnerCard
-                                key={p.id}
-                                name={p.name}
-                                category={p.category}
-                                description={p.description}
-                                website={p.website}
-                                logoImage={p.logoImage}
-                            />
-                        ))}
-                    </div>
-                </section>
 
                 <CommunityCTA />
             </div>
