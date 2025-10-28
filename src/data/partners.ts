@@ -10,6 +10,7 @@ export interface Partner {
 import gagnejaLogo from '../assets/Gagneja_Health.svg';
 import insightLogo from '../assets/Insight_Therapy.webp';
 import bissellLogo from '../assets/Bissell_Clinic.png';
+import cernyLogo from '../assets/Cerny_Performance.webp';
 
 export const PARTNERS: Partner[] = [
     {
@@ -38,5 +39,14 @@ export const PARTNERS: Partner[] = [
             "At Bissell Clinic, we also offer individualized plans of care for physical therapy. Whether you are recovering from an injury, rehabbing after surgery, or just want to develop more strength and flexibility, our expert Physical Therapists can help.",
         website: "https://www.bissellclinic.com/",
         logoImage: bissellLogo,
-    }
+    },
+    {
+        id: 4,
+        name: "Cerny Performance",
+        category: "Athletic Training",
+        description:
+            "Cerny Performance helps leaders and teams get unstuck so they can perform at their best. Founded by Air Force Special Operations veteran Cody Cerny, we combine military discipline, martial arts focus, and enterprise consulting to unlock breakthroughs in leadership and teamwork. From executive coaching to team workshops and keynotes, we equip organizations across Santa Barbara and beyond to eliminate friction, build trust, and achieve results that matter most.",
+        website: "https://cernyperformance.com/",
+        logoImage: cernyLogo,
+    },
 ];
