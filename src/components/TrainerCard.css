@@ -2,7 +2,7 @@
 .trainer-card-container {
     perspective: 1000px;
     max-width: 600px;
-    min-width: 580px;
+    min-width: 90%;
     height: 500px;
 }
 
