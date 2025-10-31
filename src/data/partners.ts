@@ -43,7 +43,7 @@ export const PARTNERS: Partner[] = [
     {
         id: 4,
         name: "Cerny Performance",
-        category: "Athletic Training",
+        category: "Professional Performance",
         description:
             "Cerny Performance helps leaders and teams get unstuck so they can perform at their best. We combine military discipline, martial arts focus, and enterprise consulting to unlock breakthroughs in leadership and teamwork.",
         website: "https://cernyperformance.com/",
