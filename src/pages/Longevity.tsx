@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from 'react'
+import { useMemo, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 type FAQItem = {
@@ -18,7 +18,7 @@ const faqItems: FAQItem[] = [
 ]
 
 export default function Longevity() {
-  // const [openIndex, setOpenIndex] = useState<number | null>(0)
+  //const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   const faqJsonLd = useMemo(() => {
     const data = {
