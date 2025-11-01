@@ -96,7 +96,7 @@ export default function Navbar() {
                         ABOUT US
                     </NavLink> 
                     <div className="navbar__nav-divider"></div>
-                    <NavLink to="/longevity" className="button__tertiary" onClick={() => setMenuOpen(false)}>
+                    <NavLink to="/longevity-training-goleta" className="button__tertiary" onClick={() => setMenuOpen(false)}>
                         LONGEVITY
                     </NavLink>  
                     

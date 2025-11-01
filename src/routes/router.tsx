@@ -8,6 +8,7 @@ const About = lazy(() => import('../pages/About'));
 const Trainers = lazy(() => import('../pages/Trainers'));
 const Wellness = lazy(() => import('../pages/Wellness'));
 const Community = lazy(() => import('../pages/Community'));
+const Longevity = lazy(() => import('../pages/Longevity'));
 
 export const createAppRouter = () =>
   createBrowserRouter([
@@ -53,6 +54,14 @@ export const createAppRouter = () =>
           element: (
             <Suspense fallback={<div>Loading...</div>}>
               <Community />
+            </Suspense>
+          ),
+        },
+        {
+          path: 'longevity-training-goleta',
+          element: (
+            <Suspense fallback={<div>Loading...</div>}>
+              <Longevity />
             </Suspense>
           ),
         },
