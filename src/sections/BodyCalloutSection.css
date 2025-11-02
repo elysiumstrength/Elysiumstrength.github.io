@@ -1,0 +1,84 @@
+/* Body + Callout Section */
+.body-callout-section {
+    padding: 4rem 5%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.body-callout-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #232323;
+}
+
+.section-dark .body-callout-title {
+    color: #f4f1ea;
+}
+
+.body-callout-description {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.section-dark .body-callout-description {
+    color: #f4f1ea;
+}
+
+/* Callout Box */
+.body-callout-box {
+    background-color: #f4f1ea;
+    border-left: 4px solid #d19919;
+    padding: 1.25rem 1.5rem;
+    border-radius: 0.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.section-dark .body-callout-box {
+    background-color: #2d4a2d;
+    color: #f4f1ea;
+}
+
+.body-callout-box-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 1.125rem;
+}
+
+.body-callout-box-text {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .body-callout-section {
+        padding: 3rem 2rem;
+    }
+
+    .body-callout-title {
+        font-size: 1.75rem;
+    }
+
+    .body-callout-description {
+        font-size: 1rem;
+    }
+
+    .body-callout-box {
+        padding: 1rem 1.25rem;
+        max-width: 100%;
+    }
+
+    .body-callout-box-title {
+        font-size: 1rem;
+    }
+
+    .body-callout-box-text {
+        font-size: 0.95rem;
+    }
+}
