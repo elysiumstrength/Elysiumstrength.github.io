@@ -5,7 +5,7 @@ interface BodyCalloutSectionProps {
   description: string;
   calloutTitle: string;
   calloutText: string;
-  sectionStyle?: 'light' | 'dark';
+  sectionStyle?: 'light';
 }
 
 // Body + Callout Section Component
@@ -55,9 +55,6 @@ function Longevity() {
             <h1 className="longevity-hero__title">
               Longevity Training at Elysium Strength & Wellness – Goleta, CA
             </h1>
-            <p className="longevity-hero__subtitle">
-              Science-based strength training for lifelong health, mobility, and vitality
-            </p>
           </div>
         </div>
       </section>
@@ -72,9 +69,10 @@ function Longevity() {
               <div className="longevity-header__subtitle">Longevity Training</div>
               <div className="longevity-header__line" />
             </div>
-            <h1 className="longevity-header__title">Science-Backed Programs for Lifelong Strength</h1>
+            <h1 className="longevity-header__title">Science-Based Strength Training for Lifelong Health, Mobility, and Vitality
+            </h1>
             <p className="longevity-header__text">
-              At Elysium, we focus on building functional strength, balance, and mobility so you can stay active, independent, and thriving at every age.
+                At Elysium Strength & Wellness, we believe longevity isn’t about living longer — it’s about living stronger. Our evidence-based programs blend strength, balance, and agility so you can move better, think clearer, and stay independent for life.
             </p>
           </div>
         </section>
@@ -93,7 +91,7 @@ function Longevity() {
           description="Squats, hinges, and carries mimic everyday movements to keep you independent and injury-free."
           calloutTitle="Did You Know?"
           calloutText="Core stability – not crunches – protects your spine. (Dr. Stuart McGill)"
-          sectionStyle="dark"
+          sectionStyle="light"
         />
 
         <BodyCalloutSection
@@ -109,7 +107,7 @@ function Longevity() {
           description="Strength training helps regulate hormones, improve sleep, and reduce hot flashes."
           calloutTitle="Did You Know?"
           calloutText="Strength training can reduce hot flashes by up to 50%. (Menopause Journal 2022)"
-          sectionStyle="dark"
+          sectionStyle="light"
         />
 
         <BodyCalloutSection
@@ -125,7 +123,7 @@ function Longevity() {
           description="Grip strength is a strong predictor of overall longevity and functional capacity."
           calloutTitle="Did You Know?"
           calloutText="Grip strength predicts longevity better than blood pressure. (UK Biobank 2018)"
-          sectionStyle="dark"
+          sectionStyle="light"
         />
 
         <BodyCalloutSection
@@ -141,7 +139,7 @@ function Longevity() {
           description="Our 5-pillar method focuses on strength, mobility, balance, recovery, and mental resilience."
           calloutTitle="Did You Know?"
           calloutText="Your nervous system can’t tell emotional stress from physical — recovery builds resilience."
-          sectionStyle="dark"
+          sectionStyle="light"
         />
 
         {/* CTA Section */}

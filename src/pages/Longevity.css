@@ -28,7 +28,7 @@
 
 .longevity-hero__title {
     font-family: "Montserrat", sans-serif;
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 700;
     color: white;
     text-align: center;
@@ -36,12 +36,14 @@
     letter-spacing: 0.2em;
 }
 
+/*
 .longevity-hero__subtitle {
     font-size: 1.25rem;
     color: white;
     margin-top: 1rem;
     text-align: center;
 }
+    */
 
 .longevity-hero__cta {
     margin-top: 2rem;
