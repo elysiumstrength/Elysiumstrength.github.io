@@ -1,7 +1,7 @@
 import { ExpertSpeakerSection } from '../sections';
 import Nutrition from '../assets/Nutrition.jpg';
 import PersonalizedExcellence from '../assets/Personalized_Excellence.jpg';
-import './Longevity';
+import './Wellness.css';
 
 interface ServiceDetailSectionProps {
     title: string;
