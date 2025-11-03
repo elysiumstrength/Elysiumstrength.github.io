@@ -2,11 +2,11 @@ import './LongevityTable.css';
 
 export default function LongevityTable() {
   const tableData = [
-    { nutrient: 'Protein', benefit: 'Muscle repair', source: 'Lean meats, tofu' },
-    { nutrient: 'Omega-3', benefit: 'Heart health', source: 'Fish, chia seeds' },
-    { nutrient: 'Fiber', benefit: 'Digestive health', source: 'Whole grains, veggies' },
-    { nutrient: 'Vitamin D', benefit: 'Bone strength', source: 'Sunlight, eggs' },
-    { nutrient: 'Antioxidants', benefit: 'Cell protection', source: 'Berries, dark chocolate' },
+    { pillar: 'Protein', focus: 'Muscle repair', benefit: 'Lean meats, tofu' },
+    { pillar: 'Omega-3', focus: 'Heart health', benefit: 'Fish, chia seeds' },
+    { pillar: 'Fiber', focus: 'Digestive health', benefit: 'Whole grains, veggies' },
+    { pillar: 'Vitamin D', focus: 'Bone strength', benefit: 'Sunlight, eggs' },
+    { pillar: 'Antioxidants', focus: 'Cell protection', benefit: 'Berries, dark chocolate' },
   ];
 
   return (
@@ -14,17 +14,17 @@ export default function LongevityTable() {
       <table className="longevity-table bordered">
         <thead>
           <tr>
-            <th>Nutrient</th>
+            <th>Pillar</th>
+            <th>Focus</th>
             <th>Benefit</th>
-            <th>Source</th>
           </tr>
         </thead>
         <tbody>
           {tableData.map((row, index) => (
             <tr key={index}>
-              <td>{row.nutrient}</td>
+              <td>{row.pillar}</td>
+              <td>{row.focus}</td>
               <td>{row.benefit}</td>
-              <td>{row.source}</td>
             </tr>
           ))}
         </tbody>

@@ -142,19 +142,7 @@ function Longevity() {
           calloutText="Your nervous system can’t tell emotional stress from physical — recovery builds resilience."
           sectionStyle="light"
         />
-
-        <section className="longevity-table-section">
-        <div className="longevity-header__container">
-            <div className="longevity-header__row">
-            <div className="longevity-header__line"></div>
-            <h2 className="longevity-header__subtitle">NUTRITION & LONGEVITY</h2>
-            <div className="longevity-header__line"></div>
-            </div>
-            <h2 className="longevity-header__title">Fueling Your Future</h2>
-        </div>
-
         <LongevityTable />
-        </section>
 
         {/* 🔟 Section: The Elysium Promise + CTA */}
 <section className="elysium-promise-section section-dark">
