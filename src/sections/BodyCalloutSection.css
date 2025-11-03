@@ -40,8 +40,7 @@
 }
 
 .section-dark .body-callout-box {
-    background-color: #2d4a2d;
-    color: #f4f1ea;
+    border-left: 4px solid #2d4a2d;
 }
 
 .body-callout-box-title {
