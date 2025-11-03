@@ -91,7 +91,7 @@ function Longevity() {
           description="Squats, hinges, and carries mimic everyday movements to keep you independent and injury-free."
           calloutTitle="Did You Know?"
           calloutText="Core stability – not crunches – protects your spine. (Dr. Stuart McGill)"
-          sectionStyle="dark"
+          sectionStyle="light"
         />
 
         <BodyCalloutSection
@@ -107,7 +107,7 @@ function Longevity() {
           description="Strength training helps regulate hormones, improve sleep, and reduce hot flashes."
           calloutTitle="Did You Know?"
           calloutText="Strength training can reduce hot flashes by up to 50%. (Menopause Journal 2022)"
-          sectionStyle="dark"
+          sectionStyle="light"
         />
 
         <BodyCalloutSection
@@ -123,7 +123,7 @@ function Longevity() {
           description="Grip strength is a strong predictor of overall longevity and functional capacity."
           calloutTitle="Did You Know?"
           calloutText="Grip strength predicts longevity better than blood pressure. (UK Biobank 2018)"
-          sectionStyle="dark"
+          sectionStyle="light"
         />
 
         <BodyCalloutSection
@@ -139,7 +139,7 @@ function Longevity() {
           description="Our 5-pillar method focuses on strength, mobility, balance, recovery, and mental resilience."
           calloutTitle="Did You Know?"
           calloutText="Your nervous system can’t tell emotional stress from physical — recovery builds resilience."
-          sectionStyle="dark"
+          sectionStyle="light"
         />
 
         {/* CTA Section */}
