@@ -1,4 +1,5 @@
 import './Longevity.css';
+import LongevityTable from '../sections/LongevityTable'; 
 
 interface BodyCalloutSectionProps {
   title: string;
@@ -141,6 +142,44 @@ function Longevity() {
           calloutText="Your nervous system can’t tell emotional stress from physical — recovery builds resilience."
           sectionStyle="light"
         />
+
+        <section className="longevity-table-section">
+        <div className="longevity-header__container">
+            <div className="longevity-header__row">
+            <div className="longevity-header__line"></div>
+            <h2 className="longevity-header__subtitle">NUTRITION & LONGEVITY</h2>
+            <div className="longevity-header__line"></div>
+            </div>
+            <h2 className="longevity-header__title">Fueling Your Future</h2>
+        </div>
+
+        <LongevityTable />
+        </section>
+
+        {/* 🔟 Section: The Elysium Promise + CTA */}
+<section className="elysium-promise-section section-dark">
+  <div className="elysium-promise-container">
+    <h2 className="body-callout-title">The Elysium Promise</h2>
+    <p className="body-callout-description">
+      Private, personal, science-based coaching designed to help you move better,
+      feel younger, and live stronger for life. Our <strong>functional longevity coaching</strong> in Goleta and
+      <strong> private gym in Santa Barbara</strong> combine expert programming with a deeply personal touch.
+    </p>
+
+    <div className="body-callout-box">
+      <div className="body-callout-box-title">💚 Did You Know?</div>
+      <div className="body-callout-box-text">
+        Walking 8,000 steps just twice a week lowers mortality risk by 14%. <em>(JAMA 2023)</em>
+      </div>
+    </div>
+
+    <div className="longevity-cta-buttons" style={{ marginTop: '2rem' }}>
+      <a href="#consultation" className="btn-primary">Book Your Free Longevity Consultation</a>
+      <a href="#blueprint" className="btn-secondary">Start Your Longevity Blueprint</a>
+    </div>
+  </div>
+</section>
+
 
         {/* CTA Section */}
         <LongevityCTA />

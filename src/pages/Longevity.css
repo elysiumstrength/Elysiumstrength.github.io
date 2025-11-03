@@ -214,6 +214,12 @@
     flex-wrap: wrap;
 }
 
+.longevity-table-section {
+    background-color: #f4f1ea;
+    padding: 4rem 0;
+  }
+
+
 /* Buttons */
 .btn-primary {
     background-color: #d19919;
@@ -325,3 +331,25 @@
         font-size: 0.9rem;
     }
 }
+
+.elysium-promise-section {
+    padding: 5rem 2rem;
+    text-align: center;
+    background-color: #2d4a2d;
+    color: #f4f1ea;
+  }
+  
+  .elysium-promise-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .elysium-promise-section .btn-primary {
+    background-color: #d19919;
+  }
+  
+  .elysium-promise-section .btn-secondary {
+    border: 2px solid #d19919;
+    color: #d19919;
+  }
+  

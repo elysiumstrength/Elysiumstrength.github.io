@@ -1,0 +1,65 @@
+.longevity-table-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0;
+    overflow-x: auto;
+  }
+  
+  .longevity-table {
+    border-collapse: collapse;
+    width: 90%;
+    max-width: 800px;
+    background-color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header styling */
+  .longevity-table thead {
+    background-color: #d19919;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .longevity-table th,
+  .longevity-table td {
+    padding: 1rem;
+    text-align: left;
+  }
+  
+  /* Bordered version */
+  .longevity-table.bordered th,
+  .longevity-table.bordered td {
+    border: 1px solid #d8cfc0;
+  }
+  
+  /* Row striping and hover */
+  .longevity-table tbody tr:nth-child(even) {
+    background-color: #f8f4ee;
+  }
+  
+  .longevity-table tbody tr:hover {
+    background-color: #f1ebdf;
+    transition: background-color 0.2s ease;
+  }
+  
+  /* Rounded corners only on the full table */
+  .longevity-table.bordered {
+    border: 2px solid #d19919;
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+  
+  @media (max-width: 768px) {
+    .longevity-table th,
+    .longevity-table td {
+      padding: 0.75rem;
+      font-size: 0.9rem;
+    }
+  }
+  
