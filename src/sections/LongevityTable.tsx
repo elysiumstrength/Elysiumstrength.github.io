@@ -2,11 +2,11 @@ import './LongevityTable.css';
 
 export default function LongevityTable() {
   const tableData = [
-    { pillar: 'Protein', focus: 'Muscle repair', benefit: 'Lean meats, tofu' },
-    { pillar: 'Omega-3', focus: 'Heart health', benefit: 'Fish, chia seeds' },
-    { pillar: 'Fiber', focus: 'Digestive health', benefit: 'Whole grains, veggies' },
-    { pillar: 'Vitamin D', focus: 'Bone strength', benefit: 'Sunlight, eggs' },
-    { pillar: 'Antioxidants', focus: 'Cell protection', benefit: 'Berries, dark chocolate' },
+    { pillar: 'Lift Heavy (Smart)', focus: 'McGill-based technique', benefit: 'Bone & muscle strength' },
+    { pillar: 'Move Fast', focus: 'Agility/jump work', benefit: 'Coordination & power' },
+    { pillar: 'Balance & React', focus: 'Reactive drills', benefit: 'Fall prevention' },
+    { pillar: 'Feet First', focus: 'Barefoot strength', benefit: 'Stability' },
+    { pillar: 'Recover Intentionally', focus: 'Mobility + breathwork', benefit: 'Nervous-system reset' },
   ];
 
   return (
