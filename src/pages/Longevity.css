@@ -206,6 +206,7 @@
 }
 
 .longevity-cta-buttons {
+    margin-top: 1rem;
     display: flex;
     flex-direction: row;
     gap: 1rem;
