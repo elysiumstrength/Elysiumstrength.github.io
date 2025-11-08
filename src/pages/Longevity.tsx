@@ -78,6 +78,8 @@ function Longevity() {
           </div>
         </section>
 
+        <LongevityCTA />
+        
         {/* Body + Callout Sections */}
         <BodyCalloutSection
           title="Why Exercise = Longevity"
@@ -144,14 +146,14 @@ function Longevity() {
         />
         <LongevityTable />
         <BodyCalloutSection
-          title="The Elysium Promise + CTA"
+          title="The Elysium Promise"
           description="Closing copy about private, personal, science-based coaching."
           calloutTitle="Did You Know?"
           calloutText="Walking 8,000 steps twice a week lowers mortality risk 14%. (JAMA 2023)"
           sectionStyle="light"
         />
         {/* CTA Section */}
-        <LongevityCTA />
+        
 
         <section className="elysium-promise-section section-dark">
   <div className="elysium-promise-container">
@@ -162,14 +164,7 @@ function Longevity() {
       <strong> private gym in Santa Barbara</strong> combine expert programming with a deeply personal touch.
     </p>
 
-    <div className="body-callout-box">
-      <div className="body-callout-box-title">Did You Know?</div>
-      <div className="body-callout-box-text">
-        Walking 8,000 steps just twice a week lowers mortality risk by 14%. <em>(JAMA 2023)</em>
-      </div>
-    </div>
-
-    <div className="longevity-cta-buttons" style={{ marginTop: '2rem' }}>
+      <div className="longevity-cta-buttons" style={{ marginTop: '2rem' }}>
       <a href="#consultation" className="btn-primary">Book Your Free Longevity Consultation</a>
       <a href="#blueprint" className="btn-secondary">Start Your Longevity Blueprint</a>
     </div>
