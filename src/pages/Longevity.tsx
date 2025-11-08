@@ -26,22 +26,10 @@ function BodyCalloutSection({ title, description, calloutTitle, calloutText, sec
 // CTA Section Component
 function LongevityCTA() {
   return (
-    <div className="longevity-cta">
-      <div className="longevity-cta-container">
-        <div className="longevity-cta-content">
-          <div className="longevity-cta-text">
-            <h2>Start Your Longevity Journey Today</h2>
-            <p>
-              Private, personal, science-based coaching to build strength, mobility, and vitality for life.
-            </p>
-          </div>
           <div className="longevity-cta-buttons">
             <a href="/consultation" className="btn-primary">Book Your Free Longevity Consultation</a>
             <a href="/longevity-approach" className="btn-secondary">Learn Our Approach</a>
           </div>
-        </div>
-      </div>
-    </div>
   );
 }
 
