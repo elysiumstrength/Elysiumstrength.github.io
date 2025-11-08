@@ -23,15 +23,6 @@ function BodyCalloutSection({ title, description, calloutTitle, calloutText, sec
   );
 }
 
-// CTA Section Component
-function LongevityCTA() {
-  return (
-          <div className="longevity-cta-buttons">
-            <a href="/consultation" className="btn-primary">Book Your Free Longevity Consultation</a>
-            <a href="/longevity-approach" className="btn-secondary">Learn Our Approach</a>
-          </div>
-  );
-}
 
 // Main Longevity Page
 function Longevity() {
@@ -64,9 +55,12 @@ function Longevity() {
                 At Elysium Strength & Wellness, we believe longevity isn’t about living longer — it’s about living stronger. Our evidence-based programs blend strength, balance, and agility so you can move better, think clearer, and stay independent for life.
             </p>
           </div>
+          <div className="longevity-cta-buttons">
+            <a href="/consultation" className="btn-primary">Book Your Free Longevity Consultation</a>
+            <a href="/longevity-approach" className="btn-secondary">Learn Our Approach</a>
+          </div>
         </section>
 
-        <LongevityCTA />
         
         {/* Body + Callout Sections */}
         <BodyCalloutSection
