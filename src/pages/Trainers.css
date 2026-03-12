@@ -104,9 +104,11 @@
 /* Trainers Grid */
 .trainers-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    grid-template-columns: repeat(2, minmax(320px, 360px));
     gap: 1.5rem;
+    justify-content: center;
     justify-items: center;
+    align-items: start;
 }
 
 /* Expanded trainer container */
@@ -126,8 +128,8 @@
     }
 
     .trainers-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+        gap: 1.25rem;
     }
 
     .trainers-grid-with-expanded {
@@ -147,5 +149,10 @@
 
     .trainers-hero__title {
         font-size: 2.5rem;
+    }
+
+    .trainers-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 }

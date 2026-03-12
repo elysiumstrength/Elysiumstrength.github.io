@@ -10,27 +10,31 @@ export default function Trainers() {
     // Handle click outside to close flipped cards
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            if (flippedTrainerIds.size > 0 && containerRef.current && !containerRef.current.contains(event.target as Node)) {
+            if (
+                flippedTrainerIds.size > 0 &&
+                containerRef.current &&
+                !containerRef.current.contains(event.target as Node)
+            ) {
                 setFlippedTrainerIds(new Set())
             }
         }
 
         if (flippedTrainerIds.size > 0) {
-            document.addEventListener('mousedown', handleClickOutside)
+            document.addEventListener("mousedown", handleClickOutside)
         }
 
         return () => {
-            document.removeEventListener('mousedown', handleClickOutside)
+            document.removeEventListener("mousedown", handleClickOutside)
         }
     }, [flippedTrainerIds])
 
     const handleTrainerClick = (trainerId: number) => {
-        setFlippedTrainerIds(prev => {
+        setFlippedTrainerIds((prev) => {
             const newSet = new Set(prev)
             if (newSet.has(trainerId)) {
-                newSet.delete(trainerId) // Flip back if already flipped
+                newSet.delete(trainerId)
             } else {
-                newSet.add(trainerId) // Add to flipped trainers
+                newSet.add(trainerId)
             }
             return newSet
         })
@@ -38,18 +42,21 @@ export default function Trainers() {
 
     return (
         <div className="trainers-page">
-            {/* Hero Section with Image and Header */}
             <section className="trainers-hero">
                 <div className="trainers-hero__overlay">
                     <h1 className="trainers-hero__title">TRAINERS</h1>
                 </div>
             </section>
 
-            {/* Trainers Grid Section */}
             <section className="trainers-content">
                 <div className="trainers-content__intro">
                     <h2>Meet Our Expert Team</h2>
-                    <p>Our certified trainers bring years of experience and specialized expertise to help you achieve your fitness goals. Each trainer is dedicated to providing personalized attention and results-driven programming.</p>
+                    <p>
+                        Our certified trainers bring years of experience and specialized
+                        expertise to help you achieve your fitness goals. Each trainer is
+                        dedicated to providing personalized attention and results-driven
+                        programming.
+                    </p>
                 </div>
 
                 <div className="trainers-grid-container" ref={containerRef}>
