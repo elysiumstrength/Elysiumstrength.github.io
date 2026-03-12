@@ -10,7 +10,13 @@ section.footer {
 
     background-color: #1E2A1D;
 }
+.bbb-badge{
+    margin-top:15px;
+}
 
+.bbb-badge img{
+    width:120px;
+}
 .footer .company__info {
     display: flex;
     flex-direction: column;
