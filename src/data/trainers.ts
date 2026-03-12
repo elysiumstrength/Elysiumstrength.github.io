@@ -29,24 +29,24 @@ Anna has owned and operated a private gym since 2021, creating a space where per
         specializations: ["Hormone-Aware Training", "Bone Density", "Women's Health"]
     },
 
+//     {
+//         id: 2,
+//         imageUrl: trainerAddi,
+//         name: "Addi Zerrenner",
+//         trainerType: "Endurance Coach",
+//         bio: "Olympic-Trials marathoner turned coach empowering clients with endurance-driven personal and group fitness experiences.",
+//         extendedBio: `Born and raised in Santa Barbara, Addi Zerrenner brings over six years of experience as a personal trainer and group fitness instructor. With a deep-rooted passion for movement and human potential, Addi's journey in fitness began on the soccer field and running track and evolved into a lifelong pursuit of health, performance, and purpose.
+
+// A former competitive runner, Addi competed at the highest levels of the sport—from high-school and collegiate competition to racing professionally. One of her proudest achievements was qualifying for and competing in the 2020 U.S. Olympic Marathon Trials, a testament to her dedication, discipline, and love for the grind.
+
+// Today, Addi channels that same drive into helping others discover their own strength—both physically and mentally. Whether coaching a high-energy class or working one-on-one with clients, she leads with empathy, enthusiasm, and the belief that fitness can be transformative. Outside the gym, Addi stays connected to nature and movement through beach volleyball, surfing, hiking, and, of course, getting in a good workout.
+
+// Her mission is simple: empower others to push past their limits, find joy in the process, and become the strongest version of themselves.`,
+//         specializations: ["Endurance Training", "Running Technique", "Mindset Coaching"]
+//     },
+
     {
         id: 2,
-        imageUrl: trainerAddi,
-        name: "Addi Zerrenner",
-        trainerType: "Endurance Coach",
-        bio: "Olympic-Trials marathoner turned coach empowering clients with endurance-driven personal and group fitness experiences.",
-        extendedBio: `Born and raised in Santa Barbara, Addi Zerrenner brings over six years of experience as a personal trainer and group fitness instructor. With a deep-rooted passion for movement and human potential, Addi's journey in fitness began on the soccer field and running track and evolved into a lifelong pursuit of health, performance, and purpose.
-
-A former competitive runner, Addi competed at the highest levels of the sport—from high-school and collegiate competition to racing professionally. One of her proudest achievements was qualifying for and competing in the 2020 U.S. Olympic Marathon Trials, a testament to her dedication, discipline, and love for the grind.
-
-Today, Addi channels that same drive into helping others discover their own strength—both physically and mentally. Whether coaching a high-energy class or working one-on-one with clients, she leads with empathy, enthusiasm, and the belief that fitness can be transformative. Outside the gym, Addi stays connected to nature and movement through beach volleyball, surfing, hiking, and, of course, getting in a good workout.
-
-Her mission is simple: empower others to push past their limits, find joy in the process, and become the strongest version of themselves.`,
-        specializations: ["Endurance Training", "Running Technique", "Mindset Coaching"]
-    },
-
-    {
-        id: 3,
         imageUrl: jaron,
         name: "Jaron Williams",
         trainerType: "Strength Coach",
@@ -58,7 +58,7 @@ If you're dealing with injuries or aches, I’ll teach smart active recovery tec
     },
 
     {
-        id: 4,
+        id: 3,
         imageUrl: dolan,
         name: "Dolan Ingraham",
         trainerType: "Fat Loss | Muscle Gain",
@@ -70,7 +70,7 @@ An ACE-certified personal trainer specializing in fat loss and muscle gain, Dola
     },
 
     {
-        id: 5,
+        id: 4,
         imageUrl: jesse,
         name: "Jesse",
         trainerType: "Strength & Conditioning Coach",
