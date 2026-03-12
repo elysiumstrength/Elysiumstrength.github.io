@@ -6,7 +6,6 @@ import "./TrainersSection.css";
 export default function TrainersSection() {
 	const [flippedCards, setFlippedCards] = useState<Set<number>>(new Set());
 
-	// Show only first 4 trainers in 2x2 layout
 	const trainersToShow = TRAINERS.slice(0, 4);
 
 	const toggleCardFlip = (trainerId: number) => {
@@ -27,12 +26,13 @@ export default function TrainersSection() {
 
 			<div className="trainer-grid">
 				{trainersToShow.map((t) => (
-					<TrainerCard
-						key={t.id}
-						{...t}
-						isFlipped={flippedCards.has(t.id)}
-						onClick={() => toggleCardFlip(t.id)}
-					/>
+					<div key={t.id} className="trainer-grid-item">
+						<TrainerCard
+							{...t}
+							isFlipped={flippedCards.has(t.id)}
+							onClick={() => toggleCardFlip(t.id)}
+						/>
+					</div>
 				))}
 			</div>
 

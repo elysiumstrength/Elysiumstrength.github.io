@@ -24,37 +24,34 @@ section.trainers {
   border-bottom: 1px solid #B1831A;
 }
 
-/* updated: 2 rows x 2 columns by default */
-.trainer-list {
+.trainer-grid {
   padding: 2.5rem 0;
   width: 100%;
   max-width: 1200px;
-
   display: grid;
-  grid-template-columns: repeat(2, minmax(280px, 360px));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 2rem;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
+  align-items: start;
   align-self: center;
-
-  transition: opacity 0.4s ease-in-out;
 }
 
-/* predictable card size */
+.trainer-grid-item {
+  width: 100%;
+  min-width: 0;
+}
+
+.trainer-grid-item > * {
+  width: 100%;
+}
+
 .trainer-card-container {
   width: 100%;
   max-width: 360px;
-  justify-self: center;
+  margin: 0 auto;
 }
 
-/* pagination dots */
 .trainer-dots {
-  display: flex;
-  gap: 0.5rem;
-  align-self: center;
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
+  display: none;
 }
 
 .trainer-dots .dot {
@@ -70,7 +67,6 @@ section.trainers {
 
 .trainer-dots .dot.active {
   background: #B1831A;
-  /* gold accent */
 }
 
 .trainers__action {
@@ -84,26 +80,19 @@ section.trainers {
     overflow-x: hidden;
   }
 
-  /* single column on mobile */
-  .trainer-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    overflow: hidden;
+  .trainer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
     padding: 2.5rem 0 1rem;
-    margin: 0 auto;
-    max-width: 100vw;
-    justify-content: center;
+    max-width: 100%;
   }
 
   .trainer-card-container {
     width: 100%;
-    max-width: 360px;
-    min-width: unset;
-    justify-self: center;
+    max-width: 100%;
+    min-width: 0;
   }
 
-  /* Hide pagination dots on mobile */
   .trainer-dots {
     display: none;
   }
@@ -114,7 +103,9 @@ section.trainers {
 }
 
 @media (max-width: 480px) {
-  .trainer-list {
+  .trainer-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
     padding: 2.5rem 0 1rem;
   }
 
@@ -122,9 +113,4 @@ section.trainers {
     width: 100%;
     max-width: 320px;
   }
-}
-
-/* fade animation for page switches */
-.trainer-list.fading {
-  opacity: 0;
 }

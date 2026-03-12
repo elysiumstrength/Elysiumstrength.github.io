@@ -104,11 +104,15 @@
 /* Trainers Grid */
 .trainers-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(320px, 360px));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.5rem;
-    justify-content: center;
-    justify-items: center;
+    width: 100%;
     align-items: start;
+}
+
+.trainers-grid > * {
+    min-width: 0;
+    width: 100%;
 }
 
 /* Expanded trainer container */
@@ -128,7 +132,7 @@
     }
 
     .trainers-grid {
-        grid-template-columns: repeat(2, minmax(220px, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 1.25rem;
     }
 
