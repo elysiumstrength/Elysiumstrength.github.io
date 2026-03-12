@@ -1,5 +1,4 @@
 import trainerAnna from "../assets/trainer-anna.jpg";
-import trainerAddi from "../assets/trainer-addi.jpg";
 import jesse from "../assets/Jesse.jpeg";
 import dolan from "../assets/dolan.jpg";
 import jaron from "../assets/Jaron.jpg";
