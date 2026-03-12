@@ -104,17 +104,23 @@
 /* Trainers Grid */
 .trainers-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
+    grid-template-columns: repeat(2, 360px);
+    gap: 2rem;
+    justify-content: center;
     align-items: start;
 }
 
-.trainers-grid > * {
-    min-width: 0;
+.trainers-grid-item {
+    width: 360px;
+}
+
+.trainers-grid-item > * {
     width: 100%;
+}
+
+.trainer-card-container {
+    width: 100%;
+    max-width: 360px;
 }
 
 /* Expanded trainer container */
@@ -124,6 +130,21 @@
 }
 
 /* Responsive Design */
+@media (max-width: 900px) {
+    .trainers-grid {
+        grid-template-columns: repeat(2, 320px);
+        gap: 1.5rem;
+    }
+
+    .trainers-grid-item {
+        width: 320px;
+    }
+
+    .trainer-card-container {
+        max-width: 320px;
+    }
+}
+
 @media (max-width: 768px) {
     .trainers-hero__title {
         font-size: 3rem;
@@ -134,9 +155,19 @@
     }
 
     .trainers-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1.25rem;
-        max-width: 100%;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 1.5rem;
+    }
+
+    .trainers-grid-item {
+        width: 100%;
+        max-width: 360px;
+    }
+
+    .trainer-card-container {
+        width: 100%;
+        max-width: 360px;
     }
 
     .trainers-grid-with-expanded {
@@ -158,8 +189,11 @@
         font-size: 2.5rem;
     }
 
-    .trainers-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+    .trainers-grid-item {
+        max-width: 320px;
+    }
+
+    .trainer-card-container {
+        max-width: 320px;
     }
 }

@@ -27,17 +27,15 @@ section.trainers {
 .trainer-grid {
   padding: 2.5rem 0;
   width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 360px);
+  gap: 2rem;
+  justify-content: center;
   align-items: start;
 }
 
 .trainer-grid-item {
-  width: 100%;
-  min-width: 0;
+  width: 360px;
 }
 
 .trainer-grid-item > * {
@@ -54,24 +52,24 @@ section.trainers {
   display: none;
 }
 
-.trainer-dots .dot {
-  width: 10px;
-  height: 10px;
-  border: none;
-  border-radius: 50%;
-  background: #d0d0d0;
-  cursor: pointer;
-  padding: 0;
-  transition: background-color 0.2s ease-in-out;
-}
-
-.trainer-dots .dot.active {
-  background: #B1831A;
-}
-
 .trainers__action {
   position: relative;
   align-self: flex-end;
+}
+
+@media (max-width: 900px) {
+  .trainer-grid {
+    grid-template-columns: repeat(2, 320px);
+    gap: 1.5rem;
+  }
+
+  .trainer-grid-item {
+    width: 320px;
+  }
+
+  .trainer-card-container {
+    max-width: 320px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -81,20 +79,19 @@ section.trainers {
   }
 
   .trainer-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.25rem;
-    padding: 2.5rem 0 1rem;
-    max-width: 100%;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    justify-items: center;
+  }
+
+  .trainer-grid-item {
+    width: 100%;
+    max-width: 360px;
   }
 
   .trainer-card-container {
     width: 100%;
-    max-width: 100%;
-    min-width: 0;
-  }
-
-  .trainer-dots {
-    display: none;
+    max-width: 360px;
   }
 
   .trainers__action {
@@ -103,14 +100,11 @@ section.trainers {
 }
 
 @media (max-width: 480px) {
-  .trainer-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 2.5rem 0 1rem;
+  .trainer-grid-item {
+    max-width: 320px;
   }
 
   .trainer-card-container {
-    width: 100%;
     max-width: 320px;
   }
 }
