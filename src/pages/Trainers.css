@@ -107,6 +107,8 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.5rem;
     width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
     align-items: start;
 }
 
@@ -134,6 +136,7 @@
     .trainers-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 1.25rem;
+        max-width: 100%;
     }
 
     .trainers-grid-with-expanded {
