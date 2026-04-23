@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet"
+import { Helmet } from "react-helmet-async"
 import { useState, useEffect, useRef } from "react"
 import TrainerCard from "../components/TrainerCard"
 import { TRAINERS } from "../data/trainers"

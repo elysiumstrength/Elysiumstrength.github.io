@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import { createAppRouter } from './routes/router';
+import { HelmetProvider } from "react-helmet-async"
 import './styles/global.css';
 
 // ✅ Restore correct path BEFORE we build the router
@@ -17,6 +18,9 @@ const router = createAppRouter();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+      <HelmetProvider>
+         <RouterProvider router={router} />
+      </HelmetProvider>
+   
   </React.StrictMode>,
 );
