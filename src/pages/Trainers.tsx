@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet"
 import { useState, useEffect, useRef } from "react"
 import TrainerCard from "../components/TrainerCard"
 import { TRAINERS } from "../data/trainers"
@@ -7,7 +8,6 @@ export default function Trainers() {
     const [flippedTrainerIds, setFlippedTrainerIds] = useState<Set<number>>(new Set())
     const containerRef = useRef<HTMLDivElement>(null)
 
-    // Handle click outside to close flipped cards
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (
@@ -42,6 +42,16 @@ export default function Trainers() {
 
     return (
         <div className="trainers-page">
+            <Helmet>
+                <title>
+                    Best Trainer in Goleta CA | Elysium Strength & Wellness
+                </title>
+                <meta
+                    name="description"
+                    content="Looking for the best trainer in Goleta CA? Get expert coaching, personalized workouts, and fitness programs designed to help you achieve your goals."
+                />
+            </Helmet>
+
             <section className="trainers-hero">
                 <div className="trainers-hero__overlay">
                     <h1 className="trainers-hero__title">TRAINERS</h1>
@@ -62,17 +72,18 @@ export default function Trainers() {
                 <div className="trainers-grid-container" ref={containerRef}>
                     <div className="trainers-grid">
                         {TRAINERS.map((trainer) => (
-                            <TrainerCard
-                                key={trainer.id}
-                                imageUrl={trainer.imageUrl}
-                                name={trainer.name}
-                                trainerType={trainer.trainerType}
-                                bio={trainer.bio}
-                                specializations={trainer.specializations}
-                                isFlipped={flippedTrainerIds.has(trainer.id)}
-                                onClick={() => handleTrainerClick(trainer.id)}
-                                extendedBio={trainer.extendedBio}
-                            />
+                            <div key={trainer.id} className="trainers-grid-item">
+                                <TrainerCard
+                                    imageUrl={trainer.imageUrl}
+                                    name={trainer.name}
+                                    trainerType={trainer.trainerType}
+                                    bio={trainer.bio}
+                                    specializations={trainer.specializations}
+                                    isFlipped={flippedTrainerIds.has(trainer.id)}
+                                    onClick={() => handleTrainerClick(trainer.id)}
+                                    extendedBio={trainer.extendedBio}
+                                />
+                            </div>
                         ))}
                     </div>
                 </div>
