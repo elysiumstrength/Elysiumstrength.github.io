@@ -28,6 +28,26 @@ function BodyCalloutSection({ title, description, calloutTitle, calloutText, sec
 function Longevity() {
   return (
     <div className="longevity-page">
+        <Helmet>
+        <title>
+          Best Longevity Training in Goleta CA | Elysium Strength & Wellness
+        </title>
+
+        <meta
+          name="description"
+          content="Experience the Best Longevity Training in Goleta CA at Elysium Strength & Wellness. Improve strength, mobility and fitness while supporting long-term health."
+        />
+
+        <meta
+          name="keywords"
+          content="Best Longevity Training in Goleta CA"
+        />
+
+        <link
+          rel="canonical"
+          href="https://elysium.training/longevity-training-goleta"
+        />
+      </Helmet>
       {/* Hero Section */}
       <section className="longevity-hero">
         <div className="longevity-hero__overlay">

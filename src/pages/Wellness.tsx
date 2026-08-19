@@ -2,7 +2,7 @@ import { ExpertSpeakerSection } from '../sections';
 import Nutrition from '../assets/Nutrition.jpg';
 import PersonalizedExcellence from '../assets/Personalized_Excellence.jpg';
 import './Wellness.css';
-
+import { Helmet } from "react-helmet-async"
 interface ServiceDetailSectionProps {
     title: string;
     description: string;
@@ -167,6 +167,27 @@ function Wellness() {
 
     return (
         <div className="wellness-page">
+             <Helmet>
+            <title>
+                Reliable Wellness Center in Goleta CA | Elysium Strength & Wellness
+            </title>
+
+            <meta
+                name="description"
+                content="Improve your health and fitness at a Reliable Wellness Center in Goleta CA. Elysium Strength & Wellness supports strength, mobility and lasting well-being."
+            />
+
+            <meta
+                name="keywords"
+                content="Reliable Wellness Center in Goleta CA"
+            />
+
+            <link
+                rel="canonical"
+                href="https://elysium.training/wellness"
+            />
+        </Helmet>
+
             {/* Hero Section with Image and Header */}
             <section className="wellness-hero">
                 <div className="wellness-hero__overlay">

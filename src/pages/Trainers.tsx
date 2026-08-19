@@ -43,14 +43,25 @@ export default function Trainers() {
     return (
         <div className="trainers-page">
             <Helmet>
-                <title>
-                    Best Trainer in Goleta CA | Elysium Strength & Wellness
-                </title>
-                <meta
-                    name="description"
-                    content="Looking for the best trainer in Goleta CA? Get expert coaching, personalized workouts, and fitness programs designed to help you achieve your goals."
-                />
-            </Helmet>
+  <title>
+    Local Fitness Trainer Near Goleta CA | Elysium Strength & Wellness
+  </title>
+
+  <meta
+    name="description"
+    content="Improve your fitness with a Local Fitness Trainer Near Goleta CA at Elysium Strength & Wellness. Build strength, boost performance and reach your goals."
+  />
+
+  <meta
+    name="keywords"
+    content="Local Fitness Trainer Near Goleta CA"
+  />
+
+  <link
+    rel="canonical"
+    href="https://elysium.training/trainers"
+  />
+</Helmet>
 
             <section className="trainers-hero">
                 <div className="trainers-hero__overlay">

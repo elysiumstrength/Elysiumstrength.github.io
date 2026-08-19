@@ -107,6 +107,27 @@ function CommunityCTA() {
 function Community() {
     return (
         <div className="community-page">
+
+            <Helmet>
+                <title>
+                    Wellness Community in Goleta CA | Elysium Strength & Wellness
+                </title>
+
+                <meta
+                    name="description"
+                    content="Connect, grow and thrive with a welcoming Wellness Community in Goleta CA at Elysium Strength & Wellness. Build healthy habits and enjoy meaningful support."
+                />
+
+                <meta
+                    name="keywords"
+                    content="Wellness Community in Goleta CA"
+                />
+
+                <link
+                    rel="canonical"
+                    href="https://elysium.training/community"
+                />
+            </Helmet>
             {/* Hero Section */}
             <section className="community-hero">
                 <div className="community-hero__overlay">
