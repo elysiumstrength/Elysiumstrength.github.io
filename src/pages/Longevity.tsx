@@ -1,5 +1,6 @@
 import './Longevity.css';
 import LongevityTable from '../sections/LongevityTable'; 
+import { Helmet } from "react-helmet-async"
 
 interface BodyCalloutSectionProps {
   title: string;

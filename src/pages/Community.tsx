@@ -1,5 +1,6 @@
 import './Community.css';
 import { PARTNERS } from '../data/partners';
+import { Helmet } from "react-helmet-async"
 
 interface PartnerCardProps {
     name: string;
